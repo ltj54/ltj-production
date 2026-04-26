@@ -71,13 +71,13 @@ button {
 .nav-controls {
     display: flex;
     align-items: center;
-    gap: 26px;
+    gap: 28px;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 22px;
 }
 
 .theme-toggle {
@@ -97,7 +97,7 @@ button {
 
 .main-content {
     max-width: 760px;
-    padding: 96px 0 114px;
+    padding: 92px 0 110px;
     text-align: center;
 }
 
@@ -112,23 +112,43 @@ p,
 }
 
 h1 {
-    margin-bottom: 16px;
-    font-size: clamp(44px, 7vw, 72px);
-    line-height: 1;
+    margin-bottom: 22px;
+    font-size: clamp(36px, 5.4vw, 58px);
+    line-height: 1.08;
     font-weight: 800;
     letter-spacing: 0;
 }
 
 .tagline {
-    margin-bottom: 22px;
-    font-size: clamp(20px, 3vw, 28px);
-    line-height: 1.25;
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.5;
     font-weight: 700;
 }
 
 .description {
     color: var(--muted);
-    font-size: 17px;
+    font-size: 18px;
+}
+
+.cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    margin-top: 32px;
+    padding: 0 18px;
+    border: 1px solid var(--text);
+    color: var(--bg);
+    background: var(--text);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.cta:hover {
+    color: var(--text);
+    background: var(--bg);
 }
 
 .about-container {
@@ -197,8 +217,15 @@ h3 {
     }
 
     .nav-controls {
-        gap: 18px;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px;
         font-size: 13px;
+    }
+
+    .nav-links {
+        gap: 12px;
     }
 
     .main-content {
@@ -210,11 +237,11 @@ h3 {
     }
 
     h1 {
-        font-size: clamp(30px, 8vw, 34px);
+        font-size: clamp(29px, 7.7vw, 34px);
     }
 
     .tagline {
-        font-size: 17px;
+        font-size: 14px;
     }
 
     .description,
