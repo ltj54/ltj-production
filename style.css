@@ -6,14 +6,6 @@
     --line: #e5e5e5;
 }
 
-:root.dark-mode {
-    color-scheme: dark;
-    --bg: #111111;
-    --text: #f5f5f5;
-    --muted: #c8c8c8;
-    --line: #2d2d2d;
-}
-
 * {
     box-sizing: border-box;
 }
@@ -37,10 +29,6 @@ a {
     color: inherit;
 }
 
-button {
-    font: inherit;
-}
-
 .navbar,
 .container,
 .footer {
@@ -58,7 +46,6 @@ button {
 
 .logo a,
 .nav-links a,
-.theme-toggle,
 .contact a {
     color: var(--text);
     text-decoration: none;
@@ -80,16 +67,7 @@ button {
     gap: 22px;
 }
 
-.theme-toggle {
-    appearance: none;
-    border: 0;
-    padding: 0;
-    background: transparent;
-    cursor: pointer;
-}
-
 .nav-links a:hover,
-.theme-toggle:hover,
 .contact a:hover {
     text-decoration: underline;
     text-underline-offset: 3px;
@@ -164,7 +142,8 @@ h2 {
     letter-spacing: 0;
 }
 
-.services {
+.services,
+.examples {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 44px;
@@ -177,7 +156,8 @@ h3 {
     font-weight: 800;
 }
 
-.services-item p {
+.services-item p,
+.examples-item p {
     margin: 0;
     color: var(--muted);
 }
@@ -249,7 +229,8 @@ h3 {
         font-size: 14px;
     }
 
-    .services {
+    .services,
+    .examples {
         grid-template-columns: 1fr;
         gap: 24px;
         max-width: 330px;
