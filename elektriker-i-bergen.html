@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bergen Elektro | Din elektriker i Bergen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand: #0047FF;
+            --bg: #ffffff;
+            --card-bg: #F8F9FA;
+            --text: #1A1A1A;
+            --text-muted: #666666;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.5;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* Header */
+        header { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.2rem; text-decoration: none; color: var(--text); letter-spacing: -0.5px; }
+
+        /* Hero */
+        .hero { padding: 100px 0 60px; text-align: left; max-width: 800px; }
+        h1 { font-size: clamp(3rem, 8vw, 4.5rem); font-weight: 800; letter-spacing: -2px; line-height: 1; margin-bottom: 24px; }
+        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 500px; }
+
+        /* Grid */
+        .section { padding: 60px 0 120px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 32px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+
+        /* Living Graphics Area */
+        .card-visual {
+            width: 100%;
+            height: 280px;
+            position: relative;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .card-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.8s ease;
+        }
+
+        /* Animation Overlay: Dimmer Effect (Belysning) */
+        .effect-dimmer {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(255, 200, 50, 0.4) 0%, transparent 70%);
+            z-index: 2;
+            animation: lighting 3s infinite alternate ease-in-out;
+        }
+        @keyframes lighting {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Animation Overlay: Charge Pulse (Elbillader) */
+        .effect-charge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: #00E676;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7);
+            animation: pulse-ring 2s infinite;
+        }
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.7); }
+            70% { box-shadow: 0 0 0 40px rgba(0, 230, 118, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0); }
+        }
+
+        .effect-charge::after {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border: 2px solid #00E676;
+            border-radius: 50%;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Animation Overlay: Power Scan (Sikringsskap) */
+        .effect-scan {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+            z-index: 2;
+            width: 30%;
+            transform: skewX(-25deg);
+            animation: scanning 2.5s infinite ease-in-out;
+        }
+        @keyframes scanning {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+
+        .card-content { padding: 40px; }
+        .card h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
+        .card p { color: var(--text-muted); font-size: 1rem; }
+
+        footer { padding: 60px 0; border-top: 1px solid #EEE; text-align: center; color: var(--text-muted); font-size: 0.9rem; }
+
+        /* Animate appearance */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s forwards ease-out;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            .card-visual { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="container fade-in">
+        <a href="index.html" class="logo">BERGEN ELEKTRO</a>
+        <div style="font-weight: 600; font-size: 0.9rem;">55 00 00 00</div>
+    </header>
+
+    <main class="container">
+        <section class="hero fade-in delay-1">
+            <h1>Sikker strøm.<br>Enkelt levert.</h1>
+            <p>Vi er din autoriserte elektriker i Bergen. Kvalitet i hvert ledd, fra befaring til ferdigstillelse.</p>
+        </section>
+
+        <section class="section">
+            <div class="grid">
+                <!-- Tjeneste 1: Sikringsskap -->
+                <div class="card fade-in delay-2">
+                    <div class="card-visual">
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800" alt="Sikringsskap">
+                        <div class="effect-scan"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Sikringsskap</h3>
+                        <p>Modernisering av el-anlegg med fokus på brannsikkerhet og kapasitet.</p>
+                    </div>
+                </div>
+
+                <!-- Tjeneste 2: Elbillader -->
+                <div class="card fade-in delay-3">
+                    <div class="card-visual">
+                        <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=800" alt="Elbillader">
+                        <div class="effect-charge"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Elbillader</h3>
+                        <p>Trygg og rask lading hjemme. Vi monterer markedsledende ladebokser.</p>
+                    </div>
+                </div>
+
+                <!-- Tjeneste 3: Belysning -->
+                <div class="card fade-in delay-3" style="animation-delay: 0.4s;">
+                    <div class="card-visual">
+                        <img src="https://images.unsplash.com/photo-1565814636199-ae8133055c1c?auto=format&fit=crop&q=80&w=800" alt="Belysning">
+                        <div class="effect-dimmer"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Belysning</h3>
+                        <p>Gjør hjemmet levende med smartstyring og stemningsfull LED-belysning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            &copy; <span id="year"></span> Bergen Elektro AS &mdash; Et eksempel fra ltj-production.
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
