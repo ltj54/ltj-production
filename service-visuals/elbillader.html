@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elbillader visual</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #0a1628;
+  }
+  body {
+    position: relative;
+    display: grid;
+    place-items: center;
+  }
+  .ring {
+    position: absolute;
+    border: 1px solid rgba(34,197,94,0.18);
+    border-radius: 50%;
+    opacity: 0;
+    animation: ringExpand 3s ease-out infinite;
+  }
+  .ring:nth-child(1) { width: 160px; height: 160px; animation-delay: 0s; }
+  .ring:nth-child(2) { width: 230px; height: 230px; animation-delay: 1s; }
+  .ring:nth-child(3) { width: 310px; height: 310px; animation-delay: 2s; }
+  .bolt {
+    position: absolute;
+    top: 16px;
+    right: 26px;
+    width: 52px;
+    height: 86px;
+    background: #22c55e;
+    clip-path: polygon(58% 0, 18% 46%, 46% 46%, 32% 100%, 84% 36%, 55% 36%);
+    opacity: 0.06;
+    animation: boltPulse 3s ease-in-out infinite;
+  }
+  .charger {
+    position: relative;
+    z-index: 2;
+    width: 110px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid rgba(34,197,94,0.25);
+    border-radius: 8px;
+    background: linear-gradient(160deg, #1e293b, #0f172a);
+    box-shadow: 0 0 40px rgba(22,163,74,0.22), inset 0 1px 0 rgba(255,255,255,0.05);
+    animation: floatUp 1.2s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+  .screen {
+    position: relative;
+    width: 72px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(34,197,94,0.22);
+    border-radius: 6px;
+    background: #0d1117;
+  }
+  .bar {
+    width: 52px;
+    height: 8px;
+    overflow: hidden;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.06);
+  }
+  .bar span {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #16a34a, #22c55e);
+    box-shadow: 0 0 8px rgba(22,163,74,0.3);
+    animation: fillBar 2s 1.2s ease forwards;
+  }
+  .pct {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    color: #22c55e;
+    font: 9px monospace;
+  }
+  .leds {
+    display: flex;
+    gap: 5px;
+  }
+  .led {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #1e293b;
+    opacity: 0;
+    animation: ledOn 0.3s ease forwards;
+  }
+  .led.on {
+    background: #22c55e;
+    box-shadow: 0 0 6px rgba(22,163,74,0.3);
+  }
+  .led:nth-child(1) { animation-delay: 1.5s; }
+  .led:nth-child(2) { animation-delay: 1.7s; }
+  .led:nth-child(3) { animation-delay: 1.9s; }
+  .cable {
+    position: absolute;
+    bottom: -34px;
+    left: 50%;
+    width: 4px;
+    height: 52px;
+    border-radius: 2px;
+    background: linear-gradient(to bottom, rgba(34,197,94,0.45), transparent);
+    transform: translateX(-50%);
+  }
+  @keyframes ringExpand {
+    0% { opacity: 0.5; transform: scale(0.8); }
+    100% { opacity: 0; transform: scale(1); }
+  }
+  @keyframes boltPulse {
+    0%, 100% { opacity: 0.04; }
+    50% { opacity: 0.1; }
+  }
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fillBar {
+    to { width: 78%; }
+  }
+  @keyframes ledOn {
+    to { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+  <span class="ring"></span>
+  <span class="ring"></span>
+  <span class="ring"></span>
+  <span class="bolt"></span>
+  <div class="charger">
+    <div class="screen">
+      <div class="bar"><span></span></div>
+      <span class="pct">78%</span>
+    </div>
+    <div class="leds">
+      <span class="led on"></span>
+      <span class="led on"></span>
+      <span class="led"></span>
+    </div>
+    <span class="cable"></span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belysning visual</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(180deg, #0d0700, #241408 64%, #1a0f00);
+  }
+  .ceiling {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(251,191,36,0.08);
+  }
+  .fixture {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-40px);
+    animation: dropIn 1s 0.3s cubic-bezier(0.34,1.56,0.64,1) forwards;
+  }
+  .cord {
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(251,191,36,0.15), rgba(251,191,36,0.3));
+  }
+  .holder {
+    width: 50px;
+    height: 20px;
+    border: 1px solid rgba(251,191,36,0.15);
+    border-bottom: 0;
+    border-radius: 4px 4px 0 0;
+    background: linear-gradient(180deg, #2a1a05, #1a0f02);
+  }
+  .bulb {
+    width: 70px;
+    height: 90px;
+    margin-top: -2px;
+    border-radius: 50% 50% 30% 30%;
+    background: radial-gradient(ellipse 50% 40% at 50% 30%, #fffbeb, #fef3c7 20%, #fbbf24 50%, #f59e0b 75%, rgba(180,83,9,0.5));
+    opacity: 0;
+    transform: scale(0.8);
+    animation: bulbOn 0.5s 0.8s ease forwards, bulbGlow 2.5s ease-in-out infinite;
+  }
+  .cone,
+  .cone::after {
+    position: absolute;
+    top: 86px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    content: "";
+    border-left: 220px solid transparent;
+    border-right: 220px solid transparent;
+    border-top: 340px solid rgba(251,191,36,0.04);
+    opacity: 0;
+    transform: translateX(-50%);
+    animation: coneIn 1s 1s ease forwards;
+  }
+  .cone::after {
+    top: 0;
+    border-left-width: 120px;
+    border-right-width: 120px;
+    border-top-width: 250px;
+    border-top-color: rgba(251,191,36,0.06);
+  }
+  .particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(251,191,36,0.6);
+    animation: float 4s ease-in-out infinite;
+  }
+  .particle:nth-child(4) { left: 40%; top: 62%; animation-delay: 0s; }
+  .particle:nth-child(5) { left: 55%; top: 52%; animation-delay: 0.8s; }
+  .particle:nth-child(6) { left: 35%; top: 72%; animation-delay: 1.6s; }
+  .particle:nth-child(7) { left: 60%; top: 66%; animation-delay: 2.4s; }
+  .smart-row {
+    position: absolute;
+    bottom: 26px;
+    left: 50%;
+    display: flex;
+    gap: 12px;
+    opacity: 0;
+    transform: translateX(-50%);
+    animation: fadeIn 0.8s 1.8s ease forwards;
+  }
+  .pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 11px;
+    border: 1px solid rgba(251,191,36,0.15);
+    border-radius: 8px;
+    color: rgba(254,243,199,0.65);
+    background: rgba(251,191,36,0.08);
+    font: 11px Arial, sans-serif;
+    letter-spacing: 0.06em;
+  }
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #fbbf24;
+    animation: blink 2s ease-in-out infinite;
+  }
+  @keyframes dropIn {
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+  @keyframes bulbOn {
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes bulbGlow {
+    0%, 100% { box-shadow: 0 0 30px rgba(251,191,36,0.8), 0 0 80px rgba(251,191,36,0.4), 0 0 150px rgba(251,191,36,0.2); }
+    50% { box-shadow: 0 0 50px rgba(251,191,36,0.9), 0 0 120px rgba(251,191,36,0.5), 0 0 220px rgba(251,191,36,0.25); }
+  }
+  @keyframes coneIn {
+    to { opacity: 1; }
+  }
+  @keyframes float {
+    0%, 100% { opacity: 0; transform: translateY(0) scale(1); }
+    20% { opacity: 0.8; }
+    100% { opacity: 0; transform: translateY(-60px) scale(0); }
+  }
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.25; }
+  }
+</style>
+</head>
+<body>
+  <span class="ceiling"></span>
+  <span class="cone"></span>
+  <div class="fixture">
+    <span class="cord"></span>
+    <span class="holder"></span>
+    <span class="bulb"></span>
+  </div>
+  <span class="particle"></span>
+  <span class="particle"></span>
+  <span class="particle"></span>
+  <span class="particle"></span>
+  <div class="smart-row">
+    <span class="pill"><span class="dot"></span>Dimbar</span>
+    <span class="pill"><span class="dot"></span>Smart</span>
+    <span class="pill"><span class="dot"></span>LED</span>
+  </div>
+</body>
+</html>
