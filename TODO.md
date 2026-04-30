@@ -1,6 +1,6 @@
 # TODO
 
-## ltj-prod
+## ltj-production
 
 - [ ] Avklar endelig e-postadresse for kontaktlenken.
 - [ ] Vurder om logoen bør eksporteres i mindre weboptimalisert format.
