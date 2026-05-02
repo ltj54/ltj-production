@@ -120,6 +120,11 @@
     0% { opacity: 0.5; transform: scale(0.8); }
     100% { opacity: 0; transform: scale(1); }
   }
+  @media (max-width: 400px) {
+    .ring:nth-child(1) { width: 120px; height: 120px; }
+    .ring:nth-child(2) { width: 180px; height: 180px; }
+    .ring:nth-child(3) { width: 240px; height: 240px; }
+  }
   @keyframes boltPulse {
     0%, 100% { opacity: 0.04; }
     50% { opacity: 0.1; }

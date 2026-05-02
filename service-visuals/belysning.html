@@ -142,6 +142,27 @@
     0%, 100% { opacity: 1; }
     50% { opacity: 0.25; }
   }
+
+  @media (max-width: 400px) {
+    .cone {
+      border-left-width: 140px;
+      border-right-width: 140px;
+      border-top-width: 280px;
+    }
+    .cone::after {
+      border-left-width: 80px;
+      border-right-width: 80px;
+      border-top-width: 200px;
+    }
+    .smart-row {
+      bottom: 12px;
+      gap: 6px;
+    }
+    .pill {
+      padding: 4px 8px;
+      font-size: 10px;
+    }
+  }
 </style>
 </head>
 <body>
