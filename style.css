@@ -144,6 +144,18 @@ h1 {
     font-weight: 700;
 }
 
+.price-line {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    margin-top: 24px;
+    padding: 0 14px;
+    border: 1px solid var(--text);
+    background: var(--bg);
+    font-weight: 800;
+}
+
 .description {
     color: var(--muted);
     font-size: 18px;
@@ -200,6 +212,42 @@ h3 {
 .examples-item p {
     margin: 0;
     color: var(--muted);
+}
+
+.examples-item a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.package {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 44px;
+    align-items: center;
+}
+
+.package p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.package-price {
+    border: 1px solid var(--text);
+    padding: 24px;
+    text-align: center;
+}
+
+.package-price strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 34px;
+    line-height: 1;
+}
+
+.package-price span {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .contact {
@@ -281,6 +329,10 @@ h3 {
         margin-top: 20px;
     }
 
+    .price-line {
+        margin-top: 22px;
+    }
+
     .description {
         font-size: 16px;
     }
@@ -290,6 +342,15 @@ h3 {
         grid-template-columns: 1fr;
         gap: 32px;
         max-width: 100%;
+    }
+
+    .package {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .package-price {
+        text-align: left;
     }
 
     .about-container > .description,
