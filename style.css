@@ -251,8 +251,17 @@ h3 {
 }
 
 .contact {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 18px;
     margin-top: 18px;
     font-weight: 700;
+}
+
+.contact-email {
+    color: var(--muted);
+    font-weight: 400;
 }
 
 .footer {
