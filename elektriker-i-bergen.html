@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bergen Elektro | Fastpris og elektrikertjenester</title>
-    <meta name="description" content="Autoriserte elektrikere i Bergen for sikringsskap, elbillader, belysning og modernisering av el-anlegg.">
+    <title>Bergen Elektro AS | Lokal elektriker i Bergen</title>
+    <meta name="description" content="Lokal elektriker i Bergen for sikringsskap, elbillader, belysning og mindre elektrojobber. Tydelig pris før oppstart.">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -284,6 +284,13 @@
             overflow: hidden;
         }
 
+        .hero-photo {
+            min-height: 255px;
+            background:
+                linear-gradient(180deg, transparent, rgba(17,24,39,0.42)),
+                url("bergen-elektro-hero.jpg") center / cover;
+        }
+
         .photo-note {
             margin-top: 14px;
             padding: 14px 16px;
@@ -424,6 +431,11 @@
 
         .trust-item.featured span {
             color: rgba(255,255,255,0.72);
+        }
+
+        .trust-item a {
+            color: inherit;
+            text-decoration: none;
         }
 
         .proof-section {
@@ -625,15 +637,15 @@
             overflow: hidden;
         }
 
-        .card-visual iframe {
+        .card-visual img {
             display: block;
             width: 100%;
             height: 100%;
-            border: 0;
+            object-fit: cover;
             transition: transform 240ms ease;
         }
 
-        .service-card:hover .card-visual iframe {
+        .service-card:hover .card-visual img {
             transform: scale(1.025);
         }
 
@@ -848,6 +860,20 @@
             font-size: 18px;
         }
 
+        .contact-details {
+            display: grid;
+            gap: 7px;
+            margin-top: 16px;
+            color: #42513f;
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .contact-details a {
+            color: inherit;
+            text-decoration: none;
+        }
+
         .request-panel {
             display: grid;
             grid-template-columns: 0.9fr 1.1fr;
@@ -884,7 +910,8 @@
             font-weight: 800;
         }
 
-        .field input {
+        .field input,
+        .field textarea {
             width: 100%;
             min-height: 50px;
             padding: 0 14px;
@@ -896,7 +923,14 @@
             font-weight: 700;
         }
 
-        .field input:focus {
+        .field textarea {
+            min-height: 112px;
+            padding-top: 12px;
+            resize: vertical;
+        }
+
+        .field input:focus,
+        .field textarea:focus {
             outline: 2px solid rgba(47,111,159,0.28);
             outline-offset: 2px;
             border-color: var(--blue);
@@ -1084,10 +1118,9 @@
             </a>
             <div class="nav-links">
                 <a href="#tjenester">Tjenester</a>
-                <a href="#omrader">Bydeler</a>
-                <a href="#jobber">Jobber</a>
+                <a href="#omrader">Område</a>
                 <a href="#kontroll">El-kontroll</a>
-                <a href="#prosess">Slik jobber vi</a>
+                <a href="#prisforesporsel">Kontakt</a>
             </div>
             <a class="phone" href="tel:+4755000000">55 00 00 00</a>
         </nav>
@@ -1096,63 +1129,60 @@
     <main>
         <section class="container hero">
             <div>
-                <h1>På plass innen 24 timer. Fastpris før vi starter.</h1>
-                <p class="hero-lead">Ring når sikringen går, laderen skal opp eller skapet må byttes. Du får tydelig pris, avtalt tidspunkt og dokumentasjon i Boligmappa når jobben er ferdig.</p>
+                <h1>Elektriker i Bergen - rask hjelp til fastpris.</h1>
+                <p class="hero-lead">Vi hjelper med elbillader, sikringsskap, belysning og mindre elektrojobber i Bergen og omegn. Du får tydelig pris før vi starter, og dokumentasjon når jobben krever det.</p>
                 <div class="actions">
                     <a class="button primary" href="tel:+4755000000">Ring 55 00 00 00</a>
-                    <a class="button subtle" href="#prisforesporsel">Få fastpris på e-post</a>
+                    <a class="button subtle" href="#prisforesporsel">Send bilder for vurdering</a>
                 </div>
                 <div class="proof-row" aria-label="Nøkkelpunkter">
-                    <span class="proof">Akutte feil prioriteres samme dag</span>
-                    <span class="proof">Pris avklart før oppstart</span>
-                    <span class="proof">Samsvarserklæring i Boligmappa</span>
+                    <span class="proof">Lokal elektriker i Bergen</span>
+                    <span class="proof">Registrert elektrovirksomhet</span>
+                    <span class="proof">Svar normalt samme dag</span>
                 </div>
                 <div class="promise-strip" aria-label="Hva du kan forvente">
                     <div class="promise">
-                        <strong>10 min</strong>
-                        <span>Typisk svartid på telefon i åpningstid.</span>
+                        <strong>55 00 00 00</strong>
+                        <span>Ring for feil, jordfeil og korte avklaringer.</span>
                     </div>
                     <div class="promise">
-                        <strong>24 t</strong>
-                        <span>Oppmøte for planlagte småjobber i Bergen.</span>
+                        <strong>Bergen</strong>
+                        <span>Fana, Åsane, Laksevåg, sentrum og omegn.</span>
                     </div>
                     <div class="promise">
-                        <strong>0 kr</strong>
-                        <span>Ingen oppstart før du har godkjent pris.</span>
+                        <strong>Fastpris</strong>
+                        <span>Ingen oppstart før pris og tidspunkt er avklart.</span>
                     </div>
                 </div>
             </div>
 
             <aside class="hero-card" aria-label="Kort oversikt">
+                <div class="hero-photo" aria-hidden="true"></div>
                 <div class="hero-card-top">
                     <div class="hero-card-title">
-                        <span>Dagens kapasitet</span>
-                        <span>3 ledige tider</span>
+                        <span>Bergen Elektro AS</span>
+                        <span>Org.nr 999 888 777</span>
                     </div>
                     <ul class="checklist">
-                        <li>Akutt feilsøk og jordfeil <span>prioritet</span></li>
-                        <li>Elbillader med lastbalansering <span>fastpris</span></li>
-                        <li>Sikringsskap i eldre bolig <span>befaring</span></li>
+                        <li>Registrert i Elvirksomhetsregisteret <span>DSB</span></li>
+                        <li>Sikringsskap, lader og belysning <span>bolig</span></li>
+                        <li>Samsvarserklæring når arbeidet krever det <span>digitalt</span></li>
                     </ul>
                 </div>
                 <div class="mini-board">
                     <div class="mini-stat">
                         <strong>Hva skjer når du ringer?</strong>
-                        <span>Vi spør om adresse, symptom og bilder av sikringsskapet. Deretter får du første mulige tid.</span>
+                        <span>Vi spør hvor i Bergen jobben er, hva som haster og om du kan sende et bilde.</span>
                     </div>
                     <div class="mini-stat">
-                        <strong>Når passer e-post bedre?</strong>
-                        <span>Bruk e-post for lader, nytt skap eller belysning der du ønsker pris før avtale.</span>
+                        <strong>Hvem følger opp?</strong>
+                        <span>Du får én kontaktperson fra første avklaring til ferdig dokumentasjon.</span>
                     </div>
                     <div class="mini-stat">
-                        <strong>Hva må du ha klart?</strong>
+                        <strong>Hva bør du ha klart?</strong>
                         <span>Ta gjerne bilde av sikringsskap, kursfortegnelse og området vi skal jobbe i.</span>
                     </div>
-                    <div class="mini-stat">
-                        <strong>Dokumentasjon</strong>
-                        <span>Samsvarserklæring sendes digitalt etter installasjonsarbeid.</span>
-                    </div>
-                    <div class="photo-note">Akutt? Ring. Planlagt jobb? Send bilder og kort beskrivelse, så gir vi prisgrunnlag før vi kommer.</div>
+                    <div class="photo-note">Akutt feil? Ring. Planlagt jobb? Send bilder og kort beskrivelse, så svarer vi normalt samme virkedag.</div>
                 </div>
             </aside>
         </section>
@@ -1160,100 +1190,38 @@
         <section id="omrader" class="container trust-section" aria-label="Områder vi dekker">
             <div class="trust-grid">
                 <div class="trust-item featured">
-                    <strong>Lokalt og konkret</strong>
-                    <span>Vi prioriterer oppdrag i Bergen kommune og planlegger ruter etter bydel, slik at småjobber ikke blir stående i kø i ukevis.</span>
+                    <strong>Lokal elektriker i Bergen</strong>
+                    <span>Vi prioriterer oppdrag i Bergen kommune og planlegger ruter etter bydel, slik at småjobber ikke blir stående i kø.</span>
                 </div>
                 <div class="trust-item">
-                    <strong>Vest</strong>
-                    <span>Loddefjord, Olsvik, Godvik og Laksevåg.</span>
+                    <strong>Registrert fagbedrift</strong>
+                    <span>Arbeid utføres av registrert elektrovirksomhet med dokumentasjon der det kreves.</span>
                 </div>
                 <div class="trust-item">
-                    <strong>Sør</strong>
-                    <span>Fana, Ytrebygda, Sandsli og Nesttun.</span>
+                    <strong>Direkte kontakt</strong>
+                    <span>Ring <a href="tel:+4755000000">55 00 00 00</a> eller send bilder, så får du praktisk svar uten mellomledd.</span>
                 </div>
                 <div class="trust-item">
-                    <strong>Nord</strong>
-                    <span>Åsane, Eidsvåg, Flaktveit og omegn.</span>
+                    <strong>Område</strong>
+                    <span>Fana, Ytrebygda, Åsane, Laksevåg, Bergen sentrum, Sandviken og omegn.</span>
                 </div>
                 <div class="trust-item">
-                    <strong>Sentrum</strong>
-                    <span>Nordnes, Landås, Møhlenpris, Sandviken og Arna.</span>
+                    <strong>Kundeuttalelse</strong>
+                    <span>"Ryddig pris før oppstart og god forklaring på hva som måtte gjøres i sikringsskapet."</span>
                 </div>
-            </div>
-        </section>
-
-        <section id="jobber" class="container proof-section">
-            <div class="section-head">
-                <h2>Jobber som ligner på det du trenger.</h2>
-                <p class="section-note">Konkrete scenarier gjør det enklere å vurdere pris, omfang og hva vi må vite før vi kommer.</p>
-            </div>
-
-            <div class="case-grid">
-                <article class="case-card">
-                    <div class="case-media">
-                        <span>Sikringsskap i eldre bygård</span>
-                    </div>
-                    <div class="case-content">
-                        <div class="case-meta"><span>Sentrum/Nordnes</span><span>1 dag</span></div>
-                        <h3>Gammelt skap som ikke tåler dagens bruk</h3>
-                        <p>Typisk når flere kurser går samtidig, skapet er dårlig merket eller boligen skal pusses opp.</p>
-                        <ul class="case-list">
-                            <li>Før pris <span>bilde av skap</span></li>
-                            <li>Avklares <span>inntak og kurser</span></li>
-                            <li>Leveres <span>test + samsvar</span></li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="case-card">
-                    <div class="case-media">
-                        <span>Elbillader ved rekkehus/garasje</span>
-                    </div>
-                    <div class="case-content">
-                        <div class="case-meta"><span>Fana/Ytrebygda</span><span>3-5 t</span></div>
-                        <h3>Trygg lading uten vanlig stikkontakt</h3>
-                        <p>Aktuelt når bilen lades ofte hjemme og kurs, vern eller kabelvei må vurderes før montering.</p>
-                        <ul class="case-list">
-                            <li>Før pris <span>skap + parkering</span></li>
-                            <li>Avklares <span>lastbalansering</span></li>
-                            <li>Leveres <span>måling + dokumentasjon</span></li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="case-card">
-                    <div class="case-media">
-                        <span>Utebelysning som tåler regn</span>
-                    </div>
-                    <div class="case-content">
-                        <div class="case-meta"><span>Åsane/Bergen Vest</span><span>2-6 t</span></div>
-                        <h3>Lys rundt inngang, terrasse eller fasade</h3>
-                        <p>Brukes når du vil ha bedre sikkerhet og funksjon ute, uten synlige kabler eller fuktproblemer.</p>
-                        <ul class="case-list">
-                            <li>Før pris <span>bilde av område</span></li>
-                            <li>Avklares <span>IP-grad og styring</span></li>
-                            <li>Leveres <span>punktpris</span></li>
-                        </ul>
-                    </div>
-                </article>
-            </div>
-
-            <div class="reference-note">
-                <p>Vil du ha raskere pris? Send bilde av sikringsskap, kabelvei eller området vi skal jobbe i, så slipper vi ofte ekstra befaring.</p>
-                <a class="button secondary" href="#prisforesporsel">Send bilder for vurdering</a>
             </div>
         </section>
 
         <section id="tjenester" class="container section">
             <div class="section-head">
-                <h2>Velg jobben du trenger pris på.</h2>
-                <p class="section-note">Hvert valg forklarer prisnivå, hva som er inkludert og neste steg.</p>
+                <h2>Tjenester og typiske priser.</h2>
+                <p class="section-note">Send bilde av sikringsskap, kabelvei eller området vi skal jobbe i, så får du raskere pris.</p>
             </div>
 
             <div class="service-grid">
                 <article class="service-card">
                     <div class="card-visual">
-                        <iframe src="service-visuals/sikringsskap.html" title="Animert visual for sikringsskap" loading="lazy"></iframe>
+                        <img src="bergen-elektro-sikringsskap.jpg" alt="Elektrisk skap med ledninger og komponenter" loading="lazy">
                     </div>
                     <div class="card-content">
                         <div class="card-meta"><span>Sikringsskap</span><span>01</span></div>
@@ -1275,7 +1243,7 @@
 
                 <article class="service-card">
                     <div class="card-visual">
-                        <iframe src="service-visuals/elbillader.html" title="Animert visual for elbillader" loading="lazy"></iframe>
+                        <img src="bergen-elektro-elbillader.jpg" alt="Elbillader montert på vegg ved bolig" loading="lazy">
                     </div>
                     <div class="card-content">
                         <div class="card-meta"><span>Elbillader</span><span>02</span></div>
@@ -1297,7 +1265,7 @@
 
                 <article class="service-card">
                     <div class="card-visual">
-                        <iframe src="service-visuals/belysning.html" title="Animert visual for belysning" loading="lazy"></iframe>
+                        <img src="bergen-elektro-belysning.jpg" alt="Utelampe montert på fasade" loading="lazy">
                     </div>
                     <div class="card-content">
                         <div class="card-meta"><span>Belysning</span><span>03</span></div>
@@ -1321,8 +1289,8 @@
 
         <section id="kontroll" class="container info-band">
             <div>
-                <h2>Dette får du dokumentert.</h2>
-                <p>Vi selger ikke en fancy rapport med grafer du ikke kan bruke. Du får kontrollpunkter, bilder ved avvik, anbefalt tiltak og dokumentasjon du kan vise til forsikring, megler eller styret i sameiet.</p>
+                <h2>Dette sjekker vi før vi anbefaler en løsning.</h2>
+                <p>Før vi gir fastpris på større jobber ser vi på belastning, jording, vern, kabelvei og praktisk montering. Målet er at du skal forstå hva som må gjøres, hva som kan vente og hva det koster.</p>
             </div>
             <div class="inspection-card" aria-label="Hva vi sjekker">
                 <div class="inspection-row">
@@ -1350,8 +1318,8 @@
 
         <section id="prosess" class="container section">
             <div class="section-head">
-                <h2>Fra første kontakt til ferdig dokumentasjon.</h2>
-                <p class="section-note">Prosessen er laget for at du raskt skal vite pris, tid og ansvar.</p>
+                <h2>Slik jobber vi.</h2>
+                <p class="section-note">Kort prosess, tydelig ansvar og minst mulig venting.</p>
             </div>
             <div class="process">
                 <article class="step">
@@ -1375,8 +1343,13 @@
 
         <section class="container contact-panel">
             <div>
-                <h2>Trenger du hjelp denne uken?</h2>
-                <p>Ring for akutt feil eller send bilder for fastpris på planlagt jobb. Vi svarer med første ledige tid og hva du bør gjøre videre.</p>
+                <h2>Snakk direkte med Bergen Elektro.</h2>
+                <p>Ring for akutt feil eller send bilder for fastpris på planlagt jobb. Vi svarer normalt samme virkedag og sier tydelig hva vi trenger før vi kan gi pris.</p>
+                <div class="contact-details">
+                    <a href="tel:+4755000000">Telefon: 55 00 00 00</a>
+                    <a href="mailto:post@bergen-elektro-eksempel.no">E-post: post@bergen-elektro-eksempel.no</a>
+                    <span>Område: Bergen og omegn</span>
+                </div>
             </div>
             <a class="button primary" href="tel:+4755000000">Ring 55 00 00 00</a>
         </section>
@@ -1384,7 +1357,7 @@
         <section id="prisforesporsel" class="container request-panel">
             <div>
                 <h2>Få pris på oppdraget ditt</h2>
-                <p>Legg igjen navn og e-post, så tar vi kontakt samme virkedag.</p>
+                <p>Legg igjen navn og e-post. Beskriv kort hva du trenger hjelp med, og legg gjerne ved bilder når vi tar kontakt.</p>
             </div>
             <form class="price-form" action="#" method="post">
                 <div class="field">
@@ -1395,6 +1368,14 @@
                     <label for="email">E-post</label>
                     <input id="email" name="email" type="email" autocomplete="email" required>
                 </div>
+                <div class="field">
+                    <label for="phone">Telefon</label>
+                    <input id="phone" name="phone" type="tel" autocomplete="tel">
+                </div>
+                <div class="field">
+                    <label for="message">Hva gjelder jobben?</label>
+                    <textarea id="message" name="message" placeholder="F.eks. elbillader i garasje, jordfeil, nytt sikringsskap eller lys ute."></textarea>
+                </div>
                 <button class="button primary" type="submit">Send forespørsel</button>
             </form>
         </section>
@@ -1403,8 +1384,10 @@
     <footer>
         <div class="container">
             <p><strong>Bergen Elektro AS</strong><br>
-            Org.nr: 999 888 777</p>
-            &copy; <span id="year"></span> Bergen Elektro - En del av ltj-production eksempler.
+            Org.nr: 999 888 777<br>
+            Telefon: 55 00 00 00 · post@bergen-elektro-eksempel.no<br>
+            Registrert elektrovirksomhet - Bergen og omegn</p>
+            &copy; <span id="year"></span> Bergen Elektro AS
         </div>
     </footer>
 

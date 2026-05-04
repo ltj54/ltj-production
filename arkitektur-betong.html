@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nordform Arkitekturteknikk | Betong, form og rådgivning</title>
-    <meta name="description" content="Eksempelside for et firma som jobber med arkitektonisk betong, formteknikk og konstruksjonsrådgivning.">
+    <title>Nordform Betong &amp; Arkitektur AS | Betong, form og rådgivning</title>
+    <meta name="description" content="Rådgivning for betongoverflater, formarbeid, materialvalg og tekniske løsninger i arkitektur- og byggeprosjekter.">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -305,6 +305,27 @@
             color: var(--muted);
         }
 
+        .assignment-band {
+            padding-top: 0;
+        }
+
+        .assignment-list {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .assignment-item {
+            min-height: 150px;
+            padding: 22px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.68);
+            font-size: 17px;
+            font-weight: 800;
+            line-height: 1.25;
+        }
+
         .about-band {
             color: #ffffff;
             background: var(--charcoal);
@@ -375,28 +396,28 @@
             border-radius: var(--radius);
             background:
                 linear-gradient(180deg, transparent, rgba(18, 24, 25, 0.58)),
-                url("arkitektur-eksempel-hero.png") center / cover;
+                var(--gallery-image) center / cover;
         }
 
         .gallery-item:first-child {
             grid-row: span 2;
-            background-position: left center;
+            --gallery-image: url("arkitektur-gallery-fasade.jpg");
         }
 
         .gallery-item:nth-child(2) {
-            background-position: right center;
+            --gallery-image: url("arkitektur-gallery-tekstur.jpg");
         }
 
         .gallery-item:nth-child(3) {
-            background-position: center top;
+            --gallery-image: url("arkitektur-gallery-glass.jpg");
         }
 
         .gallery-item:nth-child(4) {
-            background-position: center bottom;
+            --gallery-image: url("arkitektur-gallery-materialmote.jpg");
         }
 
         .gallery-item:nth-child(5) {
-            background-position: 64% center;
+            --gallery-image: url("arkitektur-gallery-detalj.jpg");
         }
 
         .gallery-item span {
@@ -453,6 +474,14 @@
             text-decoration: none;
         }
 
+        .contact-card small {
+            display: block;
+            margin-top: 4px;
+            color: rgba(255, 255, 255, 0.62);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
         .footer {
             padding: 26px 0;
             color: rgba(255, 255, 255, 0.68);
@@ -484,6 +513,7 @@
 
             .signal-row,
             .service-grid,
+            .assignment-list,
             .about,
             .contact-panel {
                 grid-template-columns: 1fr;
@@ -557,27 +587,27 @@
 <body>
     <header class="topbar">
         <nav class="container nav" aria-label="Toppnavigasjon">
-            <a class="brand" href="arkitektur-betong.html" aria-label="Nordform Arkitekturteknikk">
+            <a class="brand" href="arkitektur-betong.html" aria-label="Nordform Betong og Arkitektur AS">
                 <span class="brand-mark">NF</span>
-                <span>Nordform Arkitekturteknikk</span>
+                <span>Nordform Betong &amp; Arkitektur AS</span>
             </a>
             <div class="nav-links">
                 <a href="#tjenester">Tjenester</a>
                 <a href="#om-oss">Om oss</a>
-                <a href="#bildegalleri">Bildegalleri</a>
-                <a href="#kontakt">Kontakt oss</a>
+                <a href="#bildegalleri">Materialer</a>
+                <a href="#kontakt">Kontakt</a>
             </div>
         </nav>
     </header>
 
     <main>
-        <section class="hero" aria-label="Nordform Arkitekturteknikk">
+        <section class="hero" aria-label="Nordform Betong og Arkitektur AS">
             <div class="container hero-content">
                 <h1>Arkitektur og teknikk i formbar betong</h1>
-                <p class="hero-lead">Vi hjelper arkitekter, entreprenører og byggherrer med betongoverflater, formteknikk og tekniske løsninger som tåler både uttrykk og bruk.</p>
+                <p class="hero-lead">Vi bistår arkitekter, entreprenører og byggherrer med rådgivning innen betongoverflater, formarbeid, materialvalg og tekniske løsninger for bygg som skal vare.</p>
                 <div class="actions">
-                    <a class="button primary" href="#om-oss">Om oss</a>
-                    <a class="button secondary" href="#kontakt">Kontakt oss</a>
+                    <a class="button primary" href="#tjenester">Se tjenester</a>
+                    <a class="button secondary" href="#kontakt">Kontakt oss om prosjekt</a>
                 </div>
             </div>
         </section>
@@ -589,7 +619,7 @@
             </article>
             <article class="signal">
                 <span class="signal-icon">2</span>
-                <h2>Bærekraftige materialvalg</h2>
+                <h2>Materialvalg som tåler bruk</h2>
             </article>
             <article class="signal">
                 <span class="signal-icon">3</span>
@@ -601,7 +631,7 @@
             <div class="container">
                 <div class="section-header">
                     <h2>Våre tjenester</h2>
-                    <p>Et tydelig tjenesteoppsett for et nisjefirma innen arkitektur, betong og prosjektutvikling.</p>
+                    <p>Rådgivning i tidligfase, detaljering og utførelse når betongoverflaten er en viktig del av prosjektet.</p>
                 </div>
                 <div class="service-grid">
                     <article class="service-card">
@@ -628,25 +658,41 @@
             </div>
         </section>
 
+        <section class="section assignment-band" aria-labelledby="typiske-oppdrag">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="typiske-oppdrag">Typiske oppdrag vi hjelper med</h2>
+                    <p>Konkrete avklaringer før valg av form, overflate og detalj blir kostbart å endre.</p>
+                </div>
+                <div class="assignment-list">
+                    <div class="assignment-item">Vurdering av betongoverflater</div>
+                    <div class="assignment-item">Råd om formarbeid og støp</div>
+                    <div class="assignment-item">Materialvalg i tidligfase</div>
+                    <div class="assignment-item">Teknisk sparring med arkitekt eller entreprenør</div>
+                    <div class="assignment-item">Dokumentasjon og oppfølging av detaljer</div>
+                </div>
+            </div>
+        </section>
+
         <section id="om-oss" class="section about-band">
             <div class="container about">
                 <div class="about-media" aria-hidden="true"></div>
                 <div>
                     <h2>Et lite fagmiljø med lang erfaring fra bygging</h2>
-                    <p>Nordform er et fiktivt eksempel på hvordan en spesialisert rådgiver kan presentere seg ryddig på nett: få ord, tydelige fagområder og et visuelt uttrykk som passer prosjekter der materialer og detaljer betyr noe.</p>
-                    <p>Siden er bygget for å gi besøkende rask oversikt over kompetanse, tjenester, referanseuttrykk og kontaktvei.</p>
+                    <p>Nordform Betong &amp; Arkitektur er et spesialisert rådgivermiljø for prosjekter der synlig betong, formarbeid og tekniske detaljer må avklares tidlig.</p>
+                    <p>Vi jobber tett med prosjektgruppen, gir praktiske anbefalinger og følger opp detaljer fra idé til utførelse.</p>
                     <div class="stats" aria-label="Eksempeldata">
                         <div class="stat">
                             <strong>25+</strong>
-                            <span>år samlet erfaring</span>
+                            <span>år erfaring</span>
                         </div>
                         <div class="stat">
                             <strong>4</strong>
-                            <span>tydelige tjenesteområder</span>
+                            <span>fagområder</span>
                         </div>
                         <div class="stat">
                             <strong>1</strong>
-                            <span>kontaktvei uten friksjon</span>
+                            <span>fast kontaktperson</span>
                         </div>
                     </div>
                 </div>
@@ -656,8 +702,8 @@
         <section id="bildegalleri" class="section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Bildegalleri</h2>
-                    <p>Samme bilde er brukt i ulike utsnitt for å vise hvordan en enkel eksempelside kan få visuell rytme uten stort bildearkiv.</p>
+                    <h2>Materialer, uttrykk og detaljer</h2>
+                    <p>Eksempler på overflater og overganger som ofte må vurderes i arkitektur- og betongprosjekter.</p>
                 </div>
                 <div class="gallery">
                     <div class="gallery-item"><span>Fasade og volum</span></div>
@@ -673,14 +719,19 @@
             <div class="container contact-panel">
                 <div>
                     <h2>Kontakt oss om et nytt betongprosjekt</h2>
-                    <p>For en reell side kan dette kobles til e-post, kontaktskjema, telefon og prosjektbilder. Her er innholdet holdt som et nøkternt eksempel.</p>
-                    <a class="button primary" href="mailto:latajo@gmail.com">Send forespørsel</a>
+                    <p>Send oss en kort beskrivelse av prosjekt, fase og hva dere trenger vurdert. Vi svarer normalt innen én virkedag.</p>
+                    <div class="actions">
+                        <a class="button primary" href="mailto:post@nordform-eksempel.no">Send forespørsel</a>
+                        <a class="button secondary" href="mailto:post@nordform-eksempel.no?subject=Vurdering%20av%20betongprosjekt">Be om vurdering</a>
+                    </div>
                 </div>
                 <aside class="contact-card" aria-label="Kontaktinformasjon">
-                    <span>Nordform Arkitekturteknikk AS</span>
-                    <a href="tel:+4792689680">926 89 680</a>
-                    <a href="mailto:post@nordform-eksempel.no">post@nordform-eksempel.no</a>
-                    <span>Industrivegen 12, 4340 Bryne</span>
+                    <span>Nordform Betong &amp; Arkitektur AS</span>
+                    <a href="tel:+4797724209">Telefon: 977 24 209</a>
+                    <a href="mailto:post@nordform-eksempel.no">E-post: post@nordform-eksempel.no</a>
+                    <span>Område: Bergen / Vestland / hele Norge etter avtale</span>
+                    <span>Org.nr: 123 456 789</span>
+                    <small>Svar normalt innen 1 virkedag</small>
                 </aside>
             </div>
         </section>
