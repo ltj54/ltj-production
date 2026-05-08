@@ -18,7 +18,7 @@
         "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "General",
-            "email": "latajo@gmail.com"
+            "email": "kontakt@ltj-production.no"
         }
     }
     </script>
@@ -48,7 +48,7 @@
             </div>
             <div class="price-line">Profesjonell nettside: 4.500,-</div>
             <div class="tagline">Rask levering. Skreddersydd innhold. Ingen teknisk styr.</div>
-            <a class="cta" href="mailto:latajo@gmail.com" target="_blank" rel="noopener noreferrer">Send info om firmaet</a>
+            <a class="cta" href="#contact-section">Send info om firmaet</a>
         </div>
     </div>
 
@@ -146,13 +146,45 @@
     <div id="contact-section" class="container about-container">
         <h2>Ta kontakt</h2>
         <div class="description">
-            Send firmanavn, bransje, område, telefonnummer og 2-3 tjenester du vil selge. Skriv også om du trenger
-            domene, e&#8209;post eller kontaktskjema.
+            Fyll ut skjemaet kort, så tar jeg kontakt med et konkret forslag. Skriv gjerne bransje, område,
+            hvilke tjenester du vil selge, og om du trenger domene, e&#8209;post eller kontaktskjema.
         </div>
-        <div class="contact">
-            <a href="mailto:latajo@gmail.com" target="_blank" rel="noopener noreferrer">Send info om firmaet</a>
-            <span class="contact-email">(latajo@gmail.com)</span>
-        </div>
+        <form class="contact-form" data-contact-form action="https://formsubmit.co/ajax/kontakt@ltj-production.no" method="POST">
+            <input type="hidden" name="_subject" value="Ny henvendelse fra ltj-production.no">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <div class="form-grid">
+                <label>
+                    Navn
+                    <input type="text" name="navn" autocomplete="name" required>
+                </label>
+                <label>
+                    Firma
+                    <input type="text" name="firma" autocomplete="organization" required>
+                </label>
+                <label>
+                    E-post
+                    <input type="email" name="email" autocomplete="email" required>
+                </label>
+                <label>
+                    Telefon
+                    <input type="tel" name="telefon" autocomplete="tel">
+                </label>
+            </div>
+
+            <label>
+                Hva trenger du hjelp med?
+                <textarea name="melding" rows="6" required placeholder="Bransje, område, tjenester du vil selge, og om du trenger domene, e-post eller kontaktskjema."></textarea>
+            </label>
+
+            <div class="form-actions">
+                <button class="cta" type="submit">Send forespørsel</button>
+                <span class="contact-email">kontakt@ltj-production.no</span>
+            </div>
+            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+        </form>
     </div>
 
     <footer class="footer">
@@ -164,6 +196,47 @@
 
         if (currentYear) {
             currentYear.textContent = String(new Date().getFullYear());
+        }
+
+        const contactForm = document.querySelector("[data-contact-form]");
+        const formStatus = document.querySelector("[data-form-status]");
+
+        if (contactForm && formStatus) {
+            contactForm.addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                const submitButton = contactForm.querySelector("button[type='submit']");
+                const formData = new FormData(contactForm);
+
+                formStatus.textContent = "Sender forespørselen...";
+
+                if (submitButton) {
+                    submitButton.disabled = true;
+                }
+
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: "POST",
+                        body: formData,
+                        headers: {
+                            "Accept": "application/json"
+                        }
+                    });
+
+                    if (!response.ok) {
+                        throw new Error("Form submission failed");
+                    }
+
+                    contactForm.reset();
+                    formStatus.textContent = "Takk. Forespørselen er sendt.";
+                } catch (error) {
+                    formStatus.textContent = "Kunne ikke sende akkurat nå. Send til kontakt@ltj-production.no hvis problemet fortsetter.";
+                } finally {
+                    if (submitButton) {
+                        submitButton.disabled = false;
+                    }
+                }
+            });
         }
     </script>
 </body>
