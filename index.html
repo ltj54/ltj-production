@@ -182,7 +182,6 @@
 
             <div class="form-actions">
                 <button class="cta" type="submit">Send forespørsel</button>
-                <span class="contact-email">kontakt@ltj-production.no</span>
             </div>
             <output class="form-status" data-form-status aria-live="polite" for="contact-name contact-company contact-email contact-phone contact-message"></output>
         </form>
@@ -228,10 +227,10 @@
                         contactForm.reset();
                         formStatus.textContent = "Takk. Forespørselen er sendt.";
                     } else {
-                        formStatus.textContent = "Kunne ikke sende akkurat nå. Send til kontakt@ltj-production.no hvis problemet fortsetter.";
+                        formStatus.textContent = "Kunne ikke sende akkurat nå. Prøv igjen litt senere.";
                     }
                 } catch {
-                    formStatus.textContent = "Kunne ikke sende akkurat nå. Send til kontakt@ltj-production.no hvis problemet fortsetter.";
+                    formStatus.textContent = "Kunne ikke sende akkurat nå. Prøv igjen litt senere.";
                 } finally {
                     if (submitButton) {
                         submitButton.disabled = false;

@@ -265,11 +265,6 @@ h3 {
     font-weight: 700;
 }
 
-.contact-email {
-    color: var(--muted);
-    font-weight: 400;
-}
-
 .contact-form {
     margin-top: 28px;
 }
