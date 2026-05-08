@@ -201,6 +201,10 @@ h2 {
     gap: 44px;
 }
 
+.examples-two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 h3 {
     margin-bottom: 12px;
     font-size: 18px;
