@@ -153,7 +153,10 @@
             <input type="hidden" name="_subject" value="Ny henvendelse fra ltj-production.no">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
-            <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <label class="honeypot-field">
+                Ikke fyll ut dette feltet
+                <input type="text" name="_honey" tabindex="-1" autocomplete="off">
+            </label>
 
             <div class="form-grid">
                 <label>
@@ -183,7 +186,7 @@
                 <button class="cta" type="submit">Send forespørsel</button>
                 <span class="contact-email">kontakt@ltj-production.no</span>
             </div>
-            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+            <output class="form-status" data-form-status aria-live="polite"></output>
         </form>
     </div>
 
@@ -223,13 +226,13 @@
                         }
                     });
 
-                    if (!response.ok) {
-                        throw new Error("Form submission failed");
+                    if (response.ok) {
+                        contactForm.reset();
+                        formStatus.textContent = "Takk. Forespørselen er sendt.";
+                    } else {
+                        formStatus.textContent = "Kunne ikke sende akkurat nå. Send til kontakt@ltj-production.no hvis problemet fortsetter.";
                     }
-
-                    contactForm.reset();
-                    formStatus.textContent = "Takk. Forespørselen er sendt.";
-                } catch (error) {
+                } catch {
                     formStatus.textContent = "Kunne ikke sende akkurat nå. Send til kontakt@ltj-production.no hvis problemet fortsetter.";
                 } finally {
                     if (submitButton) {
