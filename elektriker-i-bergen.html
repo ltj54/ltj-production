@@ -3,117 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bergen Elektro AS | Lokal elektriker i Bergen</title>
-    <meta name="description" content="Lokal elektriker i Bergen for sikringsskap, elbillader, belysning og mindre elektrojobber. Tydelig pris før oppstart.">
+    <title>Eksempelside | Elektriker i Bergen</title>
+    <meta name="description" content="Eksempelside for en lokal elektriker i Bergen, laget for å vise hvordan en ryddig tjenesteside kan se ut.">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             color-scheme: light;
-            --bg: #f7f3ea;
-            --surface: #fffdf8;
-            --surface-strong: #ffffff;
-            --ink: #172033;
-            --muted: #687385;
-            --line: #e2d8c8;
-            --line-dark: #c8bba9;
-            --blue: #2f6f9f;
-            --green: #4f8f62;
-            --amber: #d7902f;
-            --warm: #f1e5d1;
-            --navy: #111827;
-            --radius: 8px;
+            --bg: #fbfaf7;
+            --surface: #ffffff;
+            --text: #151515;
+            --muted: #555555;
+            --line: #ded8ce;
+            --accent: #1f5f8b;
+            --soft: #f1eee8;
+            --radius: 6px;
         }
 
-        * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             margin: 0;
-            color: var(--ink);
-            background:
-                linear-gradient(90deg, rgba(47,111,159,0.05) 1px, transparent 1px),
-                linear-gradient(rgba(47,111,159,0.045) 1px, transparent 1px),
-                var(--bg);
-            background-size: 44px 44px;
-            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            line-height: 1.5;
-            overflow-x: hidden;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.55;
         }
 
-        @keyframes rise-in {
-            from {
-                opacity: 0;
-                transform: translateY(18px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        a {
+            color: inherit;
         }
-
-        @keyframes status-sweep {
-            from {
-                transform: translateX(-115%);
-            }
-            to {
-                transform: translateX(115%);
-            }
-        }
-
-        a { color: inherit; }
 
         .container {
-            width: min(calc(100% - 40px), 1120px);
+            width: min(100% - 40px, 1080px);
             margin: 0 auto;
         }
 
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            border-bottom: 1px solid rgba(200,187,169,0.7);
-            background: rgba(247,243,234,0.9);
-            backdrop-filter: blur(14px);
+        .example-bar {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--line);
+            background: var(--soft);
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .header {
+            border-bottom: 1px solid var(--line);
+            background: var(--surface);
         }
 
         .nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            min-height: 72px;
             gap: 24px;
+            min-height: 76px;
         }
 
         .brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
             font-weight: 800;
             text-decoration: none;
-            letter-spacing: 0;
-        }
-
-        .brand-mark {
-            display: grid;
-            width: 34px;
-            height: 34px;
-            place-items: center;
-            border: 1px solid var(--line-dark);
-            border-radius: var(--radius);
-            background: var(--surface);
-            color: var(--blue);
-            font-size: 12px;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 22px;
+            gap: 20px;
             color: var(--muted);
             font-size: 14px;
             font-weight: 700;
@@ -124,93 +86,68 @@
         }
 
         .nav-links a:hover {
-            color: var(--ink);
+            color: var(--text);
+            text-decoration: underline;
+            text-underline-offset: 3px;
         }
 
-        .phone,
         .button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-height: 42px;
+            min-height: 44px;
             padding: 0 16px;
-            border: 1px solid var(--line-dark);
+            border: 1px solid var(--text);
             border-radius: var(--radius);
-            background: var(--surface-strong);
+            background: var(--text);
+            color: #ffffff;
             font-weight: 800;
             text-decoration: none;
-            transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease;
-        }
-
-        .phone:hover,
-        .button:hover {
-            transform: translateY(-2px);
-        }
-
-        .button.primary {
-            min-height: 52px;
-            padding: 0 22px;
-            border-color: var(--navy);
-            color: #ffffff;
-            background: var(--navy);
-            box-shadow: 0 14px 30px rgba(17,24,39,0.18);
-        }
-
-        .button.primary:hover {
-            box-shadow: 0 18px 38px rgba(17,24,39,0.24);
         }
 
         .button.secondary {
-            color: var(--ink);
             background: transparent;
-        }
-
-        .button.subtle {
-            border-color: transparent;
-            background: transparent;
-            color: var(--blue);
-            text-decoration: underline;
-            text-underline-offset: 4px;
+            color: var(--text);
         }
 
         .hero {
             display: grid;
             grid-template-columns: minmax(0, 1fr) 420px;
-            gap: 58px;
+            gap: 48px;
             align-items: center;
-            padding: 86px 0 72px;
+            padding: 72px 0;
         }
 
-        .hero > * {
-            min-width: 0;
-            animation: rise-in 560ms ease both;
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
         }
-
-        .hero > aside {
-            animation-delay: 120ms;
-        }
-
-        h1, h2, h3, p { margin-top: 0; }
 
         h1 {
-            max-width: 720px;
-            margin-bottom: 24px;
-            font-size: 76px;
-            line-height: 0.94;
+            max-width: 680px;
+            margin-bottom: 20px;
+            font-size: clamp(40px, 6vw, 68px);
+            line-height: 1;
             letter-spacing: 0;
         }
 
         h2 {
-            max-width: 700px;
-            margin-bottom: 0;
-            font-size: 44px;
-            line-height: 1.04;
+            margin-bottom: 18px;
+            font-size: clamp(28px, 4vw, 42px);
+            line-height: 1.1;
             letter-spacing: 0;
         }
 
-        .hero-lead {
-            max-width: 610px;
-            margin-bottom: 30px;
+        h3 {
+            margin-bottom: 8px;
+            font-size: 20px;
+        }
+
+        .lead {
+            max-width: 620px;
+            margin-bottom: 28px;
             color: var(--muted);
             font-size: 20px;
         }
@@ -219,1024 +156,339 @@
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            margin-bottom: 28px;
+            margin-bottom: 24px;
         }
 
-        .proof-row {
+        .tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .proof {
-            padding: 8px 11px;
-            border: 1px solid var(--line-dark);
-            border-radius: var(--radius);
-            background: var(--surface-strong);
-            color: var(--ink);
-            font-size: 13px;
-            font-weight: 700;
-            animation: rise-in 420ms ease both;
-        }
-
-        .proof:nth-child(2) { animation-delay: 80ms; }
-        .proof:nth-child(3) { animation-delay: 160ms; }
-
-        .promise-strip {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1px;
-            margin-top: 28px;
-            overflow: hidden;
-            border: 1px solid var(--line-dark);
-            border-radius: var(--radius);
-            background: var(--line-dark);
-        }
-
-        .promise {
-            padding: 16px;
-            background: var(--surface-strong);
-            animation: rise-in 460ms ease both;
-        }
-
-        .promise:nth-child(2) { animation-delay: 90ms; }
-        .promise:nth-child(3) { animation-delay: 180ms; }
-
-        .promise strong {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 20px;
-            line-height: 1.1;
-        }
-
-        .promise span {
+            gap: 8px;
             color: var(--muted);
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 700;
+        }
+
+        .tags span {
+            padding: 7px 10px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: var(--surface);
         }
 
         .hero-card {
-            width: 100%;
-            border: 1px solid var(--line-dark);
-            border-radius: var(--radius);
-            background: var(--surface);
-            box-shadow: 0 28px 80px rgba(42,36,26,0.16);
-            overflow: hidden;
-        }
-
-        .hero-photo {
-            min-height: 255px;
-            background:
-                linear-gradient(180deg, transparent, rgba(17,24,39,0.42)),
-                url("bergen-elektro-hero.jpg") center / cover;
-        }
-
-        .photo-note {
-            margin-top: 14px;
-            padding: 14px 16px;
             border: 1px solid var(--line);
             border-radius: var(--radius);
-            background: #f7f1e7;
-            color: #5d5142;
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        .hero-card-top {
-            position: relative;
-            display: grid;
-            gap: 14px;
-            padding: 24px;
-            border-bottom: 1px solid rgba(255,255,255,0.16);
-            color: #ffffff;
-            background:
-                linear-gradient(135deg, rgba(47,111,159,0.32), transparent 44%),
-                var(--navy);
+            background: var(--surface);
             overflow: hidden;
         }
 
-        .hero-card-top::after {
-            position: absolute;
-            inset: 0;
-            content: "";
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-            transform: translateX(-115%);
-            animation: status-sweep 5.5s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        .hero-card-title {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            justify-content: space-between;
-            gap: 16px;
-            color: rgba(255,255,255,0.72);
-            font-size: 13px;
-            font-weight: 800;
-        }
-
-        .checklist {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            gap: 10px;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .checklist li {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            padding: 12px 0;
-            border-top: 1px solid rgba(255,255,255,0.16);
-            font-weight: 800;
-        }
-
-        .checklist span {
-            color: #9fe4af;
-            font-size: 13px;
-        }
-
-        .mini-board {
-            display: grid;
-            gap: 0;
-            padding: 24px;
-        }
-
-        .mini-stat {
-            padding: 15px 0;
-            border-bottom: 1px solid var(--line);
-            background: transparent;
-        }
-
-        .mini-stat:last-child {
-            border-bottom: 0;
-        }
-
-        .mini-stat strong {
+        .hero-card img {
             display: block;
-            margin-bottom: 5px;
-            font-size: 17px;
-            line-height: 1.25;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
         }
 
-        .mini-stat span {
+        .hero-card-content {
+            padding: 20px;
+        }
+
+        .hero-card-content p {
+            margin-bottom: 0;
             color: var(--muted);
-            font-size: 12px;
-            font-weight: 700;
         }
 
         .section {
-            padding: 70px 0;
+            padding: 58px 0;
+            border-top: 1px solid var(--line);
         }
 
-        .trust-section {
-            padding: 0 0 70px;
-        }
-
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 12px;
-        }
-
-        .trust-item {
-            padding: 18px;
-            border: 1px solid var(--line-dark);
-            border-radius: var(--radius);
-            background: var(--surface-strong);
-        }
-
-        .trust-item strong {
-            display: block;
-            margin-bottom: 8px;
+        .section-intro {
+            max-width: 680px;
+            margin-bottom: 28px;
+            color: var(--muted);
             font-size: 18px;
         }
 
-        .trust-item span {
-            color: var(--muted);
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        .trust-item.featured {
-            grid-column: span 2;
-            background: var(--navy);
-            color: #ffffff;
-        }
-
-        .trust-item.featured span {
-            color: rgba(255,255,255,0.72);
-        }
-
-        .trust-item a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .section-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            gap: 28px;
-            margin-bottom: 26px;
-        }
-
-        .section-note {
-            max-width: 300px;
-            color: var(--muted);
-            font-weight: 700;
-        }
-
-        .service-grid {
+        .grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 22px;
+            gap: 18px;
         }
 
-        .service-card {
-            overflow: hidden;
-            border: 1px solid var(--line-dark);
+        .card {
+            border: 1px solid var(--line);
             border-radius: var(--radius);
             background: var(--surface);
-            box-shadow: 0 18px 48px rgba(42,36,26,0.08);
-            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-            animation: rise-in 520ms ease both;
-        }
-
-        .service-card:nth-child(2) { animation-delay: 90ms; }
-        .service-card:nth-child(3) { animation-delay: 180ms; }
-
-        .service-card:hover {
-            border-color: #9e7b45;
-            box-shadow: 0 26px 64px rgba(42,36,26,0.15);
-            transform: translateY(-5px);
-        }
-
-        .service-card {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-visual {
-            height: 242px;
-            background: #111827;
             overflow: hidden;
         }
 
-        .card-visual img {
+        .card img {
             display: block;
             width: 100%;
-            height: 100%;
+            height: 180px;
             object-fit: cover;
-            transition: transform 240ms ease;
         }
 
-        .service-card:hover .card-visual img {
-            transform: scale(1.025);
+        .card-body {
+            padding: 20px;
         }
 
-        .card-content {
-            display: flex;
-            flex: 1;
-            flex-direction: column;
-            padding: 24px;
-        }
-
-        .card-meta {
-            display: flex;
-            justify-content: space-between;
-            gap: 14px;
-            margin-bottom: 16px;
-            color: var(--blue);
-            font-size: 12px;
-            font-weight: 800;
-        }
-
-        .service-card h3 {
-            margin-bottom: 10px;
-            font-size: 25px;
-            line-height: 1.1;
-        }
-
-        .service-card p {
-            margin-bottom: 20px;
+        .card-body p {
+            margin-bottom: 0;
             color: var(--muted);
         }
 
-        .why {
-            margin: -6px 0 18px;
-            padding: 10px 12px;
-            border-left: 3px solid var(--amber);
-            background: #f6ead6;
-            color: #604521;
-            font-size: 14px;
-            font-weight: 800;
-        }
-
-        .service-price {
+        .plain-list {
             display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 10px;
-            align-items: center;
-            margin: 0 0 18px;
-            padding: 14px 0;
-            border-top: 1px solid var(--line);
-            border-bottom: 1px solid var(--line);
-        }
-
-        .service-price strong {
-            font-size: 22px;
-            line-height: 1;
-        }
-
-        .service-price span {
-            color: var(--muted);
-            font-size: 12px;
-            font-weight: 800;
-        }
-
-        .specs {
-            display: grid;
-            gap: 8px;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .specs li {
-            display: flex;
-            justify-content: space-between;
-            gap: 14px;
-            padding-top: 8px;
-            border-top: 1px solid var(--line);
-            color: var(--ink);
-            font-size: 13px;
-            font-weight: 700;
-        }
-
-        .specs span {
-            color: var(--green);
-        }
-
-        .service-card .specs {
-            margin-bottom: 18px;
-        }
-
-        .card-action {
-            width: 100%;
-            margin-top: auto;
-        }
-
-        .info-band {
-            display: grid;
-            grid-template-columns: 0.95fr 1.05fr;
-            gap: 30px;
-            align-items: stretch;
-            padding: 58px 0;
-            border-top: 1px solid var(--line-dark);
-            border-bottom: 1px solid var(--line-dark);
-        }
-
-        .info-band p {
-            max-width: 520px;
-            color: var(--muted);
-            font-size: 18px;
-        }
-
-        .inspection-card {
-            border: 1px solid var(--line-dark);
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1px;
+            border: 1px solid var(--line);
             border-radius: var(--radius);
-            background: var(--surface);
+            background: var(--line);
             overflow: hidden;
         }
 
-        .inspection-row {
-            display: grid;
-            grid-template-columns: 160px 1fr auto;
-            gap: 16px;
-            align-items: center;
-            padding: 18px 20px;
-            border-bottom: 1px solid var(--line);
+        .plain-list div {
+            padding: 20px;
+            background: var(--surface);
         }
 
-        .inspection-row:last-child { border-bottom: 0; }
-
-        .row-label {
+        .plain-list p {
+            margin-bottom: 0;
             color: var(--muted);
-            font-size: 13px;
-            font-weight: 800;
         }
 
-        .row-detail {
-            color: var(--ink);
+        .contact-box {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 28px;
+            align-items: start;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 28px;
+            background: var(--surface);
+        }
+
+        .contact-box p {
+            color: var(--muted);
+        }
+
+        .contact-lines {
+            display: grid;
+            gap: 8px;
+            margin-top: 18px;
             font-weight: 700;
         }
 
-        .row-value {
-            min-width: 92px;
-            text-align: right;
-            font-weight: 800;
-        }
-
-        .process {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 16px;
-            counter-reset: step;
-        }
-
-        .step {
-            min-height: 190px;
-            padding: 22px;
-            border: 1px solid var(--line-dark);
-            border-radius: var(--radius);
-            background: rgba(255,253,248,0.8);
-            counter-increment: step;
-            transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
-        }
-
-        .step:hover {
-            transform: translateY(-3px);
-            border-color: #9e7b45;
-            background: var(--surface-strong);
-        }
-
-        .step::before {
-            display: grid;
-            width: 38px;
-            height: 38px;
-            place-items: center;
-            margin-bottom: 24px;
-            content: counter(step, decimal-leading-zero);
-            border: 1px solid var(--line-dark);
-            border-radius: var(--radius);
-            color: var(--blue);
-            background: var(--surface-strong);
-            font-size: 13px;
-            font-weight: 800;
-        }
-
-        .step h3 {
-            margin-bottom: 10px;
-            font-size: 19px;
-        }
-
-        .step p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .contact-panel {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 24px;
-            align-items: center;
-            margin-bottom: 54px;
-            padding: 30px;
-            border: 1px solid var(--line-dark);
-            border-radius: var(--radius);
-            background: #e8f0e4;
-        }
-
-        .contact-panel p {
-            max-width: 620px;
-            margin: 10px 0 0;
-            color: #596755;
-            font-size: 18px;
-        }
-
-        .contact-details {
-            display: grid;
-            gap: 7px;
-            margin-top: 16px;
-            color: #42513f;
-            font-size: 14px;
-            font-weight: 800;
-        }
-
-        .contact-details a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .request-panel {
-            display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
-            gap: 34px;
-            align-items: start;
-            margin-bottom: 54px;
-            padding: 34px;
-            border: 1px solid var(--line-dark);
-            border-radius: var(--radius);
-            background: var(--surface-strong);
-            box-shadow: 0 18px 48px rgba(42,36,26,0.08);
-        }
-
-        .request-panel p {
-            max-width: 430px;
-            margin: 12px 0 0;
-            color: var(--muted);
-            font-size: 18px;
-        }
-
-        .price-form {
+        form {
             display: grid;
             gap: 14px;
         }
 
-        .field {
+        label {
             display: grid;
             gap: 7px;
-        }
-
-        .field label {
-            color: var(--ink);
-            font-size: 13px;
             font-weight: 800;
         }
 
-        .field input,
-        .field textarea {
+        input,
+        textarea {
             width: 100%;
-            min-height: 50px;
-            padding: 0 14px;
-            border: 1px solid var(--line-dark);
+            min-height: 46px;
+            border: 1px solid var(--line);
             border-radius: var(--radius);
-            background: #fffaf1;
-            color: var(--ink);
+            padding: 10px 12px;
+            background: #ffffff;
+            color: var(--text);
             font: inherit;
-            font-weight: 700;
         }
 
-        .field textarea {
-            min-height: 112px;
-            padding-top: 12px;
+        textarea {
+            min-height: 120px;
             resize: vertical;
         }
 
-        .field input:focus,
-        .field textarea:focus {
-            outline: 2px solid rgba(47,111,159,0.28);
-            outline-offset: 2px;
-            border-color: var(--blue);
+        input:focus,
+        textarea:focus {
+            outline: 2px solid rgb(31 95 139 / 0.22);
+            border-color: var(--accent);
         }
 
         footer {
-            padding: 28px 0 40px;
-            border-top: 1px solid var(--line-dark);
+            padding: 28px 0 42px;
+            border-top: 1px solid var(--line);
             color: var(--muted);
-            text-align: center;
             font-size: 14px;
         }
 
-        @media (max-width: 940px) {
+        @media (max-width: 840px) {
             .hero,
-            .info-band,
-            .contact-panel,
-            .request-panel {
+            .contact-box {
                 grid-template-columns: 1fr;
             }
 
-            .service-grid,
-            .process,
-            .trust-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .hero {
-                padding-top: 56px;
-                text-align: center;
-            }
-
-            h1 {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-lead {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .actions {
-                justify-content: center;
-            }
-
-            .proof-row {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 680px) {
-            .container {
-                width: min(calc(100% - 32px), 1120px);
+            .grid,
+            .plain-list {
+                grid-template-columns: 1fr;
             }
 
             .nav {
-                align-items: center;
+                align-items: flex-start;
                 flex-direction: column;
                 padding: 20px 0;
-                gap: 16px;
             }
+        }
 
-            .nav-links {
-                justify-content: center;
-                gap: 12px 18px;
-                font-size: 13px;
-            }
-
-            .phone {
-                width: 100%;
-                order: -1;
-            }
-
-            h1 {
-                font-size: clamp(34px, 10vw, 48px);
-                line-height: 1.05;
-            }
-
-            .hero-lead {
-                font-size: 18px;
-            }
-
-            h2 {
-                font-size: 32px;
+        @media (max-width: 560px) {
+            .container {
+                width: min(100% - 32px, 1080px);
             }
 
             .hero {
-                gap: 40px;
-                padding-top: 40px;
+                padding: 46px 0;
             }
 
             .actions {
                 display: grid;
-                grid-template-columns: 1fr;
-                gap: 12px;
             }
 
-            .actions .button {
+            .button {
                 width: 100%;
-            }
-
-            .proof {
-                width: 100%;
-                text-align: center;
-            }
-
-            .checklist li,
-            .hero-card-title,
-            .specs li {
-                align-items: flex-start;
-                flex-direction: column;
-                gap: 4px;
-            }
-
-            .service-price {
-                grid-template-columns: 1fr;
-                gap: 4px;
-            }
-
-            .mini-board,
-            .promise-strip,
-            .service-grid,
-            .process,
-            .trust-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .trust-item.featured {
-                grid-column: auto;
-            }
-
-            .section-head {
-                align-items: center;
-                text-align: center;
-            }
-
-            .inspection-row {
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
-
-            .row-value {
-                text-align: left;
-                padding-top: 4px;
-            }
-
-            .card-visual {
-                height: 200px;
-            }
-
-            .request-panel {
-                padding: 24px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.001ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.001ms !important;
             }
         }
     </style>
 </head>
 <body>
-    <header class="site-header">
+    <div class="example-bar">
+        <div class="container">Eksempelside fra ltj-production. Navn, telefon og priser er kun illustrasjon.</div>
+    </div>
+
+    <header class="header">
         <nav class="container nav" aria-label="Toppnavigasjon">
-            <a href="index.html" class="brand">
-                <span class="brand-mark">BE</span>
-                Bergen Elektro
-            </a>
+            <a class="brand" href="index.html">Bergen Elektro</a>
             <div class="nav-links">
                 <a href="#tjenester">Tjenester</a>
-                <a href="#omrader">Område</a>
-                <a href="#kontroll">El-kontroll</a>
-                <a href="#prisforesporsel">Kontakt</a>
+                <a href="#slik-fungerer-det">Slik fungerer det</a>
+                <a href="#kontakt">Kontakt</a>
             </div>
-            <a class="phone" href="tel:+4755000000">55 00 00 00</a>
         </nav>
     </header>
 
     <main>
         <section class="container hero">
             <div>
-                <h1>Elektriker i Bergen - rask hjelp til fastpris.</h1>
-                <p class="hero-lead">Vi hjelper med elbillader, sikringsskap, belysning og mindre elektrojobber i Bergen og omegn. Du får tydelig pris før vi starter, og dokumentasjon når jobben krever det.</p>
+                <h1>Elektriker i Bergen for små og store elektrojobber.</h1>
+                <p class="lead">En nettside som raskt forteller hva bedriften gjør, hvor den jobber, og hvordan kunden tar kontakt. Ikke mer komplisert enn nødvendig.</p>
                 <div class="actions">
-                    <a class="button primary" href="tel:+4755000000">Ring 55 00 00 00</a>
-                    <a class="button subtle" href="#prisforesporsel">Send bilder for vurdering</a>
+                    <a class="button" href="#kontakt">Be om pris</a>
+                    <a class="button secondary" href="#tjenester">Se tjenester</a>
                 </div>
-                <div class="proof-row" aria-label="Nøkkelpunkter">
-                    <span class="proof">Lokal elektriker i Bergen</span>
-                    <span class="proof">Registrert elektrovirksomhet</span>
-                    <span class="proof">Svar normalt samme dag</span>
-                </div>
-                <div class="promise-strip" aria-label="Hva du kan forvente">
-                    <div class="promise">
-                        <strong>55 00 00 00</strong>
-                        <span>Ring for feil, jordfeil og korte avklaringer.</span>
-                    </div>
-                    <div class="promise">
-                        <strong>Bergen</strong>
-                        <span>Fana, Åsane, Laksevåg, sentrum og omegn.</span>
-                    </div>
-                    <div class="promise">
-                        <strong>Fastpris</strong>
-                        <span>Ingen oppstart før pris og tidspunkt er avklart.</span>
-                    </div>
+                <div class="tags" aria-label="Typiske oppdrag">
+                    <span>Sikringsskap</span>
+                    <span>Elbillader</span>
+                    <span>Belysning</span>
+                    <span>Feilsøking</span>
                 </div>
             </div>
 
-            <aside class="hero-card" aria-label="Kort oversikt">
-                <div class="hero-photo" aria-hidden="true"></div>
-                <div class="hero-card-top">
-                    <div class="hero-card-title">
-                        <span>Bergen Elektro AS</span>
-                        <span>Org.nr 999 888 777</span>
-                    </div>
-                    <ul class="checklist">
-                        <li>Registrert i Elvirksomhetsregisteret <span>DSB</span></li>
-                        <li>Sikringsskap, lader og belysning <span>bolig</span></li>
-                        <li>Samsvarserklæring når arbeidet krever det <span>digitalt</span></li>
-                    </ul>
-                </div>
-                <div class="mini-board">
-                    <div class="mini-stat">
-                        <strong>Hva skjer når du ringer?</strong>
-                        <span>Vi spør hvor i Bergen jobben er, hva som haster og om du kan sende et bilde.</span>
-                    </div>
-                    <div class="mini-stat">
-                        <strong>Hvem følger opp?</strong>
-                        <span>Du får én kontaktperson fra første avklaring til ferdig dokumentasjon.</span>
-                    </div>
-                    <div class="mini-stat">
-                        <strong>Hva bør du ha klart?</strong>
-                        <span>Ta gjerne bilde av sikringsskap, kursfortegnelse og området vi skal jobbe i.</span>
-                    </div>
-                    <div class="photo-note">Akutt feil? Ring. Planlagt jobb? Send bilder og kort beskrivelse, så svarer vi normalt samme virkedag.</div>
+            <aside class="hero-card" aria-label="Illustrasjon av elektrikerarbeid">
+                <img src="bergen-elektro-hero.jpg" alt="Elektrikerarbeid i bolig">
+                <div class="hero-card-content">
+                    <h2>Ryddig informasjon først</h2>
+                    <p>Kunden trenger å vite om bedriften kan hjelpe, hvilket område den dekker, og hva som skjer etter innsending.</p>
                 </div>
             </aside>
         </section>
 
-        <section id="omrader" class="container trust-section" aria-label="Områder vi dekker">
-            <div class="trust-grid">
-                <div class="trust-item featured">
-                    <strong>Lokal elektriker i Bergen</strong>
-                    <span>Vi prioriterer oppdrag i Bergen kommune og planlegger ruter etter bydel, slik at småjobber ikke blir stående i kø.</span>
-                </div>
-                <div class="trust-item">
-                    <strong>Registrert fagbedrift</strong>
-                    <span>Arbeid utføres av registrert elektrovirksomhet med dokumentasjon der det kreves.</span>
-                </div>
-                <div class="trust-item">
-                    <strong>Direkte kontakt</strong>
-                    <span>Ring <a href="tel:+4755000000">55 00 00 00</a> eller send bilder, så får du praktisk svar uten mellomledd.</span>
-                </div>
-                <div class="trust-item">
-                    <strong>Område</strong>
-                    <span>Fana, Ytrebygda, Åsane, Laksevåg, Bergen sentrum, Sandviken og omegn.</span>
-                </div>
-                <div class="trust-item">
-                    <strong>Kundeuttalelse</strong>
-                    <span>"Ryddig pris før oppstart og god forklaring på hva som måtte gjøres i sikringsskapet."</span>
-                </div>
-            </div>
-        </section>
-
         <section id="tjenester" class="container section">
-            <div class="section-head">
-                <h2>Tjenester og typiske priser.</h2>
-                <p class="section-note">Send bilde av sikringsskap, kabelvei eller området vi skal jobbe i, så får du raskere pris.</p>
-            </div>
+            <h2>Tjenester</h2>
+            <p class="section-intro">En god håndverkerside bør være konkret. Den trenger ikke store løfter, men den bør svare på de praktiske spørsmålene kunden allerede har.</p>
 
-            <div class="service-grid">
-                <article class="service-card">
-                    <div class="card-visual">
-                        <img src="bergen-elektro-sikringsskap.jpg" alt="Elektrisk skap med ledninger og komponenter" loading="lazy">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta"><span>Sikringsskap</span><span>01</span></div>
-                        <h3>Nytt sikringsskap</h3>
-                        <p>For deg som har gamle skrusikringer, dårlig merking eller sikringer som går når flere ting brukes samtidig.</p>
-                        <div class="service-price">
-                            <span>Typisk fra</span>
-                            <strong>18 900 kr</strong>
-                        </div>
-                        <div class="why">Vi må se skapet før endelig fastpris, men du får pris før vi skrur ned noe.</div>
-                        <ul class="specs">
-                            <li>Inkluderer <span>vern, merking, test</span></li>
-                            <li>Du sender <span>bilde av skap</span></li>
-                            <li>Neste steg <span>kort befaring</span></li>
-                        </ul>
-                        <a class="button secondary card-action" href="#prisforesporsel">Få pris på sikringsskap</a>
+            <div class="grid">
+                <article class="card">
+                    <img src="bergen-elektro-sikringsskap.jpg" alt="Sikringsskap med elektriske komponenter" loading="lazy">
+                    <div class="card-body">
+                        <h3>Sikringsskap</h3>
+                        <p>Oppgradering, merking, kontroll og mindre utbedringer. Kunden kan sende bilde før pris vurderes.</p>
                     </div>
                 </article>
 
-                <article class="service-card">
-                    <div class="card-visual">
-                        <img src="bergen-elektro-elbillader.jpg" alt="Elbillader montert på vegg ved bolig" loading="lazy">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta"><span>Elbillader</span><span>02</span></div>
-                        <h3>Lader hjemme</h3>
-                        <p>Fastmontert lader med riktig vern, kabel og kontroll av kapasitet i sikringsskapet.</p>
-                        <div class="service-price">
-                            <span>Typisk fra</span>
-                            <strong>12 900 kr</strong>
-                        </div>
-                        <div class="why">Du unngår lading på vanlig stikkontakt og får installasjon som tåler daglig bruk.</div>
-                        <ul class="specs">
-                            <li>Inkluderer <span>vern og test</span></li>
-                            <li>Du sender <span>skap + parkeringsplass</span></li>
-                            <li>Neste steg <span>fastpris</span></li>
-                        </ul>
-                        <a class="button secondary card-action" href="#prisforesporsel">Få pris på elbillader</a>
+                <article class="card">
+                    <img src="bergen-elektro-elbillader.jpg" alt="Elbillader montert ved bolig" loading="lazy">
+                    <div class="card-body">
+                        <h3>Elbillader</h3>
+                        <p>Montering hjemme med vurdering av skap, kabelvei og kapasitet før arbeidet avtales.</p>
                     </div>
                 </article>
 
-                <article class="service-card">
-                    <div class="card-visual">
-                        <img src="bergen-elektro-belysning.jpg" alt="Utelampe montert på fasade" loading="lazy">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-meta"><span>Belysning</span><span>03</span></div>
-                        <h3>Lys inne og ute</h3>
-                        <p>Downlights, dimmere, utebelysning og styring der vi vurderer fukt, varme og praktisk bruk.</p>
-                        <div class="service-price">
-                            <span>Typisk fra</span>
-                            <strong>1 490 kr</strong>
-                        </div>
-                        <div class="why">Småjobber prises tydelig, og større lysplaner får punktpris før montering.</div>
-                        <ul class="specs">
-                            <li>Inkluderer <span>materiellforslag</span></li>
-                            <li>Du sender <span>rom eller fasade</span></li>
-                            <li>Neste steg <span>pris per punkt</span></li>
-                        </ul>
-                        <a class="button secondary card-action" href="#prisforesporsel">Få pris på lysjobb</a>
+                <article class="card">
+                    <img src="bergen-elektro-belysning.jpg" alt="Utelampe på vegg" loading="lazy">
+                    <div class="card-body">
+                        <h3>Lys og småjobber</h3>
+                        <p>Lamper, dimmere, utebelysning, stikkontakter og andre oppgaver som ofte starter med en kort beskrivelse.</p>
                     </div>
                 </article>
             </div>
         </section>
 
-        <section id="kontroll" class="container info-band">
-            <div>
-                <h2>Dette sjekker vi før vi anbefaler en løsning.</h2>
-                <p>Før vi gir fastpris på større jobber ser vi på belastning, jording, vern, kabelvei og praktisk montering. Målet er at du skal forstå hva som må gjøres, hva som kan vente og hva det koster.</p>
-            </div>
-            <div class="inspection-card" aria-label="Hva vi sjekker">
-                <div class="inspection-row">
-                    <span class="row-label">Autorisasjon</span>
-                    <span class="row-detail">Arbeid utføres av registrert elektrovirksomhet.</span>
-                    <span class="row-value">DSB</span>
+        <section id="slik-fungerer-det" class="container section">
+            <h2>Slik kan siden jobbe for bedriften</h2>
+            <div class="plain-list">
+                <div>
+                    <h3>1. Forklar oppdraget</h3>
+                    <p>Kunden ser raskt hvilke jobber bedriften tar, og slipper å lete etter praktisk informasjon.</p>
                 </div>
-                <div class="inspection-row">
-                    <span class="row-label">Kontroll</span>
-                    <span class="row-detail">Jording, vern, varmegang, merking og belastning.</span>
-                    <span class="row-value">Rapport</span>
+                <div>
+                    <h3>2. Senk terskelen</h3>
+                    <p>Skjemaet ber om det som faktisk trengs: navn, kontaktinfo, område og en kort beskrivelse.</p>
                 </div>
-                <div class="inspection-row">
-                    <span class="row-label">Avvik</span>
-                    <span class="row-detail">Bilder og prioritering: må fikses nå eller kan planlegges.</span>
-                    <span class="row-value">Tiltak</span>
+                <div>
+                    <h3>3. Avklar forventninger</h3>
+                    <p>Teksten kan forklare at pris avhenger av bilder, befaring, materiell og omfang.</p>
                 </div>
-                <div class="inspection-row">
-                    <span class="row-label">Dokumentasjon</span>
-                    <span class="row-detail">Samsvarserklæring og relevant underlag sendes digitalt.</span>
-                    <span class="row-value">Boligmappa</span>
+                <div>
+                    <h3>4. Bygg videre ved behov</h3>
+                    <p>Siden kan senere få egne tjenestesider, bildeopplasting, booking eller integrasjoner.</p>
                 </div>
             </div>
         </section>
 
-        <section id="prosess" class="container section">
-            <div class="section-head">
-                <h2>Slik jobber vi.</h2>
-                <p class="section-note">Kort prosess, tydelig ansvar og minst mulig venting.</p>
-            </div>
-            <div class="process">
-                <article class="step">
-                    <h3>Send bilde</h3>
-                    <p>Ta bilde av skap, laderpunkt eller feilen.</p>
-                </article>
-                <article class="step">
-                    <h3>Få pris</h3>
-                    <p>Vi sier hva det koster før vi kommer.</p>
-                </article>
-                <article class="step">
-                    <h3>Vi fikser</h3>
-                    <p>Elektriker møter til avtalt tid.</p>
-                </article>
-                <article class="step">
-                    <h3>Dokumentert</h3>
-                    <p>Du får samsvarserklæring der det kreves.</p>
-                </article>
-            </div>
-        </section>
+        <section id="kontakt" class="container section">
+            <div class="contact-box">
+                <div>
+                    <h2>Be om pris</h2>
+                    <p>For en ekte elektriker ville teksten her vært tilpasset område, tjenester, telefonnummer og hvordan bedriften faktisk følger opp nye henvendelser.</p>
+                    <div class="contact-lines">
+                        <span>Telefon: 55 00 00 00</span>
+                        <span>E-post: post@eksempel.no</span>
+                        <span>Område: Bergen og omegn</span>
+                    </div>
+                </div>
 
-        <section class="container contact-panel">
-            <div>
-                <h2>Snakk direkte med Bergen Elektro.</h2>
-                <p>Ring for akutt feil eller send bilder for fastpris på planlagt jobb. Vi svarer normalt samme virkedag og sier tydelig hva vi trenger før vi kan gi pris.</p>
-                <div class="contact-details">
-                    <a href="tel:+4755000000">Telefon: 55 00 00 00</a>
-                    <a href="mailto:post@bergen-elektro-eksempel.no">E-post: post@bergen-elektro-eksempel.no</a>
-                    <span>Område: Bergen og omegn</span>
-                </div>
+                <form action="#" method="post">
+                    <label>
+                        Navn
+                        <input name="name" type="text" autocomplete="name" required>
+                    </label>
+                    <label>
+                        E-post
+                        <input name="email" type="email" autocomplete="email" required>
+                    </label>
+                    <label>
+                        Hva gjelder jobben?
+                        <textarea name="message" placeholder="F.eks. elbillader, nytt sikringsskap, jordfeil eller utebelysning."></textarea>
+                    </label>
+                    <button class="button" type="submit">Send forespørsel</button>
+                </form>
             </div>
-            <a class="button primary" href="tel:+4755000000">Ring 55 00 00 00</a>
-        </section>
-
-        <section id="prisforesporsel" class="container request-panel">
-            <div>
-                <h2>Få pris på oppdraget ditt</h2>
-                <p>Legg igjen navn og e-post. Beskriv kort hva du trenger hjelp med, og legg gjerne ved bilder når vi tar kontakt.</p>
-            </div>
-            <form class="price-form" action="#" method="post">
-                <div class="field">
-                    <label for="name">Navn</label>
-                    <input id="name" name="name" type="text" autocomplete="name" required>
-                </div>
-                <div class="field">
-                    <label for="email">E-post</label>
-                    <input id="email" name="email" type="email" autocomplete="email" required>
-                </div>
-                <div class="field">
-                    <label for="phone">Telefon</label>
-                    <input id="phone" name="phone" type="tel" autocomplete="tel">
-                </div>
-                <div class="field">
-                    <label for="message">Hva gjelder jobben?</label>
-                    <textarea id="message" name="message" placeholder="F.eks. elbillader i garasje, jordfeil, nytt sikringsskap eller lys ute."></textarea>
-                </div>
-                <button class="button primary" type="submit">Send forespørsel</button>
-            </form>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p><strong>Bergen Elektro AS</strong><br>
-            Org.nr: 999 888 777<br>
-            Telefon: 55 00 00 00 · post@bergen-elektro-eksempel.no<br>
-            Registrert elektrovirksomhet - Bergen og omegn</p>
-            &copy; <span id="year"></span> Bergen Elektro AS
+            Dette er en eksempelside, ikke en reell elektrikerbedrift. Laget for å vise struktur, tone og innhold.
         </div>
     </footer>
-
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
 </body>
 </html>
