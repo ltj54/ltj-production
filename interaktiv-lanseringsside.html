@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <meta name="description" content="">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #030716;
+            --line: rgba(180, 216, 255, 0.18);
+            --cyan: #25e8ff;
+            --blue: #4384ff;
+            --pink: #ff3bbd;
+            --lime: #9bff55;
+            --orange: #ffb22e;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            min-height: 100%;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at 12% 8%, rgba(37, 232, 255, 0.18), transparent 28%),
+                radial-gradient(circle at 88% 14%, rgba(255, 59, 189, 0.18), transparent 30%),
+                linear-gradient(180deg, #020512 0%, var(--bg) 36%, #05091b 100%);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            position: fixed;
+            inset: 0;
+            z-index: -3;
+            content: "";
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+            background-size: 72px 72px;
+            mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.68), transparent 82%);
+        }
+
+        body::after {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            content: "";
+            background: linear-gradient(115deg, transparent 0 40%, rgba(37, 232, 255, 0.05) 46%, rgba(255, 59, 189, 0.06) 54%, transparent 62%);
+            transform: translateX(-24%);
+            animation: page-sheen 12s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes page-sheen {
+            to {
+                transform: translateX(22%);
+            }
+        }
+
+        @keyframes flow {
+            to {
+                stroke-dashoffset: -900;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.58;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.045);
+            }
+        }
+
+        @keyframes drift {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate3d(0, -28px, 0) rotate(2deg);
+            }
+        }
+
+        @keyframes orbit {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rise {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .motion-page {
+            min-height: 100vh;
+            padding: clamp(18px, 4vw, 54px);
+        }
+
+        .stage {
+            position: relative;
+            min-height: calc(100vh - clamp(36px, 8vw, 108px));
+            border: 1px solid rgba(180, 216, 255, 0.18);
+            border-radius: clamp(24px, 4vw, 42px);
+            background:
+                radial-gradient(circle at 50% 45%, rgba(37, 232, 255, 0.2), transparent 36%),
+                radial-gradient(circle at 70% 60%, rgba(255, 59, 189, 0.18), transparent 28%),
+                rgba(4, 10, 28, 0.58);
+            box-shadow: 0 40px 110px rgba(0, 0, 0, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            animation: rise 700ms ease both;
+        }
+
+        .stage::before,
+        .stage::after {
+            position: absolute;
+            inset: 28px;
+            z-index: 2;
+            content: "";
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: clamp(18px, 3vw, 34px);
+            pointer-events: none;
+        }
+
+        .stage::after {
+            inset: auto 34px 34px;
+            height: 1px;
+            border: 0;
+            background: linear-gradient(90deg, transparent, var(--cyan), var(--pink), transparent);
+            box-shadow: 0 0 28px rgba(37, 232, 255, 0.55);
+            animation: pulse 2.4s ease-in-out infinite;
+        }
+
+        #hero-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .stage-lines {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .stage-lines path {
+            fill: none;
+            stroke-linecap: round;
+            stroke-width: 1.6;
+            stroke-dasharray: 18 18;
+            animation: flow 18s linear infinite;
+        }
+
+        .orbital {
+            position: absolute;
+            inset: 12%;
+            z-index: 2;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: orbit 28s linear infinite;
+        }
+
+        .orbital::before,
+        .orbital::after {
+            position: absolute;
+            inset: 10%;
+            content: "";
+            border: 1px solid rgba(37, 232, 255, 0.36);
+            border-radius: 50%;
+            transform: rotateX(66deg) rotateZ(12deg);
+            box-shadow: 0 0 34px rgba(37, 232, 255, 0.28);
+        }
+
+        .orbital::after {
+            inset: 20%;
+            border-color: rgba(255, 59, 189, 0.34);
+            transform: rotateX(66deg) rotateZ(-24deg);
+            box-shadow: 0 0 34px rgba(255, 59, 189, 0.24);
+        }
+
+        .visual-grid {
+            display: grid;
+            grid-template-columns: 0.86fr 1.14fr;
+            gap: clamp(18px, 3vw, 34px);
+            margin-top: clamp(18px, 4vw, 54px);
+        }
+
+        .wave-panel,
+        .rail-panel,
+        .pulse-panel {
+            position: relative;
+            min-height: 420px;
+            border: 1px solid rgba(180, 216, 255, 0.2);
+            border-radius: 28px;
+            background:
+                radial-gradient(circle at 75% 20%, rgba(255, 59, 189, 0.18), transparent 30%),
+                radial-gradient(circle at 20% 70%, rgba(37, 232, 255, 0.2), transparent 32%),
+                rgba(6, 13, 32, 0.74);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            animation: rise 700ms ease both;
+        }
+
+        .wave-panel canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .rail-panel {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            align-items: center;
+            gap: 18px;
+            padding: clamp(22px, 4vw, 42px);
+        }
+
+        .rail-panel::before {
+            position: absolute;
+            top: 50%;
+            right: 7%;
+            left: 7%;
+            height: 2px;
+            content: "";
+            background: linear-gradient(90deg, var(--lime), var(--cyan), var(--pink), var(--orange));
+            box-shadow: 0 0 24px rgba(37, 232, 255, 0.35);
+        }
+
+        .node {
+            position: relative;
+            display: grid;
+            height: min(18vw, 170px);
+            place-items: center;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 22px;
+            background:
+                radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 38%),
+                rgba(255, 255, 255, 0.04);
+            overflow: hidden;
+        }
+
+        .node::before {
+            width: 46px;
+            height: 46px;
+            content: "";
+            border: 1px solid currentColor;
+            border-radius: 50%;
+            color: var(--cyan);
+            background: rgba(3, 7, 22, 0.78);
+            box-shadow: 0 0 24px currentColor;
+            animation: pulse 2.6s ease-in-out infinite;
+        }
+
+        .node:nth-child(1)::before {
+            color: var(--lime);
+        }
+
+        .node:nth-child(3)::before {
+            color: var(--pink);
+        }
+
+        .node:nth-child(4)::before {
+            color: var(--orange);
+        }
+
+        .pulse-panel {
+            grid-column: 1 / -1;
+            min-height: 330px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            padding: clamp(22px, 4vw, 42px);
+            perspective: 1100px;
+        }
+
+        .glass-shard {
+            position: relative;
+            min-height: 220px;
+            border: 1px solid rgba(180, 216, 255, 0.2);
+            border-radius: 22px;
+            background:
+                radial-gradient(circle at 30% 45%, rgba(37, 232, 255, 0.68), transparent 20%),
+                radial-gradient(circle at 70% 35%, rgba(255, 59, 189, 0.64), transparent 22%),
+                linear-gradient(135deg, rgba(155, 255, 85, 0.16), rgba(67, 132, 255, 0.18));
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 20px 60px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transform: rotateY(var(--rotate, 0deg));
+            animation: drift 7s ease-in-out infinite;
+        }
+
+        .glass-shard:first-child {
+            --rotate: 12deg;
+            animation-delay: -1s;
+        }
+
+        .glass-shard:nth-child(2) {
+            --rotate: 0deg;
+            animation-delay: -2.3s;
+        }
+
+        .glass-shard:last-child {
+            --rotate: -12deg;
+            animation-delay: -3.8s;
+        }
+
+        .glass-shard::before {
+            position: absolute;
+            inset: 0;
+            content: "";
+            background:
+                linear-gradient(115deg, transparent 0 38%, rgba(255, 255, 255, 0.2) 44%, transparent 52%),
+                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.16), transparent 36%);
+            transform: translateX(-30%);
+            animation: page-sheen 5.5s ease-in-out infinite alternate;
+        }
+
+        @media (max-width: 860px) {
+            .motion-page {
+                padding: 18px;
+            }
+
+            .stage {
+                min-height: 72vh;
+            }
+
+            .visual-grid,
+            .pulse-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .rail-panel {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .node {
+                height: 150px;
+            }
+
+            .glass-shard,
+            .glass-shard:first-child,
+            .glass-shard:last-child {
+                transform: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="motion-page" aria-hidden="true">
+        <section class="stage" data-tilt>
+            <canvas id="hero-canvas"></canvas>
+            <svg class="stage-lines" viewBox="0 0 1200 740">
+                <path d="M80 520 C290 260 456 620 674 298 S1006 210 1150 120" stroke="rgba(37, 232, 255, 0.72)" />
+                <path d="M36 410 C306 156 478 442 682 236 S1016 108 1166 338" stroke="rgba(255, 59, 189, 0.66)" />
+                <path d="M96 642 C336 506 520 704 766 438 S1038 354 1164 522" stroke="rgba(255, 178, 46, 0.56)" />
+            </svg>
+            <div class="orbital"></div>
+        </section>
+
+        <section class="visual-grid">
+            <div class="wave-panel">
+                <canvas id="wave-canvas"></canvas>
+            </div>
+            <div class="rail-panel">
+                <div class="node"></div>
+                <div class="node"></div>
+                <div class="node"></div>
+                <div class="node"></div>
+            </div>
+            <div class="pulse-panel">
+                <div class="glass-shard"></div>
+                <div class="glass-shard"></div>
+                <div class="glass-shard"></div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        function setupCanvas(canvas, draw) {
+            const context = canvas.getContext("2d");
+            let width = 0;
+            let height = 0;
+            let pointer = { x: 0.5, y: 0.5 };
+
+            function resize() {
+                const rect = canvas.getBoundingClientRect();
+                const ratio = Math.min(window.devicePixelRatio || 1, 2);
+                width = Math.max(1, Math.floor(rect.width));
+                height = Math.max(1, Math.floor(rect.height));
+                canvas.width = Math.floor(width * ratio);
+                canvas.height = Math.floor(height * ratio);
+                context.setTransform(ratio, 0, 0, ratio, 0, 0);
+            }
+
+            function tick(time) {
+                draw(context, width, height, reducedMotion ? 1 : time / 1000, pointer);
+                if (!reducedMotion) {
+                    requestAnimationFrame(tick);
+                }
+            }
+
+            canvas.addEventListener("pointermove", (event) => {
+                const rect = canvas.getBoundingClientRect();
+                pointer = {
+                    x: (event.clientX - rect.left) / rect.width,
+                    y: (event.clientY - rect.top) / rect.height
+                };
+            });
+
+            resize();
+            window.addEventListener("resize", resize);
+            requestAnimationFrame(tick);
+        }
+
+        function drawHero(context, width, height, time, pointer) {
+            context.clearRect(0, 0, width, height);
+            const cx = width * (0.5 + (pointer.x - 0.5) * 0.08);
+            const cy = height * (0.5 + (pointer.y - 0.5) * 0.08);
+
+            const glow = context.createRadialGradient(cx, cy, 20, cx, cy, Math.min(width, height) * 0.56);
+            glow.addColorStop(0, "rgba(37, 232, 255, 0.3)");
+            glow.addColorStop(0.4, "rgba(255, 59, 189, 0.14)");
+            glow.addColorStop(1, "rgba(0, 0, 0, 0)");
+            context.fillStyle = glow;
+            context.fillRect(0, 0, width, height);
+
+            for (let ring = 0; ring < 12; ring += 1) {
+                const progress = ring / 12;
+                const radiusX = width * (0.13 + progress * 0.28);
+                const radiusY = height * (0.04 + progress * 0.1);
+                const hue = ring % 3 === 0 ? "37, 232, 255" : ring % 3 === 1 ? "255, 59, 189" : "255, 178, 46";
+
+                context.save();
+                context.translate(cx, cy);
+                context.rotate(-0.32 + progress * 0.18 + Math.sin(time * 0.55 + ring) * 0.08);
+                context.beginPath();
+                context.ellipse(0, 0, radiusX, radiusY, 0, 0, Math.PI * 2);
+                context.strokeStyle = `rgba(${hue}, ${0.12 + progress * 0.08})`;
+                context.lineWidth = 1.2 + progress * 1.5;
+                context.shadowBlur = 22;
+                context.shadowColor = `rgba(${hue}, 0.48)`;
+                context.stroke();
+                context.restore();
+            }
+
+            for (let i = 0; i < 150; i += 1) {
+                const seed = i * 19.91;
+                const x = (Math.sin(seed + time * 0.16) * 0.5 + 0.5) * width;
+                const y = (Math.cos(seed * 0.7 + time * 0.22) * 0.5 + 0.5) * height;
+                const size = 1 + (i % 5) * 0.48;
+                context.beginPath();
+                context.arc(x, y, size, 0, Math.PI * 2);
+                context.fillStyle = i % 4 === 0 ? "rgba(37, 232, 255, 0.74)" : i % 4 === 1 ? "rgba(255, 59, 189, 0.64)" : "rgba(255, 255, 255, 0.42)";
+                context.fill();
+            }
+
+            context.save();
+            context.translate(cx, cy);
+            context.rotate(time * 0.18);
+            const core = context.createRadialGradient(0, 0, 0, 0, 0, 160);
+            core.addColorStop(0, "rgba(255, 255, 255, 0.95)");
+            core.addColorStop(0.16, "rgba(37, 232, 255, 0.75)");
+            core.addColorStop(0.54, "rgba(255, 59, 189, 0.24)");
+            core.addColorStop(1, "rgba(67, 132, 255, 0)");
+            context.fillStyle = core;
+            context.beginPath();
+            context.arc(0, 0, Math.min(width, height) * 0.18, 0, Math.PI * 2);
+            context.fill();
+            context.restore();
+        }
+
+        function drawWave(context, width, height, time, pointer) {
+            context.clearRect(0, 0, width, height);
+            const bands = [
+                ["37, 232, 255", 0.35, 0.9],
+                ["255, 59, 189", 0.52, 1.15],
+                ["67, 132, 255", 0.62, 1.35],
+                ["155, 255, 85", 0.42, 0.7]
+            ];
+
+            bands.forEach(([color, offset, speed], bandIndex) => {
+                for (let line = 0; line < 16; line += 1) {
+                    context.beginPath();
+                    for (let x = 0; x <= width; x += 10) {
+                        const phase = x / width * Math.PI * 2;
+                        const amp = 34 + line * 2.5;
+                        const y = height * offset +
+                            Math.sin(phase * 1.28 + time * speed + line * 0.28) * amp +
+                            Math.cos(phase * 2.2 + pointer.x * 3 + bandIndex) * 18;
+                        if (x === 0) {
+                            context.moveTo(x, y);
+                        } else {
+                            context.lineTo(x, y);
+                        }
+                    }
+                    context.strokeStyle = `rgba(${color}, ${0.06 + line * 0.012})`;
+                    context.lineWidth = 1.2;
+                    context.shadowBlur = 14;
+                    context.shadowColor = `rgba(${color}, 0.34)`;
+                    context.stroke();
+                }
+            });
+        }
+
+        document.querySelectorAll("[data-tilt]").forEach((element) => {
+            element.addEventListener("pointermove", (event) => {
+                if (reducedMotion) return;
+                const rect = element.getBoundingClientRect();
+                const x = (event.clientX - rect.left) / rect.width - 0.5;
+                const y = (event.clientY - rect.top) / rect.height - 0.5;
+                element.style.transform = `rotateX(${y * -3.2}deg) rotateY(${x * 3.2}deg)`;
+            });
+
+            element.addEventListener("pointerleave", () => {
+                element.style.transform = "";
+            });
+        });
+
+        setupCanvas(document.getElementById("hero-canvas"), drawHero);
+        setupCanvas(document.getElementById("wave-canvas"), drawWave);
+    </script>
+</body>
+</html>
