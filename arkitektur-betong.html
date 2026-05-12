@@ -114,8 +114,17 @@
             padding: 40px;
         }
 
-        .package-price strong {
+        .package-price strong,
+        .package-price span {
             color: var(--accent-arch);
+        }
+
+        .package-price strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 34px;
+            line-height: 1;
+            font-weight: 900;
         }
     </style>
 </head>
@@ -129,7 +138,6 @@
             <div class="nav-links">
                 <a href="#fagfelt">Fagfelt</a>
                 <a href="#om-siden">Om designet</a>
-                <a href="#kontakt">Kontakt</a>
             </div>
         </div>
     </nav>
@@ -142,7 +150,6 @@
                 Dette er et eksempel på hvordan en spesialisert fagbedrift kan forklare rådgivning og materialvalg uten å drukne i bransjespråk. 
             </div>
             <div class="tagline">Materialrådgivning. Formteknikk. Konstruksjonssparring.</div>
-            <a class="cta" href="#kontakt">Start prosjektet</a>
         </div>
     </div>
 
@@ -203,39 +210,6 @@
             </div>
         </div>
 
-        <div id="kontakt" class="about-container">
-            <h2>Kontakt oss om ditt prosjekt</h2>
-            <div class="description" style="color: var(--text); text-shadow: none;">
-                For en fagbedrift som denne, bør kontaktveien be om prosjektfase, sted og gjerne tegninger. 
-            </div>
-            <form class="contact-form" action="#" method="POST">
-                <div class="form-grid">
-                    <label for="name">
-                        Navn
-                        <input id="name" type="text" name="name" required>
-                    </label>
-                    <label for="company">
-                        Bedrift / Arkitektkontor
-                        <input id="company" type="text" name="company" required>
-                    </label>
-                    <label for="email">
-                        E-post
-                        <input id="email" type="email" name="email" required>
-                    </label>
-                    <label for="phase">
-                        Prosjektfase
-                        <input id="phase" type="text" name="phase" placeholder="F.eks. Skisseprosjekt">
-                    </label>
-                </div>
-                <label for="message">
-                    Beskriv prosjektet og behovet
-                    <textarea id="message" name="message" rows="4" required></textarea>
-                </label>
-                <div class="form-actions">
-                    <button class="cta" type="submit" style="background: var(--ink-dark); color: white; border-color: var(--ink-dark); text-transform: none; letter-spacing: normal;">Be om vurdering</button>
-                </div>
-            </form>
-        </div>
     </div>
 
     <footer class="footer">
