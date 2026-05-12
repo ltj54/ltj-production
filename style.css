@@ -45,8 +45,7 @@ a {
 }
 
 .logo a,
-.nav-links a,
-.contact a {
+.nav-links a {
     color: var(--text);
     text-decoration: none;
 }
@@ -67,8 +66,7 @@ a {
     gap: 22px;
 }
 
-.nav-links a:hover,
-.contact a:hover {
+.nav-links a:hover {
     text-decoration: underline;
     text-underline-offset: 3px;
 }
@@ -142,18 +140,6 @@ h1 {
     font-size: 17px;
     line-height: 1.5;
     font-weight: 700;
-}
-
-.price-line {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 38px;
-    margin-top: 24px;
-    padding: 0 14px;
-    border: 1px solid var(--text);
-    background: var(--bg);
-    font-weight: 800;
 }
 
 .description {
@@ -288,15 +274,6 @@ h3 {
 .package-price span {
     color: var(--muted);
     font-size: 14px;
-    font-weight: 700;
-}
-
-.contact {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px 18px;
-    margin-top: 18px;
     font-weight: 700;
 }
 
@@ -447,10 +424,6 @@ h3 {
         margin-top: 20px;
     }
 
-    .price-line {
-        margin-top: 22px;
-    }
-
     .description {
         font-size: 16px;
         overflow-wrap: anywhere;
@@ -478,7 +451,6 @@ h3 {
     }
 
     .about-container > .description,
-    .contact,
     .contact-form {
         max-width: 100%;
     }
