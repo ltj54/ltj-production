@@ -188,6 +188,31 @@ h1 {
     padding: 44px 0 52px;
 }
 
+.proof-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+    padding-top: 30px;
+    padding-bottom: 34px;
+}
+
+.proof-item strong,
+.proof-item span {
+    display: block;
+}
+
+.proof-item strong {
+    margin-bottom: 6px;
+    font-size: 16px;
+    line-height: 1.25;
+    font-weight: 800;
+}
+
+.proof-item span {
+    color: var(--muted);
+    font-size: 14px;
+}
+
 h2 {
     margin-bottom: 30px;
     font-size: 26px;
@@ -382,7 +407,8 @@ h3 {
     .nav-links {
         justify-content: center;
         flex-wrap: wrap;
-        gap: 16px;
+        gap: 10px 14px;
+        font-size: 13px;
     }
 
     .hero-wrap {
@@ -411,8 +437,9 @@ h3 {
     }
 
     h1 {
-        font-size: clamp(30px, 9vw, 42px);
+        font-size: clamp(28px, 7.4vw, 32px);
         margin-bottom: 16px;
+        overflow-wrap: anywhere;
     }
 
     .tagline {
@@ -426,10 +453,16 @@ h3 {
 
     .description {
         font-size: 16px;
+        overflow-wrap: anywhere;
+    }
+
+    .proof-item span {
+        overflow-wrap: anywhere;
     }
 
     .services,
-    .examples {
+    .examples,
+    .proof-strip {
         grid-template-columns: 1fr;
         gap: 32px;
         max-width: 100%;
