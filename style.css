@@ -331,6 +331,12 @@ h3 {
     margin-top: 22px;
 }
 
+.form-privacy {
+    margin: 14px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
 .form-actions .cta {
     margin-top: 0;
     cursor: pointer;
