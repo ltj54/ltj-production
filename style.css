@@ -94,7 +94,16 @@ a {
 }
 
 .hero-wrap::after {
-    background: linear-gradient(90deg, rgb(255 255 255 / 0.12), transparent 18% 82%, rgb(255 255 255 / 0.12));
+    inset: -22% -14%;
+    background:
+        linear-gradient(90deg, rgb(255 255 255 / 0.12), transparent 18% 82%, rgb(255 255 255 / 0.12)),
+        radial-gradient(circle at center, rgb(255 75 75 / 0.2), transparent 46%),
+        radial-gradient(circle at center, rgb(70 130 255 / 0.18), transparent 48%),
+        linear-gradient(115deg, transparent 0 34%, rgb(255 255 255 / 0.46) 43%, rgb(255 255 255 / 0.2) 48%, transparent 58% 100%);
+    background-size: 100% 100%, 70% 80%, 70% 80%, 135% 100%;
+    background-position: center, 0 62%, 100% 62%, -42% 0;
+    mix-blend-mode: screen;
+    animation: hero-light-sweep 6.5s ease-in-out infinite;
 }
 
 .hero-paint {
@@ -107,6 +116,45 @@ a {
     object-fit: cover;
     object-position: center top;
     transform: translateX(-50%);
+    filter: saturate(1.04) contrast(1.02);
+    animation: hero-image-drift 11s ease-in-out infinite alternate;
+    will-change: transform, filter;
+}
+
+@keyframes hero-image-drift {
+    0% {
+        filter: saturate(1.04) contrast(1.02);
+        transform: translateX(-50%) scale(1);
+    }
+
+    48% {
+        filter: saturate(1.18) contrast(1.05) brightness(1.03);
+        transform: translateX(calc(-50% - 7px)) scale(1.035) translateY(-8px);
+    }
+
+    100% {
+        filter: saturate(1.1) contrast(1.04);
+        transform: translateX(calc(-50% + 6px)) scale(1.045) translateY(-12px);
+    }
+}
+
+@keyframes hero-light-sweep {
+    0%,
+    18% {
+        opacity: 0.72;
+        background-position: center, 0 62%, 100% 62%, -42% 0;
+    }
+
+    44% {
+        opacity: 1;
+        background-position: center, 8% 58%, 92% 58%, 48% 0;
+    }
+
+    68%,
+    100% {
+        opacity: 0.78;
+        background-position: center, 2% 64%, 98% 64%, 145% 0;
+    }
 }
 
 .main-content {
@@ -467,5 +515,16 @@ h3 {
 
     .about-container {
         padding: 48px 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .hero-wrap::after,
+    .hero-paint {
+        animation: none;
     }
 }
