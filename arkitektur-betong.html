@@ -21,6 +21,9 @@
             --arch-lime: #c4ff38;
             --arch-rust: #a4502a;
             --arch-shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
+            --hero-drift: 0px;
+            --hero-scale: 1;
+            --reveal-delay: 0ms;
         }
 
         html {
@@ -100,7 +103,8 @@
         .hero-wrap {
             display: grid;
             grid-template-columns: minmax(42px, 8vw) minmax(0, 0.92fr) minmax(360px, 0.74fr);
-            min-height: 100svh;
+            min-height: 760px;
+            height: clamp(760px, 88svh, 940px);
             overflow: hidden;
             background: var(--arch-bg);
         }
@@ -115,7 +119,7 @@
             z-index: 0;
             width: 100%;
             height: 100%;
-            min-height: 100svh;
+            min-height: 0;
             object-fit: cover;
             object-position: 58% center;
             filter: grayscale(0.32) contrast(1.12) saturate(0.72);
@@ -128,7 +132,7 @@
             display: flex;
             align-items: flex-end;
             justify-content: center;
-            min-height: 100svh;
+            min-height: 0;
             padding: 92px 0 42px;
             border-right: 1px solid var(--arch-line);
             color: var(--arch-muted);
@@ -141,10 +145,10 @@
 
         .main-content {
             display: grid;
-            align-content: end;
+            align-content: center;
             max-width: none;
-            min-height: 100svh;
-            padding: 112px clamp(22px, 5vw, 72px) 58px;
+            min-height: 0;
+            padding: 112px clamp(22px, 5vw, 72px) 72px;
             text-align: left;
         }
 
@@ -161,13 +165,13 @@
         }
 
         h1 {
-            max-width: 860px;
+            max-width: 720px;
             margin: 0 0 26px;
             color: var(--arch-ink);
-            font-size: clamp(48px, 8.2vw, 128px);
-            line-height: 0.82;
+            font-size: clamp(48px, 6.4vw, 94px);
+            line-height: 0.9;
             font-weight: 900;
-            letter-spacing: -0.045em;
+            letter-spacing: -0.035em;
             text-shadow: none;
         }
 
@@ -182,10 +186,10 @@
 
         .tagline {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: 1fr;
             gap: 0;
-            max-width: 830px;
-            margin: 46px 0 0;
+            max-width: 520px;
+            margin: 38px 0 0;
             border-top: 1px solid var(--arch-line);
             border-bottom: 1px solid var(--arch-line);
             color: var(--arch-ink);
@@ -197,13 +201,13 @@
         }
 
         .tagline span {
-            min-height: 82px;
-            padding: 18px 20px;
-            border-right: 1px solid var(--arch-line);
+            min-height: 0;
+            padding: 16px 18px;
+            border-bottom: 1px solid var(--arch-line);
         }
 
         .tagline span:last-child {
-            border-right: 0;
+            border-bottom: 0;
         }
 
         .content-shell {
@@ -213,11 +217,11 @@
 
         .proof-strip {
             display: grid;
-            grid-template-columns: minmax(210px, 0.55fr) minmax(0, 1fr);
+            grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
             gap: clamp(28px, 6vw, 86px);
             width: min(100% - 72px, 1320px);
             margin: 0 auto;
-            padding: 96px 0 112px;
+            padding: 78px 0 88px;
             border-top: 1px solid var(--arch-line);
         }
 
@@ -262,12 +266,13 @@
             color: var(--arch-muted);
             font-size: 15px;
             line-height: 1.55;
+            overflow-wrap: anywhere;
         }
 
         .material-band {
             display: grid;
             grid-template-columns: minmax(0, 0.82fr) minmax(360px, 0.55fr);
-            min-height: 680px;
+            min-height: 620px;
             background: var(--arch-paper);
             color: var(--arch-bg);
         }
@@ -291,10 +296,10 @@
             max-width: 790px;
             margin: 0;
             color: inherit;
-            font-size: clamp(38px, 6vw, 88px);
-            line-height: 0.92;
+            font-size: clamp(38px, 5vw, 74px);
+            line-height: 0.96;
             font-weight: 900;
-            letter-spacing: -0.045em;
+            letter-spacing: -0.035em;
         }
 
         .material-copy p {
@@ -321,7 +326,7 @@
         .about-container {
             width: min(100% - 72px, 1320px);
             margin: 0 auto;
-            padding: 118px 0;
+            padding: 96px 0;
             border-top: 0;
         }
 
@@ -380,6 +385,7 @@
             color: var(--arch-muted);
             font-size: 16px;
             line-height: 1.65;
+            overflow-wrap: anywhere;
         }
 
         .process-section {
@@ -564,7 +570,7 @@
             clip-path: inset(0);
         }
 
-        .motion-ready .reveal {
+        .motion-ready [data-reveal] {
             opacity: 0;
             transform: translateY(34px);
             transition:
@@ -573,20 +579,9 @@
             transition-delay: var(--reveal-delay, 0ms);
         }
 
-        .motion-ready .reveal.is-visible {
+        .motion-ready [data-reveal][data-visible="true"] {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        .motion-ready .proof-list,
-        .motion-ready .services {
-            clip-path: inset(0 0 100% 0);
-            transition: clip-path 900ms cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .motion-ready .proof-list.is-visible,
-        .motion-ready .services.is-visible {
-            clip-path: inset(0);
         }
 
         .motion-ready .services-item::after {
@@ -595,7 +590,7 @@
             transition-delay: var(--reveal-delay, 0ms);
         }
 
-        .motion-ready .services-item.is-visible::after {
+        .motion-ready .services-item[data-visible="true"]::after {
             transform: scaleX(1);
         }
 
@@ -605,8 +600,8 @@
             transition: transform 1100ms cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .motion-ready .material-image.is-visible img,
-        .motion-ready .process-image.is-visible img {
+        .motion-ready .material-image[data-visible="true"] img,
+        .motion-ready .process-image[data-visible="true"] img {
             transform: scale(1);
         }
 
@@ -632,6 +627,7 @@
 
             .hero-wrap {
                 grid-template-columns: 1fr;
+                height: auto;
                 min-height: auto;
             }
 
@@ -649,11 +645,11 @@
 
             .main-content {
                 min-height: auto;
-                padding: 42px 18px 40px;
+                padding: 42px 18px 46px;
             }
 
             .main-content::before {
-                margin-bottom: 54px;
+                margin-bottom: 42px;
             }
 
             .tagline {
@@ -685,12 +681,17 @@
 
             .proof-strip {
                 gap: 32px;
-                padding: 58px 0 72px;
+                padding: 52px 0 64px;
+            }
+
+            .proof-strip::before {
+                margin-bottom: 0;
             }
 
             .proof-item {
                 grid-template-columns: 1fr;
                 gap: 10px;
+                padding: 24px 0;
             }
 
             .material-copy,
@@ -709,7 +710,7 @@
             }
 
             .about-container {
-                padding: 68px 0;
+                padding: 62px 0;
             }
 
             .about-heading {
@@ -741,12 +742,12 @@
             }
 
             h1 {
-                max-width: 9.5ch;
-                font-size: clamp(36px, 10.8vw, 43px);
-                line-height: 0.92;
-                letter-spacing: -0.035em;
-                overflow-wrap: anywhere;
-                word-break: break-word;
+                max-width: 11ch;
+                font-size: clamp(36px, 10.2vw, 42px);
+                line-height: 0.96;
+                letter-spacing: -0.025em;
+                overflow-wrap: normal;
+                word-break: normal;
             }
 
             .description {
@@ -774,9 +775,7 @@
             .main-content h1,
             .main-content .description,
             .tagline,
-            .reveal,
-            .proof-list,
-            .services,
+            [data-reveal],
             .services-item::after,
             .material-image img,
             .process-image img {
@@ -823,19 +822,19 @@
         <section id="kompetanse" class="content-shell" aria-label="Kompetanse">
             <div class="proof-strip">
                 <div class="proof-list">
-                    <div class="proof-item">
+                    <div class="proof-item" data-reveal>
                         <strong>Faglig sparring</strong>
                         <span>Bindeleddet mellom arkitekt og entreprenør.</span>
                     </div>
-                    <div class="proof-item">
+                    <div class="proof-item" data-reveal>
                         <strong>Materialvalg</strong>
                         <span>Vurdering av tekstur og farge i tidligfase.</span>
                     </div>
-                    <div class="proof-item">
+                    <div class="proof-item" data-reveal>
                         <strong>Teknisk kontroll</strong>
                         <span>Oppfølging av krevende detaljer.</span>
                     </div>
-                    <div class="proof-item">
+                    <div class="proof-item" data-reveal>
                         <strong>Erfaring</strong>
                         <span>Bred kompetanse fra betongprosjekter.</span>
                     </div>
@@ -844,33 +843,33 @@
         </section>
 
         <section class="material-band" aria-label="Materialforståelse">
-            <div class="material-copy">
+            <div class="material-copy" data-reveal>
                 <div class="section-number">Materiale</div>
                 <h2>Overflaten er ikke pynt. Den er prosjektets første tekniske beslutning.</h2>
                 <p>
                     Tekstur, støpeskjøter, matriser og fargespill må avklares før detaljene låses. Siden er derfor bygget som en faglig arbeidsflate, ikke en generell firmapresentasjon.
                 </p>
             </div>
-            <figure class="material-image">
+            <figure class="material-image" data-reveal>
                 <img src="arkitektur-gallery-tekstur.jpg" alt="Detalj av rå betongfasade">
             </figure>
         </section>
 
         <section id="fagfelt" class="about-container">
-            <div class="about-heading">
+            <div class="about-heading" data-reveal>
                 <div class="section-number">Fagfelt</div>
                 <h2>Våre fagområder</h2>
             </div>
             <div class="services">
-                <div class="services-item">
+                <div class="services-item" data-reveal>
                     <h3>Arkitektonisk betong</h3>
                     <p>Rådgivning om uttrykk, tekstur og synlige detaljer i prefabrikkerte og plasstøpte flater.</p>
                 </div>
-                <div class="services-item">
+                <div class="services-item" data-reveal>
                     <h3>Betongoverflater</h3>
                     <p>Planlegging av relieff, matriser og etterbehandling der overflaten er en del av arkitekturen.</p>
                 </div>
-                <div class="services-item">
+                <div class="services-item" data-reveal>
                     <h3>Formteknikk</h3>
                     <p>Tekniske avklaringer for støp og montasje i krevende prosjekter med høye krav til presisjon.</p>
                 </div>
@@ -878,23 +877,23 @@
         </section>
 
         <section id="om-siden" class="process-section">
-            <figure class="process-image">
+            <figure class="process-image" data-reveal>
                 <img src="arkitektur-gallery-fasade.jpg" alt="Fasade med geometriske betongelementer">
             </figure>
-            <div class="process-copy">
+            <div class="process-copy" data-reveal>
                 <div class="section-number">Design</div>
                 <h2>Designet for et smalt fagmiljø</h2>
-                <div class="package">
+                <div class="package" data-reveal>
                     <div>
                         <h3>Vis faglig retning uten å støye</h3>
                         <p>Nisjebedrifter selger ofte ekspertise som er vanskelig å kvantifisere. Nettsiden bør derfor fokusere på å vise forståelse for kundens utfordringer.</p>
                         <ul class="package-list">
-                            <li>Fokus på materialer og tekniske detaljer</li>
-                            <li>Tydelig vei for prosjektforespørsler</li>
-                            <li>Rent uttrykk som speiler arkitektonisk kvalitet</li>
+                            <li data-reveal>Fokus på materialer og tekniske detaljer</li>
+                            <li data-reveal>Tydelig vei for prosjektforespørsler</li>
+                            <li data-reveal>Rent uttrykk som speiler arkitektonisk kvalitet</li>
                         </ul>
                     </div>
-                    <div class="package-price">
+                    <div class="package-price" data-reveal>
                         <strong>Prosjektpris</strong>
                         <span>Nisjesider med spesifikke krav prises etter avtale.</span>
                     </div>
@@ -922,26 +921,9 @@
                 document.body.classList.add("motion-in");
             });
 
-            const revealTargets = [
-                ".proof-strip::before",
-                ".proof-list",
-                ".proof-item",
-                ".material-copy",
-                ".material-image",
-                ".about-heading",
-                ".services",
-                ".services-item",
-                ".process-image",
-                ".process-copy",
-                ".package",
-                ".package-list li",
-                ".package-price"
-            ];
-
-            const elements = document.querySelectorAll(revealTargets.filter((selector) => !selector.includes("::")).join(","));
+            const elements = document.querySelectorAll("[data-reveal]");
 
             elements.forEach((element, index) => {
-                element.classList.add("reveal");
                 element.style.setProperty("--reveal-delay", `${Math.min(index % 4, 3) * 70}ms`);
             });
 
@@ -951,7 +933,7 @@
                         return;
                     }
 
-                    entry.target.classList.add("is-visible");
+                    entry.target.dataset.visible = "true";
                     observer.unobserve(entry.target);
                 });
             }, {
