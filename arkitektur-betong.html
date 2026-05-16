@@ -9,106 +9,670 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Særpreg for Arkitektur: Visuelt, Sofistikert og Minimalistisk */
         :root {
-            --accent-arch: #8ca044; /* Den grønne fra originalen var fin */
-            --ink-dark: #121819;
+            --arch-bg: #111311;
+            --arch-bg-soft: #191c19;
+            --arch-paper: #e7e4dc;
+            --arch-paper-deep: #d1cec5;
+            --arch-ink: #f4f1e9;
+            --arch-muted: #a7a79d;
+            --arch-line: rgba(244, 241, 233, 0.18);
+            --arch-black-line: rgba(17, 19, 17, 0.22);
+            --arch-lime: #c4ff38;
+            --arch-rust: #a4502a;
+            --arch-shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background: #f3f0ea; /* Varmere gråtone/sand */
+            background: var(--arch-bg);
+            color: var(--arch-ink);
+            font-family: "SFMono-Regular", "Cascadia Code", "Cascadia Mono", "Roboto Mono", Consolas, "Liberation Mono", monospace;
+        }
+
+        body::before {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            content: "";
+            background:
+                linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                var(--arch-bg);
+            background-size: 96px 96px, 96px 96px, auto;
+        }
+
+        body::after {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            content: "";
+            pointer-events: none;
+            background: radial-gradient(circle at 72% 10%, rgba(196, 255, 56, 0.12), transparent 22%);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            width: 100%;
+            min-height: 72px;
+            padding: 0 clamp(18px, 4vw, 56px);
+            border-bottom: 1px solid var(--arch-line);
+            background: rgba(17, 19, 17, 0.82);
+            backdrop-filter: blur(16px);
+        }
+
+        .logo a,
+        .nav-links a {
+            color: var(--arch-ink);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        .logo a::before {
+            content: "";
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            margin-right: 10px;
+            border: 1px solid var(--arch-lime);
+            background: var(--arch-lime);
+            transform: translateY(1px);
+        }
+
+        .nav-links {
+            gap: 26px;
+        }
+
+        .nav-links a:hover {
+            color: var(--arch-lime);
+            text-decoration: none;
         }
 
         .hero-wrap {
-            min-height: 700px;
-            background: var(--ink-dark);
-            display: flex;
-            align-items: center;
+            display: grid;
+            grid-template-columns: minmax(42px, 8vw) minmax(0, 0.92fr) minmax(360px, 0.74fr);
+            min-height: 100svh;
+            overflow: hidden;
+            background: var(--arch-bg);
         }
 
-        .hero-wrap::before {
-            background: linear-gradient(180deg, rgba(18, 24, 25, 0.4) 0%, rgba(18, 24, 25, 0.9) 100%);
+        .hero-wrap::before,
+        .hero-wrap::after {
+            display: none;
+        }
+
+        .hero-paint {
+            position: static;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 100svh;
+            object-fit: cover;
+            object-position: 58% center;
+            filter: grayscale(0.32) contrast(1.12) saturate(0.72);
+            transform: none;
+            animation: none;
+            box-shadow: var(--arch-shadow);
+        }
+
+        .axis {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            min-height: 100svh;
+            padding: 92px 0 42px;
+            border-right: 1px solid var(--arch-line);
+            color: var(--arch-muted);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-size: 11px;
         }
 
         .main-content {
+            display: grid;
+            align-content: end;
+            max-width: none;
+            min-height: 100svh;
+            padding: 112px clamp(22px, 5vw, 72px) 58px;
             text-align: left;
-            max-width: 900px;
+        }
+
+        .main-content::before {
+            content: "";
+            display: block;
+            width: 58px;
+            margin-bottom: auto;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--arch-lime);
+            color: var(--arch-lime);
+            font-size: 13px;
+            letter-spacing: 0.18em;
         }
 
         h1 {
-            font-size: clamp(40px, 8vw, 80px);
+            max-width: 860px;
+            margin: 0 0 26px;
+            color: var(--arch-ink);
+            font-size: clamp(48px, 8.2vw, 128px);
+            line-height: 0.82;
             font-weight: 900;
-            line-height: 0.9;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.045em;
             text-shadow: none;
-            color: white;
         }
 
         .description {
-            font-size: 22px;
-            color: rgba(255,255,255,0.7);
+            max-width: 660px;
+            margin: 0;
+            color: var(--arch-muted);
+            font-size: clamp(17px, 1.55vw, 23px);
+            line-height: 1.55;
             text-shadow: none;
-            max-width: 600px;
-            margin-top: 20px;
+        }
+
+        .tagline {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0;
+            max-width: 830px;
+            margin: 46px 0 0;
+            border-top: 1px solid var(--arch-line);
+            border-bottom: 1px solid var(--arch-line);
+            color: var(--arch-ink);
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.35;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .tagline span {
+            min-height: 82px;
+            padding: 18px 20px;
+            border-right: 1px solid var(--arch-line);
+        }
+
+        .tagline span:last-child {
+            border-right: 0;
+        }
+
+        .content-shell {
+            width: 100%;
+            margin: 0;
         }
 
         .proof-strip {
-            background: white;
-            border-top: none;
-            margin-top: -60px;
-            position: relative;
-            z-index: 10;
-            padding: 50px;
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: minmax(210px, 0.55fr) minmax(0, 1fr);
+            gap: clamp(28px, 6vw, 86px);
+            width: min(100% - 72px, 1320px);
+            margin: 0 auto;
+            padding: 96px 0 112px;
+            border-top: 1px solid var(--arch-line);
+        }
+
+        .proof-strip::before {
+            content: "Kompetanseindeks";
+            color: var(--arch-lime);
+            font-size: 12px;
+            font-weight: 800;
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+        }
+
+        .proof-list {
+            display: grid;
+            border-top: 1px solid var(--arch-line);
         }
 
         .proof-item {
-            border-left: 1px solid var(--line);
-            padding-left: 20px;
+            display: grid;
+            grid-template-columns: minmax(190px, 0.42fr) minmax(0, 1fr);
+            gap: 28px;
+            align-items: baseline;
+            padding: 28px 0;
+            border-bottom: 1px solid var(--arch-line);
+        }
+
+        .proof-item strong,
+        .proof-item span {
+            display: block;
         }
 
         .proof-item strong {
-            font-size: 18px;
-            color: var(--ink-dark);
+            color: var(--arch-ink);
+            font-size: clamp(20px, 2.15vw, 32px);
+            line-height: 1;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+        }
+
+        .proof-item span {
+            color: var(--arch-muted);
+            font-size: 15px;
+            line-height: 1.55;
+        }
+
+        .material-band {
+            display: grid;
+            grid-template-columns: minmax(0, 0.82fr) minmax(360px, 0.55fr);
+            min-height: 680px;
+            background: var(--arch-paper);
+            color: var(--arch-bg);
+        }
+
+        .material-copy {
+            display: grid;
+            align-content: center;
+            padding: clamp(54px, 8vw, 112px);
+            border-right: 1px solid var(--arch-black-line);
+        }
+
+        .section-number {
+            margin-bottom: 34px;
+            color: var(--arch-rust);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0.18em;
+        }
+
+        h2 {
+            max-width: 790px;
+            margin: 0;
+            color: inherit;
+            font-size: clamp(38px, 6vw, 88px);
+            line-height: 0.92;
+            font-weight: 900;
+            letter-spacing: -0.045em;
+        }
+
+        .material-copy p {
+            max-width: 640px;
+            margin: 32px 0 0;
+            color: #3a3a35;
+            font-size: clamp(17px, 1.45vw, 21px);
+            line-height: 1.65;
+        }
+
+        .material-image {
+            min-height: 540px;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .material-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(0.08) contrast(1.08);
+        }
+
+        .about-container {
+            width: min(100% - 72px, 1320px);
+            margin: 0 auto;
+            padding: 118px 0;
+            border-top: 0;
+        }
+
+        .about-heading {
+            display: grid;
+            grid-template-columns: minmax(180px, 0.35fr) minmax(0, 1fr);
+            gap: clamp(28px, 6vw, 82px);
+            align-items: end;
+            margin-bottom: 58px;
+        }
+
+        .about-heading .section-number {
+            margin: 0;
+            color: var(--arch-lime);
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 0;
+            max-width: none;
+            border-top: 1px solid var(--arch-line);
         }
 
         .services-item {
-            border: none;
-            padding: 0;
+            display: grid;
+            grid-template-columns: minmax(210px, 0.44fr) minmax(0, 1fr) minmax(160px, 0.22fr);
+            gap: clamp(20px, 4vw, 56px);
+            align-items: center;
+            min-height: 158px;
+            padding: 28px 0;
+            border-bottom: 1px solid var(--arch-line);
+        }
+
+        .services-item::after {
+            content: "";
+            justify-self: end;
+            width: min(100%, 150px);
+            height: 1px;
+            background: var(--arch-lime);
         }
 
         .services-item h3 {
-            font-size: 24px;
-            border-bottom: 2px solid var(--accent-arch);
-            padding-bottom: 10px;
-            display: inline-block;
+            margin: 0;
+            color: var(--arch-ink);
+            font-size: clamp(24px, 3vw, 46px);
+            line-height: 0.96;
+            font-weight: 900;
+            letter-spacing: -0.035em;
         }
 
-        .about-container h2 {
-            font-size: 40px;
-            letter-spacing: -0.01em;
+        .services-item p {
+            max-width: 620px;
+            margin: 0;
+            color: var(--arch-muted);
+            font-size: 16px;
+            line-height: 1.65;
+        }
+
+        .process-section {
+            display: grid;
+            grid-template-columns: minmax(300px, 0.55fr) minmax(0, 0.85fr);
+            background: var(--arch-paper-deep);
+            color: var(--arch-bg);
+        }
+
+        .process-image {
+            min-height: 720px;
+            margin: 0;
+        }
+
+        .process-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(0.18) contrast(1.04);
+        }
+
+        .process-copy {
+            display: grid;
+            align-content: center;
+            padding: clamp(48px, 8vw, 112px);
+        }
+
+        .process-copy h2 {
+            max-width: 720px;
+        }
+
+        .process-copy p {
+            max-width: 610px;
+            margin: 32px 0 0;
+            color: #3b3b35;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .package {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
+            gap: clamp(34px, 7vw, 110px);
+            align-items: end;
+            margin-top: 54px;
+            border-top: 1px solid var(--arch-black-line);
+            padding-top: 42px;
+        }
+
+        .package h3 {
+            max-width: 520px;
+            margin: 0 0 20px;
+            color: var(--arch-bg);
+            font-size: clamp(26px, 3.3vw, 48px);
+            line-height: 1;
+            font-weight: 900;
+            letter-spacing: -0.035em;
+        }
+
+        .package p {
+            max-width: 650px;
+            margin: 0;
+            color: #3b3b35;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .package-list {
+            display: grid;
+            gap: 0;
+            margin: 34px 0 0;
+            padding: 0;
+            border-top: 1px solid var(--arch-black-line);
+            list-style: none;
+        }
+
+        .package-list li {
+            display: grid;
+            grid-template-columns: 34px minmax(0, 1fr);
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--arch-black-line);
+            color: #22231f;
+        }
+
+        .package-list li::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            margin-top: 7px;
+            background: var(--arch-rust);
         }
 
         .package-price {
-            border: none;
-            background: var(--ink-dark);
-            color: white;
-            padding: 40px;
+            border: 1px solid var(--arch-bg);
+            background: var(--arch-bg);
+            color: var(--arch-ink);
+            padding: 32px;
         }
 
         .package-price strong,
         .package-price span {
-            color: var(--accent-arch);
+            display: block;
+            color: inherit;
         }
 
         .package-price strong {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 34px;
-            line-height: 1;
+            margin-bottom: 18px;
+            color: var(--arch-lime);
+            font-size: clamp(28px, 3.4vw, 48px);
+            line-height: 0.95;
             font-weight: 900;
+            letter-spacing: -0.04em;
+        }
+
+        .package-price span {
+            color: var(--arch-muted);
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .footer {
+            width: 100%;
+            margin: 0;
+            padding: 30px clamp(18px, 4vw, 56px) 46px;
+            border-top: 1px solid var(--arch-line);
+            color: var(--arch-muted);
+            background: var(--arch-bg);
+            font-size: 12px;
+        }
+
+        .footer .container {
+            width: 100%;
+            margin: 0;
+        }
+
+        @media (max-width: 900px) {
+            .navbar {
+                position: sticky;
+                align-items: flex-start;
+                min-height: auto;
+                padding: 20px 18px;
+                background: var(--arch-bg);
+            }
+
+            .nav-controls,
+            .nav-links {
+                width: 100%;
+            }
+
+            .nav-links {
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .hero-wrap {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .axis {
+                display: none;
+            }
+
+            .hero-paint {
+                order: -1;
+                min-width: 0;
+                min-height: 360px;
+                height: 48svh;
+                object-position: 66% center;
+            }
+
+            .main-content {
+                min-height: auto;
+                padding: 42px 18px 40px;
+            }
+
+            .main-content::before {
+                margin-bottom: 54px;
+            }
+
+            .tagline {
+                grid-template-columns: 1fr;
+            }
+
+            .tagline span {
+                min-height: auto;
+                border-right: 0;
+                border-bottom: 1px solid var(--arch-line);
+            }
+
+            .tagline span:last-child {
+                border-bottom: 0;
+            }
+
+            .proof-strip,
+            .about-container {
+                width: min(100% - 36px, 620px);
+            }
+
+            .proof-strip,
+            .about-heading,
+            .material-band,
+            .process-section,
+            .package {
+                grid-template-columns: 1fr;
+            }
+
+            .proof-strip {
+                gap: 32px;
+                padding: 58px 0 72px;
+            }
+
+            .proof-item {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .material-copy,
+            .process-copy {
+                padding: 56px 18px;
+            }
+
+            .material-image,
+            .process-image {
+                min-height: 360px;
+            }
+
+            .material-copy {
+                border-right: 0;
+                border-bottom: 1px solid var(--arch-black-line);
+            }
+
+            .about-container {
+                padding: 68px 0;
+            }
+
+            .about-heading {
+                align-items: start;
+                margin-bottom: 38px;
+            }
+
+            .services-item {
+                grid-template-columns: 1fr;
+                gap: 18px;
+                min-height: auto;
+                padding: 30px 0;
+            }
+
+            .services-item::after {
+                justify-self: start;
+                width: 92px;
+            }
+
+            .package-price {
+                padding: 26px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .logo a,
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            h1 {
+                max-width: 9.5ch;
+                font-size: clamp(36px, 10.8vw, 43px);
+                line-height: 0.92;
+                letter-spacing: -0.035em;
+                overflow-wrap: anywhere;
+                word-break: break-word;
+            }
+
+            .description {
+                max-width: 100%;
+                font-size: 16px;
+            }
+
+            h2 {
+                font-size: clamp(36px, 13vw, 58px);
+                overflow-wrap: anywhere;
+            }
+
+            .proof-item {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
         }
     </style>
 </head>
@@ -120,45 +684,71 @@
         </div>
         <div class="nav-controls">
             <div class="nav-links">
+                <a href="#kompetanse">Kompetanse</a>
                 <a href="#fagfelt">Fagfelt</a>
                 <a href="#om-siden">Om designet</a>
             </div>
         </div>
     </nav>
 
-    <div class="hero-wrap">
-        <img class="hero-paint" src="arkitektur-eksempel-hero.png" alt="Arkitektur i betong">
-        <div class="container main-content">
-            <h1>Arkitektur og teknikk i formbar betong.</h1>
-            <div class="description">
-                Dette er et eksempel på hvordan en spesialisert fagbedrift kan forklare rådgivning og materialvalg uten å drukne i bransjespråk. 
+    <main>
+        <section class="hero-wrap" aria-labelledby="side-title">
+            <div class="axis">Betong / Overflate / Presisjon</div>
+            <div class="main-content">
+                <h1 id="side-title">Arkitektur og teknikk i formbar betong.</h1>
+                <p class="description">
+                    Dette er et eksempel på hvordan en spesialisert fagbedrift kan forklare rådgivning og materialvalg uten å drukne i bransjespråk.
+                </p>
+                <div class="tagline" aria-label="Kjernekompetanse">
+                    <span>Materialrådgivning</span>
+                    <span>Formteknikk</span>
+                    <span>Konstruksjonssparring</span>
+                </div>
             </div>
-            <div class="tagline">Materialrådgivning. Formteknikk. Konstruksjonssparring.</div>
-        </div>
-    </div>
+            <img class="hero-paint" src="arkitektur-eksempel-hero.png" alt="Arkitektur i betong">
+        </section>
 
-    <div class="container">
-        <div id="proof-section" class="proof-strip">
-            <div class="proof-item">
-                <strong>Faglig sparring</strong>
-                <span>Bindeleddet mellom arkitekt og entreprenør.</span>
+        <section id="kompetanse" class="content-shell" aria-label="Kompetanse">
+            <div class="proof-strip">
+                <div class="proof-list">
+                    <div class="proof-item">
+                        <strong>Faglig sparring</strong>
+                        <span>Bindeleddet mellom arkitekt og entreprenør.</span>
+                    </div>
+                    <div class="proof-item">
+                        <strong>Materialvalg</strong>
+                        <span>Vurdering av tekstur og farge i tidligfase.</span>
+                    </div>
+                    <div class="proof-item">
+                        <strong>Teknisk kontroll</strong>
+                        <span>Oppfølging av krevende detaljer.</span>
+                    </div>
+                    <div class="proof-item">
+                        <strong>Erfaring</strong>
+                        <span>Bred kompetanse fra betongprosjekter.</span>
+                    </div>
+                </div>
             </div>
-            <div class="proof-item">
-                <strong>Materialvalg</strong>
-                <span>Vurdering av tekstur og farge i tidligfase.</span>
-            </div>
-            <div class="proof-item">
-                <strong>Teknisk kontroll</strong>
-                <span>Oppfølging av krevende detaljer.</span>
-            </div>
-            <div class="proof-item">
-                <strong>Erfaring</strong>
-                <span>Bred kompetanse fra betongprosjekter.</span>
-            </div>
-        </div>
+        </section>
 
-        <div id="fagfelt" class="about-container">
-            <h2>Våre fagområder</h2>
+        <section class="material-band" aria-label="Materialforståelse">
+            <div class="material-copy">
+                <div class="section-number">Materiale</div>
+                <h2>Overflaten er ikke pynt. Den er prosjektets første tekniske beslutning.</h2>
+                <p>
+                    Tekstur, støpeskjøter, matriser og fargespill må avklares før detaljene låses. Siden er derfor bygget som en faglig arbeidsflate, ikke en generell firmapresentasjon.
+                </p>
+            </div>
+            <figure class="material-image">
+                <img src="arkitektur-gallery-tekstur.jpg" alt="Detalj av rå betongfasade">
+            </figure>
+        </section>
+
+        <section id="fagfelt" class="about-container">
+            <div class="about-heading">
+                <div class="section-number">Fagfelt</div>
+                <h2>Våre fagområder</h2>
+            </div>
             <div class="services">
                 <div class="services-item">
                     <h3>Arkitektonisk betong</h3>
@@ -173,28 +763,33 @@
                     <p>Tekniske avklaringer for støp og montasje i krevende prosjekter med høye krav til presisjon.</p>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div id="om-siden" class="about-container">
-            <h2>Designet for et smalt fagmiljø</h2>
-            <div class="package">
-                <div>
-                    <h3>Vis faglig retning uten å støye</h3>
-                    <p>Nisjebedrifter selger ofte ekspertise som er vanskelig å kvantifisere. Nettsiden bør derfor fokusere på å vise forståelse for kundens utfordringer.</p>
-                    <ul class="package-list">
-                        <li>Fokus på materialer og tekniske detaljer</li>
-                        <li>Tydelig vei for prosjektforespørsler</li>
-                        <li>Rent uttrykk som speiler arkitektonisk kvalitet</li>
-                    </ul>
-                </div>
-                <div class="package-price">
-                    <strong>Prosjektpris</strong>
-                    <span>Nisjesider med spesifikke krav prises etter avtale.</span>
+        <section id="om-siden" class="process-section">
+            <figure class="process-image">
+                <img src="arkitektur-gallery-fasade.jpg" alt="Fasade med geometriske betongelementer">
+            </figure>
+            <div class="process-copy">
+                <div class="section-number">Design</div>
+                <h2>Designet for et smalt fagmiljø</h2>
+                <div class="package">
+                    <div>
+                        <h3>Vis faglig retning uten å støye</h3>
+                        <p>Nisjebedrifter selger ofte ekspertise som er vanskelig å kvantifisere. Nettsiden bør derfor fokusere på å vise forståelse for kundens utfordringer.</p>
+                        <ul class="package-list">
+                            <li>Fokus på materialer og tekniske detaljer</li>
+                            <li>Tydelig vei for prosjektforespørsler</li>
+                            <li>Rent uttrykk som speiler arkitektonisk kvalitet</li>
+                        </ul>
+                    </div>
+                    <div class="package-price">
+                        <strong>Prosjektpris</strong>
+                        <span>Nisjesider med spesifikke krav prises etter avtale.</span>
+                    </div>
                 </div>
             </div>
-        </div>
-
-    </div>
+        </section>
+    </main>
 
     <footer class="footer">
         <div class="container">
