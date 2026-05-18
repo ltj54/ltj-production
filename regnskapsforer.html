@@ -20,64 +20,285 @@
     <style>
         /* Særpreg for Regnskapsfører: Strukturert og Formelt */
         :root {
-            --accent-finance: #2c3e50;
-            --bg-soft: #f8f9fa;
+            --accent-finance: #107c41;
+            --finance-dark: #0e5f35;
+            --finance-grid: #d8e2d4;
+            --finance-grid-strong: #b9c8b5;
+            --finance-sheet: #ffffff;
+            --finance-header: #eaf3e8;
+            --bg-soft: #f5f8f3;
         }
 
         body {
             background: var(--bg-soft);
+            font-family: Aptos, Calibri, "Segoe UI", Arial, sans-serif;
+            color: #17251d;
+        }
+
+        .navbar {
+            width: 100%;
+            min-height: 54px;
+            margin: 0;
+            padding: 0 max(24px, calc((100% - 980px) / 2));
+            border-bottom: 1px solid #0b4f2a;
+            background: var(--accent-finance);
+            color: #ffffff;
+        }
+
+        .logo a,
+        .nav-links a {
+            color: #ffffff;
+        }
+
+        .nav-links a {
+            font-size: 14px;
         }
 
         .hero-wrap {
-            min-height: 500px;
-            background: var(--accent-finance);
-            color: white;
+            min-height: 430px;
+            border-bottom: 1px solid var(--finance-grid-strong);
+            background:
+                linear-gradient(90deg, rgba(16, 124, 65, 0.08) 0 1px, transparent 1px 100%),
+                linear-gradient(180deg, rgba(16, 124, 65, 0.08) 0 1px, transparent 1px 100%),
+                linear-gradient(180deg, #ffffff 0%, #f3f8f1 100%);
+            background-size: 72px 72px, 72px 36px, 100% 100%;
+            color: #17251d;
         }
 
         .hero-wrap::before {
-            background: linear-gradient(135deg, rgba(44, 62, 80, 0.95) 0%, rgba(52, 73, 94, 0.8) 100%);
+            display: none;
         }
 
-        .hero-paint {
-            opacity: 0.3;
-            filter: grayscale(1);
+        .hero-wrap::after {
+            display: none;
         }
 
         h1 {
+            max-width: 680px;
             text-shadow: none;
+            font-size: clamp(34px, 4.4vw, 50px);
+            font-weight: 700;
         }
 
         .description, .tagline {
-            color: rgba(255, 255, 255, 0.9);
+            color: #34443a;
             text-shadow: none;
         }
 
+        .tagline {
+            display: inline-block;
+            border-left: 4px solid var(--accent-finance);
+            margin-top: 22px;
+            padding: 8px 0 8px 14px;
+            color: var(--finance-dark);
+            background: rgba(255, 255, 255, 0.72);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 340px;
+            gap: 54px;
+            align-items: center;
+            max-width: 1060px;
+            padding-top: 104px;
+            padding-bottom: 86px;
+            text-align: left;
+        }
+
+        .hero-copy {
+            max-width: 680px;
+        }
+
+        .finance-calc {
+            border: 1px solid var(--finance-grid-strong);
+            background: var(--finance-sheet);
+            box-shadow: 0 14px 28px rgba(16, 89, 48, 0.08);
+            font-size: 14px;
+        }
+
+        .calc-title {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            border-bottom: 1px solid var(--finance-grid-strong);
+            padding: 8px 10px;
+            color: #ffffff;
+            background: var(--accent-finance);
+            font-weight: 700;
+        }
+
+        .calc-formula {
+            border-bottom: 1px solid var(--finance-grid);
+            padding: 9px 10px;
+            color: #34443a;
+            background: #f8fbf7;
+            white-space: nowrap;
+        }
+
+        .calc-formula span {
+            display: inline-block;
+            width: 0;
+            max-width: 100%;
+            overflow: hidden;
+            vertical-align: bottom;
+            animation: formula-type 1.2s steps(9, end) 240ms forwards;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 42px 1fr 112px;
+        }
+
+        .calc-cell {
+            min-height: 34px;
+            border-right: 1px solid var(--finance-grid);
+            border-bottom: 1px solid var(--finance-grid);
+            padding: 7px 9px;
+        }
+
+        .calc-cell:nth-child(3n) {
+            border-right: 0;
+            text-align: right;
+        }
+
+        .calc-row-head,
+        .calc-col-head {
+            color: #5d6c63;
+            background: var(--finance-header);
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .calc-result-label,
+        .calc-result-value {
+            background: #f2fff6;
+            font-weight: 700;
+        }
+
+        .calc-result-value {
+            color: var(--finance-dark);
+            animation: result-confirm 700ms ease-out 1.7s both;
+        }
+
+        @keyframes formula-type {
+            to {
+                width: 9ch;
+            }
+        }
+
+        @keyframes result-confirm {
+            0% {
+                background: #f2fff6;
+                box-shadow: inset 0 0 0 0 rgba(16, 124, 65, 0);
+            }
+
+            45% {
+                background: #dff4e6;
+                box-shadow: inset 0 0 0 2px rgba(16, 124, 65, 0.42);
+            }
+
+            100% {
+                background: #f2fff6;
+                box-shadow: inset 0 0 0 1px rgba(16, 124, 65, 0.16);
+            }
+        }
+
+        .container:not(.main-content) {
+            width: min(100% - 48px, 1060px);
+        }
+
         .about-container {
-            background: white;
-            border: 1px solid var(--line);
-            margin-top: -40px;
+            background: var(--finance-sheet);
+            border: 1px solid var(--finance-grid-strong);
+            margin-top: 18px;
             position: relative;
             z-index: 5;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            padding: 60px 40px;
+            box-shadow: none;
+            padding: 0;
         }
 
         .proof-strip {
-            margin-top: 0;
-            border-top: none;
-            background: #fff;
-            padding: 40px;
-            border-bottom: 1px solid var(--line);
+            margin-top: -28px;
+            border-top: 1px solid var(--finance-grid-strong);
+            background: var(--finance-sheet);
+            gap: 0;
+            padding: 0;
+            border-bottom: 1px solid var(--finance-grid-strong);
+        }
+
+        .proof-item {
+            padding: 18px 20px;
+            border-right: 1px solid var(--finance-grid);
+        }
+
+        .proof-item:last-child {
+            border-right: 0;
+        }
+
+        .proof-item strong {
+            color: var(--finance-dark);
+            font-size: 14px;
+        }
+
+        .proof-item span {
+            color: #46564d;
+        }
+
+        .about-container > h2 {
+            margin: 0;
+            border-bottom: 1px solid var(--finance-grid-strong);
+            padding: 14px 20px;
+            color: #ffffff;
+            background: var(--accent-finance);
+            font-size: 20px;
+            font-weight: 700;
         }
 
         .services-item {
-            border-left: 3px solid var(--accent-finance);
-            padding-left: 20px;
+            border-right: 1px solid var(--finance-grid);
+            padding: 22px 20px 24px;
+        }
+
+        .services-item:last-child {
+            border-right: 0;
+        }
+
+        .services-item h3 {
+            color: var(--finance-dark);
+            font-size: 16px;
+        }
+
+        .services-item p,
+        .package p {
+            color: #46564d;
+        }
+
+        .package {
+            gap: 0;
+            padding: 24px 20px;
+            align-items: stretch;
+        }
+
+        .package > div:first-child {
+            padding-right: 28px;
         }
 
         .package-price {
-            background: var(--bg-soft);
-            border-color: var(--accent-finance);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--finance-header);
+            border-color: var(--finance-grid-strong);
+            text-align: left;
+        }
+
+        .package-price strong {
+            color: var(--finance-dark);
+            font-size: 24px;
+        }
+
+        .package-list {
+            color: #17251d;
         }
 
         .contact-form input, .contact-form textarea {
@@ -86,6 +307,67 @@
 
         .contact-form input:focus, .contact-form textarea:focus {
             outline-color: var(--accent-finance);
+        }
+
+        @media (max-width: 760px) {
+            .navbar {
+                padding: 0 24px;
+            }
+
+            .hero-wrap {
+                min-height: auto;
+            }
+
+            .hero-wrap::before,
+            .hero-wrap::after {
+                display: none;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 28px;
+                padding-top: 74px;
+                padding-bottom: 58px;
+            }
+
+            .finance-calc {
+                max-width: 380px;
+            }
+
+            .proof-strip,
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .proof-item,
+            .services-item {
+                border-right: 0;
+                border-bottom: 1px solid var(--finance-grid);
+            }
+
+            .proof-item:last-child,
+            .services-item:last-child {
+                border-bottom: 0;
+            }
+
+            .package {
+                padding: 20px;
+            }
+
+            .package > div:first-child {
+                padding-right: 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .calc-formula span,
+            .calc-result-value {
+                animation: none;
+            }
+
+            .calc-formula span {
+                width: auto;
+            }
         }
     </style>
 </head>
@@ -104,16 +386,72 @@
     </nav>
 
     <div class="hero-wrap">
-        <img class="hero-paint" src="regnskap-meeting.jpg" alt="Regnskapsfører i møte med kunde">
         <div class="container main-content">
-            <h1>Regnskap som gir små bedrifter bedre oversikt.</h1>
-            <div class="description">
-                Dette er et eksempel på hvordan en regnskapsfører kan fremstå profesjonell, ryddig og tilgjengelig. 
-                Siden fokuserer på kontroll, faste rutiner og svar man faktisk forstår.
+            <div class="hero-copy">
+                <h1>Regnskap, lønn og rapportering for små bedrifter.</h1>
+                <div class="description">
+                    Et nøkternt sideoppsett for en regnskapsfører: tydelige tjenester, faste rutiner og enkel kontakt.
+                </div>
+                <div class="tagline">Autorisert regnskapsfører. Fast kontaktperson. Månedlig rapportering.</div>
             </div>
-            <div class="tagline">Autorisert regnskapsfører. Fast kontaktperson. Digital flyt.</div>
+
+            <aside class="finance-calc" aria-label="Eksempel på enkel månedsutregning">
+                <div class="calc-title">
+                    <span>Månedsrapport</span>
+                    <span>April</span>
+                </div>
+                <div class="calc-formula"><span>=B2-B3-B4</span></div>
+                <div class="calc-grid">
+                    <div class="calc-cell calc-col-head"></div>
+                    <div class="calc-cell calc-col-head">A</div>
+                    <div class="calc-cell calc-col-head">B</div>
+                    <div class="calc-cell calc-row-head">2</div>
+                    <div class="calc-cell">Inntekter</div>
+                    <div class="calc-cell">128 400</div>
+                    <div class="calc-cell calc-row-head">3</div>
+                    <div class="calc-cell">Kostnader</div>
+                    <div class="calc-cell">71 250</div>
+                    <div class="calc-cell calc-row-head">4</div>
+                    <div class="calc-cell">MVA avsatt</div>
+                    <div class="calc-cell">14 350</div>
+                    <div class="calc-cell calc-row-head">5</div>
+                    <div class="calc-cell calc-result-label">Resultat</div>
+                    <div class="calc-cell calc-result-value" data-result="42800">0</div>
+                </div>
+            </aside>
         </div>
     </div>
+
+    <script>
+        (() => {
+            const result = document.querySelector("[data-result]");
+            if (!result) return;
+
+            const target = Number(result.dataset.result);
+            const format = new Intl.NumberFormat("nb-NO");
+            const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            if (prefersReducedMotion) {
+                result.textContent = format.format(target);
+                return;
+            }
+
+            const duration = 1400;
+            const start = performance.now();
+
+            const tick = (now) => {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                result.textContent = format.format(Math.round(target * eased));
+
+                if (progress < 1) {
+                    requestAnimationFrame(tick);
+                }
+            };
+
+            requestAnimationFrame(tick);
+        })();
+    </script>
 
     <div class="container">
         <div id="proof-section" class="about-container proof-strip">
@@ -194,7 +532,7 @@
 
     <footer class="footer">
         <div class="container">
-            &copy; ltj-production. Dette er en eksempelside. Foto: Pexels.
+            &copy; ltj-production. Dette er en eksempelside.
         </div>
     </footer>
 </body>
