@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ltj-production | Nettside for små firma fra 3.990 kr</title>
     <meta name="description" content="Profesjonelle nettsider for små firmaer fra 3.990 kr, med tydelig tekst, kontaktvei, lokal synlighet og mulighet for videreutvikling.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="nb_NO">
+    <meta property="og:site_name" content="ltj-production">
+    <meta property="og:title" content="ltj-production | Nettside for små firma fra 3.990 kr">
+    <meta property="og:description" content="Profesjonelle nettsider for små firmaer fra 3.990 kr, med tydelig tekst, kontaktvei, lokal synlighet og mulighet for videreutvikling.">
+    <meta property="og:url" content="https://www.ltj-production.no/">
+    <meta property="og:image" content="https://www.ltj-production.no/hero-paint-cans.png">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://www.ltj-production.no/">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
@@ -13,14 +21,30 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "ltj-production",
-        "description": "Profesjonelle nettsider for små firmaer fra 3.990 kr, med tydelig tekst, kontaktvei, lokal synlighet og mulighet for videreutvikling.",
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "General",
-            "email": "kontakt@ltj-production.no"
-        }
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://www.ltj-production.no/#organization",
+                "name": "ltj-production",
+                "url": "https://www.ltj-production.no/",
+                "logo": "https://www.ltj-production.no/ltj-production%20logo.png",
+                "description": "Profesjonelle nettsider for små firmaer fra 3.990 kr, med tydelig tekst, kontaktvei, lokal synlighet og mulighet for videreutvikling.",
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "General",
+                    "email": "kontakt@ltj-production.no"
+                }
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://www.ltj-production.no/#website",
+                "url": "https://www.ltj-production.no/",
+                "name": "ltj-production",
+                "publisher": {
+                    "@id": "https://www.ltj-production.no/#organization"
+                }
+            }
+        ]
     }
     </script>
 </head>
