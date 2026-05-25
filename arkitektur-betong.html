@@ -913,10 +913,12 @@
 
     <footer class="footer">
         <div class="container">
-            &copy; ltj-production. Dette er en eksempelside. Foto: Pexels.
+            &copy; Dette er en eksempelside. Foto: Pexels.
         </div>
     </footer>
     <script>
+        document.getElementById("current-year").textContent = String(new Date().getFullYear());
+
         (() => {
             const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

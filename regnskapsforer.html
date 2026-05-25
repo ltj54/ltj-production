@@ -532,9 +532,16 @@
 
     <footer class="footer">
         <div class="container">
-            &copy; ltj-production. Dette er en eksempelside.
+            &copy; Dette er en eksempelside.
         </div>
     </footer>
+
+    <script>
+        const currentYear = document.getElementById("current-year");
+        if (currentYear) {
+            currentYear.textContent = String(new Date().getFullYear());
+        }
+    </script>
 </body>
 
 </html>

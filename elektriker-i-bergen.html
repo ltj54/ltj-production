@@ -231,8 +231,15 @@
     </div>
 
     <footer class="footer">
-        &copy; ltj-production. Dette er en eksempelside. Foto: Pexels.
+        &copy; Dette er en eksempelside. Foto: Pexels.
     </footer>
+
+    <script>
+        const currentYear = document.getElementById("current-year");
+        if (currentYear) {
+            currentYear.textContent = String(new Date().getFullYear());
+        }
+    </script>
 </body>
 
 </html>
