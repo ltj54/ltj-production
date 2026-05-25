@@ -70,7 +70,7 @@
         }
 
         .main-content {
-            padding: 100px 0;
+            padding: var(--hero-content-padding-top) 0 var(--hero-content-padding-bottom);
             text-align: left;
         }
 
@@ -119,6 +119,10 @@
         }
 
         @media (max-width: 700px) {
+            .main-content {
+                padding: var(--hero-content-mobile-padding-top) 0 var(--hero-content-mobile-padding-bottom);
+            }
+
             h1, .description, .tagline {
                 margin-left: 0;
             }
