@@ -17,25 +17,43 @@
     <link rel="canonical" href="https://www.ltj-production.no/nettsidesjekk.html">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Nettsidesjekk og retting",
+            "provider": {
+                "@type": "Organization",
+                "name": "ltj-production",
+                "url": "https://www.ltj-production.no/"
+            },
+            "areaServed": "NO",
+            "url": "https://www.ltj-production.no/nettsidesjekk.html",
+            "description": "Praktisk nettsidesjekk og hjelp til å rette konkrete funn på nettsiden."
+        }
+    </script>
 </head>
 
 <body>
-    <nav class="navbar" aria-label="Toppnavigasjon">
-        <div class="logo">
-            <a href="/">ltj-production</a>
-        </div>
-        <div class="nav-controls">
-            <div class="nav-links">
-                <a href="nettsider.html">Nettsider</a>
-                <a href="nettsidesjekk.html" aria-current="page">Nettsidesjekk</a>
-                <a href="#contact-section">Kontakt</a>
+    <header>
+        <nav class="navbar" aria-label="Toppnavigasjon">
+            <div class="logo">
+                <a href="/">ltj-production</a>
             </div>
-        </div>
-    </nav>
+            <div class="nav-controls">
+                <div class="nav-links">
+                    <a href="nettsider.html">Nettsider</a>
+                    <a href="nettsidesjekk.html" aria-current="page">Nettsidesjekk</a>
+                    <a href="#contact-section">Kontakt</a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
     <div class="hero-wrap">
-        <img class="hero-paint" src="hero-paint-cans.png" alt="" aria-hidden="true">
+        <img class="hero-paint" src="hero-paint-cans.png" alt="Fargerike malingsspann som symboliserer nettsideforbedring">
         <div class="container main-content">
+            <h1>Nettsidesjekk med praktisk retting.</h1>
             <div class="description">
                 Vi finner konkrete ting som svekker tillit, kontaktvei, innhold, personvern,
                 UU og tekniske signaler, og retter det som kan løses innenfor en praktisk jobb.
@@ -83,19 +101,40 @@
         </section>
 
         <section class="container about-container">
-            <h2>Slik fungerer flyten</h2>
-            <div class="services">
+            <div class="package">
+                <div>
+                    <h3>Hvorfor velge manuell sjekk?</h3>
+                    <p>Mange gratisverktøy gir deg en lang liste med tekniske feilmeldinger som er vanskelige å forstå. Vi går et steg videre.</p>
+                    <ul class="package-list">
+                        <li><strong>Vi tolker funnene:</strong> Vi ser på hva som faktisk påvirker tillit og salg.</li>
+                        <li><strong>Vi fikser feilene:</strong> Vi nøyer oss ikke med å finne feil, vi retter dem for deg.</li>
+                        <li><strong>Praktisk verdi:</strong> Du får en ryddigere nettside, ikke bare en rapport.</li>
+                    </ul>
+                </div>
+                <div class="package-price">
+                    <strong>Ekspertise</strong>
+                    <span>fremfor automatikk</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="container about-container">
+            <h2>Slik fungerer prosessen</h2>
+            <div class="services flow-steps">
                 <div class="services-item">
-                    <h3>1. URL og svar</h3>
-                    <p>URL normaliseres, for eksempel fra domenenavn.no til gyldig adresse. Backend sjekker om siden svarer teknisk.</p>
+                    <div class="step-number">1</div>
+                    <h3>URL og analyse</h3>
+                    <p>Vi mottar lenken og kjører en omfattende teknisk og innholdsmessig analyse av startsiden og viktige undersider.</p>
                 </div>
                 <div class="services-item">
-                    <h3>2. Henting og analyse</h3>
-                    <p>Hvis siden svarer, hentes HTML og HTTP-headere. Innholdet parses, analyseres og vurderes mot flere signalgrupper.</p>
+                    <div class="step-number">2</div>
+                    <h3>Praktisk retting</h3>
+                    <p>Vi prioriterer de viktigste funnene og retter det som kan løses umiddelbart innenfor rammen av oppdraget.</p>
                 </div>
                 <div class="services-item">
-                    <h3>3. Undersider og rapport</h3>
-                    <p>Inntil 6 relevante interne sider kan sjekkes, før funnene grupperes og vises i rapporten. Hvis URL kan kobles til BRREG-treff, kan relevante virksomheter vises.</p>
+                    <div class="step-number">3</div>
+                    <h3>Rapport og veien videre</h3>
+                    <p>Du får en oversiktlig rapport over hva som er rettet, og konkrete forslag til større tiltak hvis det trengs.</p>
                 </div>
             </div>
         </section>
@@ -247,16 +286,68 @@
             </div>
         </section>
 
+        <section class="container about-container">
+            <h2>Slik kan et funn se ut</h2>
+            <div class="report-example">
+                <div class="example-box warning">
+                    <div class="example-header">
+                        <span class="status-badge warning">Bør vurderes</span>
+                        <h4>Manglende personverninfo</h4>
+                    </div>
+                    <p><strong>Hvorfor:</strong> Siden har kontaktskjema, men ingen lenke til personvernerklæring. Dette svekker tilliten og bryter med god praksis.</p>
+                    <p class="fix-action"><strong>Vår løsning:</strong> Vi setter opp en enkel personvernside og kobler den til skjemaet ditt.</p>
+                </div>
+                <div class="example-box success">
+                    <div class="example-header">
+                        <span class="status-badge success">Utført</span>
+                        <h4>Optimale metadata</h4>
+                    </div>
+                    <p><strong>Hvorfor:</strong> Siden manglet beskrivelse for Google, noe som ga dårlig synlighet.</p>
+                    <p class="fix-action"><strong>Vår løsning:</strong> Vi har skrevet og lagt inn en selgende meta-beskrivelse som øker klikkraten.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container about-container">
+            <h2>Se en fullstendig eksempelrapport</h2>
+            <div class="pdf-container">
+                <iframe src="eksempelrapport-oslo.pdf" title="Eksempelrapport for nettsidesjekk" width="100%" height="600px" style="border: 1px solid var(--line); border-radius: 8px;">
+                    <p>Nettleseren din støtter ikke visning av PDF. <a href="eksempelrapport-oslo.pdf">Last ned rapporten her.</a></p>
+                </iframe>
+            </div>
+            <div class="description" style="margin-top: 16px;">
+                Dette er et eksempel på en rapport for en større offentlig aktør. Rapporten gir en nøytral og teknisk vurdering av nettsiden.
+            </div>
+        </section>
+
+        <section class="container about-container">
+            <h2>Ofte stilte spørsmål</h2>
+            <div class="services faq-grid">
+                <div class="services-item">
+                    <h3>Hvor lang tid tar det?</h3>
+                    <p>Normalt har vi sjekken og de første rettelsene klare innen 24-48 timer etter at vi har mottatt tilgang.</p>
+                </div>
+                <div class="services-item">
+                    <h3>Hvilke systemer støtter dere?</h3>
+                    <p>Vi jobber med de fleste plattformer, inkludert WordPress, Shopify, Squarespace og spesialbygde løsninger (Vite, React, HTML).</p>
+                </div>
+                <div class="services-item">
+                    <h3>Hva om feilen er for stor?</h3>
+                    <p>Hvis vi finner kritiske feil som krever omfattende utvikling, får dere et konkret pristilbud på dette i rapporten.</p>
+                </div>
+            </div>
+        </section>
+
         <section id="contact-section" class="container about-container">
             <h2>Få nettsiden rettet</h2>
             <div class="description">
                 Send lenken til nettsiden og kort hva dere vil forbedre. Vi svarer med hvordan vi kan ta en praktisk sjekk og retting.
             </div>
             <form class="contact-form" data-contact-form action="https://formspree.io/f/mrejyzgd" method="POST">
-                <input type="hidden" name="_subject" value="Ny henvendelse om nettsidesjekk og retting">
-                <label class="honeypot-field">
+                <input type="hidden" name="_subject" value="Ny henvendelse om nettsidesjekk og retting" aria-label="Emne">
+                <label class="honeypot-field" for="contact-gotcha">
                     Ikke fyll ut dette feltet
-                    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+                    <input id="contact-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
                 </label>
 
                 <div class="form-grid">
@@ -286,13 +377,17 @@
                 <div class="form-actions">
                     <button class="cta" type="submit">Send nettside</button>
                 </div>
+                <p class="form-privacy">
+                    Når du sender skjemaet, behandler vi opplysningene for å svare på henvendelsen. Les mer i
+                    <a href="personvern.html">personvernerklæringen</a>.
+                </p>
                 <output class="form-status" data-form-status aria-live="polite" for="contact-name contact-company contact-email contact-phone contact-message"></output>
             </form>
         </section>
     </main>
 
     <footer class="footer">
-        &copy; <span id="current-year"></span>. All rights reserved.
+        &copy; <span id="current-year"></span> ltj-production. <a href="personvern.html">Personvern</a>.
     </footer>
 
     <script>

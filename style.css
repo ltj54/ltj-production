@@ -444,6 +444,107 @@ h3 {
     font-size: 14px;
 }
 
+.legal-page {
+    max-width: 760px;
+}
+
+.legal-page p {
+    color: var(--muted);
+}
+
+/* Prosess-steg */
+.flow-steps .services-item {
+    position: relative;
+    padding-top: 48px;
+}
+
+.step-number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    background: var(--text);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+/* Eksempelrapport */
+.report-example {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.example-box {
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+.example-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.example-header h4 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.status-badge {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.status-badge.warning {
+    background: #fff4e5;
+    color: #663c00;
+}
+
+.status-badge.success {
+    background: #e6f4ea;
+    color: #137333;
+}
+
+.fix-action {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--line);
+    color: var(--muted);
+}
+
+/* FAQ */
+.faq-grid .services-item h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+/* PDF Embed */
+.pdf-container {
+    width: 100%;
+    overflow: hidden;
+    background: #fafafa;
+    border-radius: 8px;
+}
+
+@media (max-width: 700px) {
+    .pdf-container iframe {
+        height: 450px;
+    }
+}
+
 @media (max-width: 700px) {
     body {
         padding: 0;

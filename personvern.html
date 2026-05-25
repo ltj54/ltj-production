@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personvern | ltj-production</title>
+    <meta name="description" content="Personvernerklæring for ltj-production.no og kontaktskjemaet på nettsiden.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="nb_NO">
+    <meta property="og:site_name" content="ltj-production">
+    <meta property="og:title" content="Personvern | ltj-production">
+    <meta property="og:description" content="Personvernerklæring for ltj-production.no og kontaktskjemaet på nettsiden.">
+    <meta property="og:url" content="https://www.ltj-production.no/personvern.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="canonical" href="https://www.ltj-production.no/personvern.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar" aria-label="Toppnavigasjon">
+            <div class="logo">
+                <a href="/">ltj-production</a>
+            </div>
+            <div class="nav-controls">
+                <div class="nav-links">
+                    <a href="nettsider.html">Nettsider</a>
+                    <a href="nettsidesjekk.html">Nettsidesjekk</a>
+                    <a href="personvern.html" aria-current="page">Personvern</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="container about-container legal-page">
+            <h1>Personvern</h1>
+            <p>
+                ltj-production behandler personopplysninger du selv sender inn via kontaktskjemaet,
+                typisk navn, virksomhet, e-post, telefon og innholdet i meldingen.
+            </p>
+            <p>
+                Opplysningene brukes for å svare på henvendelsen, vurdere behovet ditt og følge opp
+                eventuell dialog om nettside, nettsidesjekk eller retting. Behandlingsgrunnlaget er
+                berettiget interesse i å kunne svare på henvendelser og eventuelt forberede en avtale.
+            </p>
+            <p>
+                Skjemaet sendes via Formspree, som fungerer som teknisk leverandør for innsendingen.
+                Ikke send sensitive personopplysninger gjennom skjemaet.
+            </p>
+            <p>
+                Opplysningene lagres ikke lenger enn nødvendig for å følge opp henvendelsen. Du kan be
+                om innsyn, retting eller sletting av opplysninger som gjelder deg.
+            </p>
+            <p>
+                Nettsiden bruker ikke analyse- eller markedsføringscookies i denne løsningen. Dersom
+                dette endres, skal siden oppdateres med tydelig informasjon om formål og samtykke.
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        &copy; <span id="current-year"></span> ltj-production. <a href="/">Forside</a>.
+    </footer>
+
+    <script>
+        const currentYear = document.getElementById("current-year");
+
+        if (currentYear) {
+            currentYear.textContent = String(new Date().getFullYear());
+        }
+    </script>
+</body>
+
+</html>

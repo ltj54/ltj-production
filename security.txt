@@ -1,0 +1,4 @@
+Contact: https://www.ltj-production.no/#contact-section
+Preferred-Languages: no, en
+Canonical: https://www.ltj-production.no/security.txt
+Expires: 2027-05-25T00:00:00Z

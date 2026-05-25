@@ -917,7 +917,11 @@
         </div>
     </footer>
     <script>
-        document.getElementById("current-year").textContent = String(new Date().getFullYear());
+        const currentYear = document.getElementById("current-year");
+
+        if (currentYear) {
+            currentYear.textContent = String(new Date().getFullYear());
+        }
 
         (() => {
             const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

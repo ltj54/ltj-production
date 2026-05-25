@@ -17,25 +17,43 @@
     <link rel="canonical" href="https://www.ltj-production.no/nettsider.html">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": "Nettsider for små virksomheter",
+            "provider": {
+                "@type": "Organization",
+                "name": "ltj-production",
+                "url": "https://www.ltj-production.no/"
+            },
+            "areaServed": "NO",
+            "url": "https://www.ltj-production.no/nettsider.html",
+            "description": "Nettsider for bedrifter, ENK og selvstendig næringsdrivende."
+        }
+    </script>
 </head>
 
 <body>
-    <nav class="navbar" aria-label="Toppnavigasjon">
-        <div class="logo">
-            <a href="/">ltj-production</a>
-        </div>
-        <div class="nav-controls">
-            <div class="nav-links">
-                <a href="nettsider.html" aria-current="page">Nettsider</a>
-                <a href="nettsidesjekk.html">Nettsidesjekk</a>
-                <a href="#contact-section">Kontakt</a>
+    <header>
+        <nav class="navbar" aria-label="Toppnavigasjon">
+            <div class="logo">
+                <a href="/">ltj-production</a>
             </div>
-        </div>
-    </nav>
+            <div class="nav-controls">
+                <div class="nav-links">
+                    <a href="nettsider.html" aria-current="page">Nettsider</a>
+                    <a href="nettsidesjekk.html">Nettsidesjekk</a>
+                    <a href="#contact-section">Kontakt</a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
     <div class="hero-wrap">
-        <img class="hero-paint" src="hero-paint-cans.png" alt="" aria-hidden="true">
+        <img class="hero-paint" src="hero-paint-cans.png" alt="Fargerike malingsspann som symboliserer nettsidedesign">
         <div class="container main-content">
+            <h1>Nettsider som gjør tilbudet ditt lett å forstå.</h1>
             <div class="description">
                 Vi lager nettsider som forklarer hva du tilbyr, hvem det passer for og hvordan kunder tar kontakt.
             </div>
@@ -167,10 +185,10 @@
                 Send litt informasjon om virksomheten og hva du trenger hjelp med, så svarer vi med forslag til løsning og pris.
             </div>
             <form class="contact-form" data-contact-form action="https://formspree.io/f/mrejyzgd" method="POST">
-                <input type="hidden" name="_subject" value="Ny henvendelse om nettside fra ltj-production.no">
-                <label class="honeypot-field">
+                <input type="hidden" name="_subject" value="Ny henvendelse om nettside fra ltj-production.no" aria-label="Emne">
+                <label class="honeypot-field" for="contact-gotcha">
                     Ikke fyll ut dette feltet
-                    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+                    <input id="contact-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off">
                 </label>
 
                 <div class="form-grid">
@@ -200,13 +218,17 @@
                 <div class="form-actions">
                     <button class="cta" type="submit">Send forespørsel</button>
                 </div>
+                <p class="form-privacy">
+                    Når du sender skjemaet, behandler vi opplysningene for å svare på henvendelsen. Les mer i
+                    <a href="personvern.html">personvernerklæringen</a>.
+                </p>
                 <output class="form-status" data-form-status aria-live="polite" for="contact-name contact-company contact-email contact-phone contact-message"></output>
             </form>
         </section>
     </main>
 
     <footer class="footer">
-        &copy; <span id="current-year"></span>. All rights reserved.
+        &copy; <span id="current-year"></span> ltj-production. <a href="personvern.html">Personvern</a>.
     </footer>
 
     <script>
