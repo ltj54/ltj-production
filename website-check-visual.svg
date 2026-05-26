@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 260" role="img" aria-labelledby="title desc">
+  <title id="title">Nettsidesjekk</title>
+  <desc id="desc">En enkel nettleserflate med sjekkpunkter og en markert feil.</desc>
+  <rect width="420" height="260" fill="#f6faf3"/>
+  <rect x="54" y="42" width="312" height="176" rx="10" fill="#ffffff" stroke="#111111" stroke-width="4"/>
+  <path d="M54 82h312" stroke="#111111" stroke-width="4"/>
+  <circle cx="76" cy="62" r="6" fill="#111111"/>
+  <circle cx="96" cy="62" r="6" fill="#111111"/>
+  <circle cx="116" cy="62" r="6" fill="#111111"/>
+  <rect x="78" y="110" width="116" height="12" rx="2" fill="#111111"/>
+  <rect x="78" y="136" width="176" height="8" rx="2" fill="#d7e7cf"/>
+  <rect x="78" y="154" width="142" height="8" rx="2" fill="#d7e7cf"/>
+  <rect x="78" y="172" width="190" height="8" rx="2" fill="#d7e7cf"/>
+  <path d="m278 119 14 14 29-34" fill="none" stroke="#246b3d" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
+  <path d="m286 169 28 28m0-28-28 28" stroke="#9f2424" stroke-linecap="round" stroke-width="8"/>
+</svg>

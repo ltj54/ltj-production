@@ -78,87 +78,23 @@ a {
 .hero-wrap {
     position: relative;
     isolation: isolate;
-    min-height: 650px;
+    min-height: 560px;
     overflow: hidden;
-}
-
-.hero-wrap::before,
-.hero-wrap::after {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    content: "";
-    pointer-events: none;
-}
-
-.hero-wrap::before {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
     background:
-        radial-gradient(ellipse at 50% 43%, rgb(255 255 255 / 0.94) 0 18%, rgb(255 255 255 / 0.82) 33%, rgb(255 255 255 / 0.28) 58%, transparent 74%),
-        linear-gradient(180deg, rgb(255 255 255 / 0.54) 0%, rgb(255 255 255 / 0.08) 55%, rgb(255 255 255 / 0.82) 100%);
+        linear-gradient(#eef5ea 1px, transparent 1px),
+        linear-gradient(90deg, #eef5ea 1px, transparent 1px),
+        #fbfdf9;
+    background-size: 42px 42px, 42px 42px, auto;
 }
 
-.hero-wrap::after {
-    inset: -22% -14%;
-    background:
-        linear-gradient(90deg, rgb(255 255 255 / 0.12), transparent 18% 82%, rgb(255 255 255 / 0.12)),
-        radial-gradient(circle at center, rgb(255 75 75 / 0.2), transparent 46%),
-        radial-gradient(circle at center, rgb(70 130 255 / 0.18), transparent 48%),
-        linear-gradient(115deg, transparent 0 34%, rgb(255 255 255 / 0.46) 43%, rgb(255 255 255 / 0.2) 48%, transparent 58% 100%);
-    background-size: 100% 100%, 70% 80%, 70% 80%, 135% 100%;
-    background-position: center, 0 62%, 100% 62%, -42% 0;
-    mix-blend-mode: screen;
-    animation: hero-light-sweep 6.5s ease-in-out infinite;
-}
-
-.hero-paint {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    z-index: -2;
-    width: min(100vw, 1680px);
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    transform: translateX(-50%);
-    filter: saturate(1.04) contrast(1.02);
-    animation: hero-image-drift 11s ease-in-out infinite alternate;
-    will-change: transform, filter;
-}
-
-@keyframes hero-image-drift {
-    0% {
-        filter: saturate(1.04) contrast(1.02);
-        transform: translateX(-50%) scale(1);
-    }
-
-    48% {
-        filter: saturate(1.18) contrast(1.05) brightness(1.03);
-        transform: translateX(calc(-50% - 7px)) scale(1.035) translateY(-8px);
-    }
-
-    100% {
-        filter: saturate(1.1) contrast(1.04);
-        transform: translateX(calc(-50% + 6px)) scale(1.045) translateY(-12px);
-    }
-}
-
-@keyframes hero-light-sweep {
-    0%,
-    18% {
-        opacity: 0.72;
-        background-position: center, 0 62%, 100% 62%, -42% 0;
-    }
-
-    44% {
-        opacity: 1;
-        background-position: center, 8% 58%, 92% 58%, 48% 0;
-    }
-
-    68%,
-    100% {
-        opacity: 0.78;
-        background-position: center, 2% 64%, 98% 64%, 145% 0;
-    }
+.hero-visual {
+    display: block;
+    width: min(180px, 52vw);
+    height: auto;
+    margin: 0 auto 30px;
+    border: 1px solid var(--line);
 }
 
 .main-content {
@@ -583,18 +519,9 @@ h3 {
         padding-bottom: 60px;
     }
 
-    .hero-wrap::before {
-        background:
-            radial-gradient(ellipse at 50% 40%, rgb(255 255 255 / 0.98) 0 30%, rgb(255 255 255 / 0.9) 50%, rgb(255 255 255 / 0.42) 75%, transparent 95%),
-            linear-gradient(180deg, rgb(255 255 255 / 0.72) 0%, rgb(255 255 255 / 0.12) 54%, rgb(255 255 255 / 0.9) 100%);
-    }
-
-    .hero-paint {
-        left: 50%;
-        width: 140%;
-        min-width: 600px;
-        height: 100%;
-        object-position: center top;
+    .hero-visual {
+        width: min(150px, 58vw);
+        margin-bottom: 24px;
     }
 
     .main-content {
@@ -658,10 +585,5 @@ h3 {
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
-    }
-
-    .hero-wrap::after,
-    .hero-paint {
-        animation: none;
     }
 }
