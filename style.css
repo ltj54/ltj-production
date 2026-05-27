@@ -157,6 +157,14 @@ h1 {
     background: var(--bg);
 }
 
+.subtle-link {
+    display: inline-block;
+    margin-top: 18px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 .about-container {
     border-top: 1px solid var(--line);
     padding: 44px 0 52px;
