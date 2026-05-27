@@ -475,9 +475,27 @@ h3 {
     border-radius: 8px;
 }
 
+.pdf-mobile-action {
+    display: none;
+}
+
 @media (max-width: 700px) {
-    .pdf-container iframe {
-        height: 450px;
+    .pdf-container {
+        display: flex;
+        justify-content: center;
+        padding: 18px;
+        border: 1px solid var(--line);
+    }
+
+    .pdf-inline {
+        display: none;
+    }
+
+    .pdf-mobile-action {
+        display: inline-flex;
+        width: 100%;
+        max-width: 320px;
+        margin-top: 0;
     }
 }
 
