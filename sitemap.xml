@@ -3,26 +3,26 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 sitemap.xsd">
     <url>
-        <loc>https://www.ltj-prd.no/</loc>
-        <lastmod>2026-05-25</lastmod>
+        <loc>https://www.ltj-production.no/</loc>
+        <lastmod>2025-01-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://www.ltj-prd.no/nettsider.html</loc>
-        <lastmod>2026-05-25</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://www.ltj-prd.no/nettsidesjekk.html</loc>
-        <lastmod>2026-05-25</lastmod>
+        <loc>https://www.ltj-production.no/nettsider.html</loc>
+        <lastmod>2025-01-14</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.ltj-prd.no/personvern.html</loc>
-        <lastmod>2026-05-25</lastmod>
+        <loc>https://www.ltj-production.no/nettsidesjekk.html</loc>
+        <lastmod>2025-01-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://www.ltj-production.no/personvern.html</loc>
+        <lastmod>2025-01-14</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
