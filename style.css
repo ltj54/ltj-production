@@ -140,6 +140,32 @@ a {
     margin: 0 auto 30px;
     border: none;
     mix-blend-mode: multiply;
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    transform: translateY(4px) scale(0.985);
+    filter: blur(1.6px);
+    animation: hero-visual-draw 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) 120ms forwards;
+    will-change: clip-path, transform, opacity, filter;
+}
+
+@keyframes hero-visual-draw {
+    0% {
+        opacity: 0;
+        clip-path: inset(0 100% 0 0);
+        transform: translateY(4px) scale(0.985);
+        filter: blur(1.6px);
+    }
+
+    42% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
 }
 
 .main-content {
@@ -715,6 +741,14 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .hero-visual {
+        animation: none;
+        opacity: 1;
+        clip-path: none;
+        transform: none;
+        filter: none;
+    }
+
     html {
         scroll-behavior: auto;
     }
