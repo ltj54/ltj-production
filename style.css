@@ -91,10 +91,11 @@ a {
 
 .hero-visual {
     display: block;
-    width: min(180px, 52vw);
+    width: min(240px, 65vw);
     height: auto;
     margin: 0 auto 30px;
-    border: 1px solid var(--line);
+    border: none;
+    mix-blend-mode: multiply;
 }
 
 .main-content {
