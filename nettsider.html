@@ -38,7 +38,7 @@
     <header>
         <nav class="navbar" aria-label="Toppnavigasjon">
             <div class="logo">
-                <a href="/">ltj-prd</a>
+                <a href="/">Hjem</a>
             </div>
             <div class="nav-controls">
                 <div class="nav-links">
@@ -166,6 +166,20 @@
             <div class="description">
                 Send litt informasjon om hva du driver med og hva siden må gjøre. Jeg svarer med forslag til side og pris.
             </div>
+            <div class="form-actions">
+                <button class="cta" id="open-contact-modal">Ta kontakt</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        &copy; <span id="current-year"></span> ltj-prd. <a href="personvern.html">Personvern</a>.
+    </footer>
+
+    <div class="modal-overlay" id="contact-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal">&times;</button>
+            <h2>Ta kontakt</h2>
             <form class="contact-form" data-contact-form action="https://formspree.io/f/mrejyzgd" method="POST">
                 <input type="hidden" name="_subject" value="Ny henvendelse om nettside fra ltj-production.no" aria-label="Emne">
                 <label class="honeypot-field" for="contact-gotcha">
@@ -206,18 +220,61 @@
                 </p>
                 <output class="form-status" data-form-status aria-live="polite" for="contact-name contact-company contact-email contact-phone contact-message"></output>
             </form>
-        </section>
-    </main>
+        </div>
+    </div>
 
-    <footer class="footer">
-        &copy; <span id="current-year"></span> ltj-prd. <a href="personvern.html">Personvern</a>.
-    </footer>
+    <div class="thank-you-popup" id="thank-you-popup">
+        <span>Takk. Forespørselen er sendt.</span>
+        <button class="close-thank-you" id="close-thank-you">&times;</button>
+    </div>
 
     <script>
         const currentYear = document.getElementById("current-year");
 
         if (currentYear) {
             currentYear.textContent = String(new Date().getFullYear());
+        }
+
+        // Modal functionality
+        const modal = document.getElementById("contact-modal");
+        const openModalBtn = document.getElementById("open-contact-modal");
+        const closeModalBtn = document.getElementById("close-modal");
+
+        if (openModalBtn && modal) {
+            openModalBtn.addEventListener("click", () => {
+                modal.classList.add("open");
+            });
+        }
+
+        if (closeModalBtn && modal) {
+            closeModalBtn.addEventListener("click", () => {
+                modal.classList.remove("open");
+            });
+        }
+
+        window.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                modal.classList.remove("open");
+            }
+        });
+
+        // Thank you popup functionality
+        const thankYouPopup = document.getElementById("thank-you-popup");
+        const closeThankYouBtn = document.getElementById("close-thank-you");
+        let thankYouTimeout;
+
+        function showThankYou() {
+            thankYouPopup.classList.add("open");
+            thankYouTimeout = setTimeout(hideThankYou, 3000);
+        }
+
+        function hideThankYou() {
+            thankYouPopup.classList.remove("open");
+            clearTimeout(thankYouTimeout);
+        }
+
+        if (closeThankYouBtn) {
+            closeThankYouBtn.addEventListener("click", hideThankYou);
         }
 
         const contactForm = document.querySelector("[data-contact-form]");
@@ -247,7 +304,9 @@
 
                     if (response.ok) {
                         contactForm.reset();
-                        formStatus.textContent = "Takk. Forespørselen er sendt.";
+                        formStatus.textContent = "";
+                        modal.classList.remove("open");
+                        showThankYou();
                     } else {
                         formStatus.textContent = "Kunne ikke sende akkurat nå. Prøv igjen litt senere.";
                     }
