@@ -134,7 +134,7 @@ a {
 }
 
 .hero-visual {
-    display: block;
+    position: relative;
     width: min(240px, 65vw);
     height: auto;
     margin: 0 auto 30px;
@@ -146,6 +146,47 @@ a {
     filter: blur(1.6px);
     animation: hero-visual-draw 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) 120ms forwards;
     will-change: clip-path, transform, opacity, filter;
+}
+
+.hero-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.mast-light {
+    position: absolute;
+    left: 53.35%;
+    top: 15.4%;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: mastBlink 8.8s ease-in-out infinite, rainbowCycle 8.8s linear infinite;
+}
+
+@keyframes mastBlink {
+    0%, 45% {
+        opacity: 1;
+        box-shadow: 0 0 4px currentColor,
+                    0 0 8px currentColor;
+    }
+
+    55%, 100% {
+        opacity: 0.18;
+        box-shadow: 0 0 1px currentColor;
+    }
+}
+
+@keyframes rainbowCycle {
+    0% { color: #ff0000; background: #ff0000; }
+    15% { color: #ff8000; background: #ff8000; }
+    30% { color: #ffff00; background: #ffff00; }
+    45% { color: #00ff00; background: #00ff00; }
+    60% { color: #0000ff; background: #0000ff; }
+    75% { color: #4b0082; background: #4b0082; }
+    90% { color: #ee82ee; background: #ee82ee; }
+    100% { color: #ff0000; background: #ff0000; }
 }
 
 @keyframes hero-visual-draw {
