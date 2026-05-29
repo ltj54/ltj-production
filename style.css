@@ -669,6 +669,11 @@ h3 {
     .hero-visual {
         width: min(150px, 58vw);
         margin-bottom: 24px;
+        opacity: 1;
+        clip-path: none;
+        transform: none;
+        filter: none;
+        animation: none;
     }
 
     .main-content {
