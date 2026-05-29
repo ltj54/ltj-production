@@ -623,6 +623,12 @@ h3 {
 }
 
 @media (max-width: 700px) {
+    .mast-light {
+        width: 1.5px;
+        height: 1.5px;
+        box-shadow: 0 0 1px currentColor;
+    }
+    
     body {
         padding: 0;
     }
