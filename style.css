@@ -33,6 +33,14 @@ a {
     color: inherit;
 }
 
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+}
+
 .navbar,
 .container,
 .footer {
@@ -70,7 +78,7 @@ a {
     bottom: -6px;
     width: 100%;
     height: 4px;
-    background-color: #4ade80;
+    background-color: #000000;
     opacity: 1;
     transform: scaleX(1);
     transform-origin: left center;
@@ -84,7 +92,7 @@ a {
     bottom: -6px;
     width: 100%;
     height: 4px;
-    background-color: #4ade80;
+    background-color: #000000;
     opacity: 0;
     transform: scaleX(0.82);
     transform-origin: left center;
@@ -127,9 +135,9 @@ a {
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
     background:
-        linear-gradient(#eef5ea 1px, transparent 1px),
-        linear-gradient(90deg, #eef5ea 1px, transparent 1px),
-        #fbfdf9;
+        linear-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+        #ffffff;
     background-size: 42px 42px, 42px 42px, auto;
 }
 
@@ -152,14 +160,15 @@ a {
     display: block;
     width: 100%;
     height: auto;
+    filter: grayscale(1) contrast(2.4);
 }
 
 .mast-light {
     position: absolute;
-    left: 53.35%;
-    top: 15.4%;
-    width: 2px;
-    height: 2px;
+    left: 50.91%;
+    top: 21.39%;
+    width: 3px;
+    height: 3px;
     border-radius: 50%;
     transform: translate(-50%, -50%);
     animation: mastBlink 8.8s ease-in-out infinite, rainbowCycle 8.8s linear infinite;
@@ -570,8 +579,8 @@ h3 {
 }
 
 .status-badge.success {
-    background: #e6f4ea;
-    color: #137333;
+    background: #000000;
+    color: #ffffff;
 }
 
 .fix-action {
@@ -624,8 +633,8 @@ h3 {
 
 @media (max-width: 700px) {
     .mast-light {
-        width: 1.5px;
-        height: 1.5px;
+        width: 2px;
+        height: 2px;
         box-shadow: 0 0 1px currentColor;
     }
     
