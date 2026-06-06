@@ -135,32 +135,30 @@ header {
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
     background:
-        linear-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 0, 0, 0.08) 1px, transparent 1px),
-        #ffffff;
+        linear-gradient(#eef5ea 1px, transparent 1px),
+        linear-gradient(90deg, #eef5ea 1px, transparent 1px),
+        #fbfdf9;
     background-size: 42px 42px, 42px 42px, auto;
 }
 
-.hero-visual {
+.hero-visual-container {
     position: relative;
     width: min(240px, 65vw);
-    height: auto;
     margin: 0 auto 30px;
     border: none;
     mix-blend-mode: multiply;
-    opacity: 0;
-    clip-path: inset(0 100% 0 0);
-    transform: translateY(4px) scale(0.985);
-    filter: blur(1.6px);
-    animation: hero-visual-draw 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) 120ms forwards;
-    will-change: clip-path, transform, opacity, filter;
 }
 
-.hero-visual img {
+.hero-visual {
     display: block;
     width: 100%;
     height: auto;
-    filter: grayscale(1) contrast(2.4);
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    transform: translateY(4px) scale(0.985);
+    filter: grayscale(1) contrast(2.4) blur(1.6px);
+    animation: hero-visual-draw 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) 120ms forwards;
+    will-change: clip-path, transform, opacity, filter;
 }
 
 .mast-light {
@@ -203,7 +201,7 @@ header {
         opacity: 0;
         clip-path: inset(0 100% 0 0);
         transform: translateY(4px) scale(0.985);
-        filter: blur(1.6px);
+        filter: grayscale(1) contrast(2.4) blur(1.6px);
     }
 
     42% {
@@ -214,7 +212,7 @@ header {
         opacity: 1;
         clip-path: inset(0 0 0 0);
         transform: translateY(0) scale(1);
-        filter: blur(0);
+        filter: grayscale(1) contrast(2.4) blur(0);
     }
 }
 
@@ -675,13 +673,16 @@ h3 {
         padding-bottom: 60px;
     }
 
-    .hero-visual {
+    .hero-visual-container {
         width: min(150px, 58vw);
         margin-bottom: 24px;
+    }
+
+    .hero-visual {
         opacity: 1;
         clip-path: none;
         transform: none;
-        filter: none;
+        filter: grayscale(1) contrast(2.4);
         animation: none;
     }
 
@@ -749,7 +750,7 @@ h3 {
         opacity: 1;
         clip-path: none;
         transform: none;
-        filter: none;
+        filter: grayscale(1) contrast(2.4);
     }
 }
 
