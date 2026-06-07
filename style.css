@@ -4,9 +4,9 @@
     --text: #000000;
     --muted: #333333;
     --line: #e5e5e5;
-    --hero-content-padding-top: 220px;
+    --hero-content-padding-top: 74px;
     --hero-content-padding-bottom: 46px;
-    --hero-content-mobile-padding-top: 132px;
+    --hero-content-mobile-padding-top: 54px;
     --hero-content-mobile-padding-bottom: 22px;
 }
 
@@ -143,77 +143,96 @@ header {
 
 .hero-visual-container {
     position: relative;
-    width: min(240px, 65vw);
-    margin: 0 auto 30px;
+    width: min(470px, 70vw);
+    aspect-ratio: 1672 / 941;
+    margin: 0 auto 24px;
     border: none;
     mix-blend-mode: multiply;
+}
+
+.hero-visual-container::before,
+.hero-visual-container::after {
+    content: "";
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    top: 22.7%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+}
+
+.hero-visual-container::before {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: mast-color 18s ease-in-out infinite, mast-pulse 6.8s ease-in-out infinite;
+}
+
+.hero-visual-container::after {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: radial-gradient(circle, currentColor 0 8%, transparent 62%);
+    opacity: 0.48;
+    animation: mast-color 18s ease-in-out infinite, mast-halo 6.8s ease-in-out infinite;
 }
 
 .hero-visual {
     display: block;
     width: 100%;
     height: auto;
-    opacity: 0;
-    clip-path: inset(0 100% 0 0);
-    transform: translateY(4px) scale(0.985);
-    filter: grayscale(1) contrast(2.4) blur(1.6px);
-    animation: hero-visual-draw 1.8s cubic-bezier(0.2, 0.8, 0.2, 1) 120ms forwards;
-    will-change: clip-path, transform, opacity, filter;
+    filter: blur(0.35px) contrast(0.94);
 }
 
-.mast-light {
+.hero-frame {
     position: absolute;
-    left: 50.91%;
-    top: 21.39%;
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: mastBlink 8.8s ease-in-out infinite, rainbowCycle 8.8s linear infinite;
+    inset: 0;
+    opacity: 0;
+    animation: hero-frame-cycle 12s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    will-change: opacity;
 }
 
-@keyframes mastBlink {
-    0%, 45% {
-        opacity: 1;
-        box-shadow: 0 0 4px currentColor,
-                    0 0 8px currentColor;
-    }
-
-    55%, 100% {
-        opacity: 0.18;
-        box-shadow: 0 0 1px currentColor;
-    }
+.hero-frame-1 {
+    opacity: 1;
 }
 
-@keyframes rainbowCycle {
-    0% { color: #ff0000; background: #ff0000; }
-    15% { color: #ff8000; background: #ff8000; }
-    30% { color: #ffff00; background: #ffff00; }
-    45% { color: #00ff00; background: #00ff00; }
-    60% { color: #0000ff; background: #0000ff; }
-    75% { color: #4b0082; background: #4b0082; }
-    90% { color: #ee82ee; background: #ee82ee; }
-    100% { color: #ff0000; background: #ff0000; }
+.hero-frame-2 {
+    animation-delay: -8s;
 }
 
-@keyframes hero-visual-draw {
-    0% {
-        opacity: 0;
-        clip-path: inset(0 100% 0 0);
-        transform: translateY(4px) scale(0.985);
-        filter: grayscale(1) contrast(2.4) blur(1.6px);
-    }
+.hero-frame-3 {
+    animation-delay: -4s;
+}
 
-    42% {
-        opacity: 1;
-    }
+@keyframes hero-frame-cycle {
+    0%, 25% { opacity: 0.96; }
+    35%, 90% { opacity: 0; }
+    100% { opacity: 0.96; }
+}
 
-    100% {
-        opacity: 1;
-        clip-path: inset(0 0 0 0);
-        transform: translateY(0) scale(1);
-        filter: grayscale(1) contrast(2.4) blur(0);
-    }
+@keyframes mast-color {
+    0%, 100% { color: #ffd400; }
+    14% { color: #ff6b00; }
+    28% { color: #ff2d55; }
+    42% { color: #bf5af2; }
+    57% { color: #0a84ff; }
+    71% { color: #30d5c8; }
+    85% { color: #7ee35b; }
+}
+
+@keyframes mast-pulse {
+    0%, 100% { opacity: 0.46; box-shadow: 0 0 2px currentColor; }
+    38% { opacity: 0.72; box-shadow: 0 0 3px currentColor, 0 0 5px currentColor; }
+    58% { opacity: 1; box-shadow: 0 0 4px currentColor, 0 0 7px currentColor; }
+    76% { opacity: 0.68; box-shadow: 0 0 3px currentColor; }
+}
+
+@keyframes mast-halo {
+    0%, 100% { opacity: 0.16; transform: translate(-50%, -50%) scale(0.72); }
+    48% { opacity: 0.36; transform: translate(-50%, -50%) scale(0.92); }
+    62% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+    82% { opacity: 0.24; transform: translate(-50%, -50%) scale(0.8); }
 }
 
 .main-content {
@@ -630,12 +649,6 @@ h3 {
 }
 
 @media (max-width: 700px) {
-    .mast-light {
-        width: 2px;
-        height: 2px;
-        box-shadow: 0 0 1px currentColor;
-    }
-    
     body {
         padding: 0;
     }
@@ -674,16 +687,12 @@ h3 {
     }
 
     .hero-visual-container {
-        width: min(150px, 58vw);
+        width: min(350px, 82vw);
         margin-bottom: 24px;
     }
 
     .hero-visual {
-        opacity: 1;
-        clip-path: none;
-        transform: none;
-        filter: grayscale(1) contrast(2.4);
-        animation: none;
+        filter: none;
     }
 
     .main-content {
@@ -745,12 +754,19 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .hero-visual {
+    .hero-visual-container::before,
+    .hero-visual-container::after {
         animation: none;
+        color: #ffd400;
+    }
+
+    .hero-frame {
+        animation: none;
+        opacity: 0;
+    }
+
+    .hero-frame-1 {
         opacity: 1;
-        clip-path: none;
-        transform: none;
-        filter: grayscale(1) contrast(2.4);
     }
 }
 
