@@ -134,11 +134,12 @@ header {
     overflow: hidden;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
-    background:
+    background-image:
         linear-gradient(#eef5ea 1px, transparent 1px),
-        linear-gradient(90deg, #eef5ea 1px, transparent 1px),
-        #fbfdf9;
-    background-size: 42px 42px, 42px 42px, auto;
+        linear-gradient(90deg, #eef5ea 1px, transparent 1px);
+    background-color: #fbfdf9;
+    background-size: 42px 42px, 42px 42px;
+    animation: hero-day-cycle 36s ease-in-out infinite;
 }
 
 .hero-visual-container {
@@ -148,6 +149,8 @@ header {
     margin: 0 auto 24px;
     border: none;
     mix-blend-mode: multiply;
+    overflow: hidden;
+    isolation: isolate;
 }
 
 .hero-visual-container::before,
@@ -179,36 +182,81 @@ header {
 }
 
 .hero-visual {
+    position: absolute;
+    inset: 0;
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: contain;
     filter: blur(0.35px) contrast(0.94);
 }
 
-.hero-frame {
+.hero-cloud-layer {
+    z-index: 1;
+    animation: hero-cloud-drift 28s ease-in-out infinite alternate;
+    will-change: transform, opacity;
+}
+
+.hero-terrain-layer {
+    z-index: 2;
+    animation: hero-terrain-parallax 18s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+.hero-water-layer {
+    z-index: 3;
+    transform-origin: center 88%;
+    animation: hero-water-shimmer 7s ease-in-out infinite alternate;
+    will-change: transform, filter;
+}
+
+.hero-water-glimmer {
     position: absolute;
-    inset: 0;
-    opacity: 0;
-    animation: hero-frame-cycle 12s cubic-bezier(0.45, 0, 0.55, 1) infinite;
-    will-change: opacity;
+    z-index: 4;
+    left: -30%;
+    bottom: 1%;
+    width: 38%;
+    height: 17%;
+    opacity: 0.24;
+    transform: skewX(-18deg);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+    filter: blur(3px);
+    mix-blend-mode: screen;
+    animation: hero-water-glimmer 12s ease-in-out infinite;
+    pointer-events: none;
 }
 
-.hero-frame-1 {
-    opacity: 1;
+.hero-static {
+    z-index: 5;
+    display: none;
 }
 
-.hero-frame-2 {
-    animation-delay: -8s;
+@keyframes hero-cloud-drift {
+    from { transform: translate3d(-1.2%, 0, 0) scale(1.015); opacity: 0.72; }
+    to { transform: translate3d(1.6%, -0.5%, 0) scale(1.025); opacity: 0.9; }
 }
 
-.hero-frame-3 {
-    animation-delay: -4s;
+@keyframes hero-terrain-parallax {
+    from { transform: translate3d(-0.35%, 0.15%, 0) scale(1.004); }
+    to { transform: translate3d(0.35%, -0.15%, 0) scale(1.008); }
 }
 
-@keyframes hero-frame-cycle {
-    0%, 25% { opacity: 0.96; }
-    35%, 90% { opacity: 0; }
-    100% { opacity: 0.96; }
+@keyframes hero-water-shimmer {
+    from { transform: translate3d(-0.3%, 0, 0) scaleX(1.002); filter: blur(0.25px) contrast(0.9); }
+    to { transform: translate3d(0.45%, 0.2%, 0) scaleX(1.008); filter: blur(0.7px) contrast(0.84); }
+}
+
+@keyframes hero-water-glimmer {
+    0%, 15% { left: -35%; opacity: 0; }
+    42% { opacity: 0.22; }
+    70%, 100% { left: 105%; opacity: 0; }
+}
+
+@keyframes hero-day-cycle {
+    0%, 100% { background-color: #fbfdf9; }
+    28% { background-color: #f5fbff; }
+    58% { background-color: #f8f3e8; }
+    78% { background-color: #e8edf5; }
 }
 
 @keyframes mast-color {
@@ -754,19 +802,25 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .hero-wrap {
+        animation: none;
+    }
+
     .hero-visual-container::before,
     .hero-visual-container::after {
         animation: none;
         color: #ffd400;
     }
 
-    .hero-frame {
-        animation: none;
-        opacity: 0;
+    .hero-cloud-layer,
+    .hero-terrain-layer,
+    .hero-water-layer,
+    .hero-water-glimmer {
+        display: none;
     }
 
-    .hero-frame-1 {
-        opacity: 1;
+    .hero-static {
+        display: block;
     }
 }
 
