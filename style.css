@@ -139,7 +139,7 @@ header {
         linear-gradient(90deg, #eef5ea 1px, transparent 1px);
     background-color: #fbfdf9;
     background-size: 42px 42px, 42px 42px;
-    animation: hero-day-cycle 36s ease-in-out infinite;
+    animation: hero-day-cycle 120s ease-in-out infinite;
 }
 
 .hero-visual-container {
@@ -169,7 +169,7 @@ header {
     height: 3px;
     border-radius: 50%;
     background: currentColor;
-    animation: mast-color 18s ease-in-out infinite, mast-pulse 6.8s ease-in-out infinite;
+    animation: mast-color 60s ease-in-out infinite, mast-pulse 22s ease-in-out infinite;
 }
 
 .hero-visual-container::after {
@@ -178,7 +178,7 @@ header {
     border-radius: 50%;
     background: radial-gradient(circle, currentColor 0 8%, transparent 62%);
     opacity: 0.48;
-    animation: mast-color 18s ease-in-out infinite, mast-halo 6.8s ease-in-out infinite;
+    animation: mast-color 60s ease-in-out infinite, mast-halo 22s ease-in-out infinite;
 }
 
 .hero-visual {
@@ -193,21 +193,21 @@ header {
 
 .hero-cloud-layer {
     z-index: 1;
-    animation: hero-cloud-drift 28s ease-in-out infinite alternate;
+    animation: hero-cloud-drift 120s ease-in-out infinite alternate;
     will-change: transform, opacity;
 }
 
 .hero-terrain-layer {
     z-index: 2;
-    animation: hero-terrain-parallax 18s ease-in-out infinite alternate;
+    animation: hero-terrain-parallax 60s ease-in-out infinite alternate;
     will-change: transform;
 }
 
 .hero-water-layer {
     z-index: 3;
     transform-origin: center 88%;
-    animation: hero-water-shimmer 7s ease-in-out infinite alternate;
-    will-change: transform, filter;
+    animation: hero-water-shimmer 36s ease-in-out infinite alternate;
+    will-change: transform;
 }
 
 .hero-water-glimmer {
@@ -222,13 +222,33 @@ header {
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
     filter: blur(3px);
     mix-blend-mode: screen;
-    animation: hero-water-glimmer 12s ease-in-out infinite;
+    animation: hero-water-glimmer 48s ease-in-out infinite;
     pointer-events: none;
 }
 
 .hero-static {
     z-index: 5;
     display: none;
+}
+
+.subpage-hero {
+    animation: none;
+}
+
+.subpage-hero .hero-visual-container::before,
+.subpage-hero .hero-visual-container::after,
+.subpage-hero .hero-cloud-layer,
+.subpage-hero .hero-terrain-layer,
+.subpage-hero .hero-water-layer,
+.subpage-hero .hero-water-glimmer {
+    display: none;
+}
+
+.subpage-hero .hero-static {
+    display: block;
+    opacity: 0.46;
+    transform: scale(1.02);
+    filter: blur(2px) contrast(0.78) saturate(0.72);
 }
 
 @keyframes hero-cloud-drift {
@@ -242,8 +262,8 @@ header {
 }
 
 @keyframes hero-water-shimmer {
-    from { transform: translate3d(-0.3%, 0, 0) scaleX(1.002); filter: blur(0.25px) contrast(0.9); }
-    to { transform: translate3d(0.45%, 0.2%, 0) scaleX(1.008); filter: blur(0.7px) contrast(0.84); }
+    from { transform: translate3d(-0.3%, 0, 0) scaleX(1.002); }
+    to { transform: translate3d(0.45%, 0.2%, 0) scaleX(1.008); }
 }
 
 @keyframes hero-water-glimmer {
