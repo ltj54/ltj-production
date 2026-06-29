@@ -4,9 +4,9 @@
     --text: #000000;
     --muted: #333333;
     --line: #e5e5e5;
-    --hero-content-padding-top: 74px;
-    --hero-content-padding-bottom: 46px;
-    --hero-content-mobile-padding-top: 54px;
+    --hero-content-padding-top: 54px;
+    --hero-content-padding-bottom: 40px;
+    --hero-content-mobile-padding-top: 42px;
     --hero-content-mobile-padding-bottom: 22px;
 }
 
@@ -130,7 +130,7 @@ header {
 .hero-wrap {
     position: relative;
     isolation: isolate;
-    min-height: 560px;
+    min-height: 500px;
     overflow: hidden;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
@@ -144,9 +144,9 @@ header {
 
 .hero-visual-container {
     position: relative;
-    width: min(470px, 70vw);
+    width: min(500px, 72vw);
     aspect-ratio: 1672 / 941;
-    margin: 0 auto 24px;
+    margin: 0 auto 18px;
     border: none;
     mix-blend-mode: multiply;
     overflow: hidden;
@@ -320,9 +320,9 @@ p,
 }
 
 h1 {
-    margin-bottom: 22px;
-    font-size: clamp(36px, 5.4vw, 58px);
-    line-height: 1.08;
+    margin-bottom: 18px;
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.05;
     font-weight: 800;
     letter-spacing: 0;
     text-shadow: 0 0 28px var(--bg), 0 0 28px var(--bg);
@@ -424,7 +424,18 @@ h2 {
 
 .branch-item {
     border: 1px solid var(--text);
-    padding: 26px;
+    display: flex;
+    min-height: 248px;
+    flex-direction: column;
+    padding: 30px;
+    transition: background-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.branch-item:hover,
+.branch-item:focus-within {
+    background: #fbfdf9;
+    box-shadow: 4px 4px 0 var(--text);
+    transform: translate(-2px, -2px);
 }
 
 .branch-kicker {
@@ -442,6 +453,10 @@ h2 {
 }
 
 .branch-item a {
+    display: inline-flex;
+    width: fit-content;
+    margin-top: auto;
+    padding-top: 4px;
     font-weight: 800;
     text-decoration: underline;
     text-underline-offset: 3px;
