@@ -462,6 +462,46 @@ h2 {
     text-underline-offset: 3px;
 }
 
+.case-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 28px;
+    align-items: end;
+    border: 1px solid var(--text);
+    padding: 32px;
+    background: #fbfdf9;
+}
+
+.case-feature h2 {
+    margin-bottom: 14px;
+}
+
+.case-feature p {
+    max-width: 660px;
+    margin: 0;
+    color: var(--muted);
+}
+
+.case-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 18px;
+    border: 1px solid var(--text);
+    color: var(--text);
+    background: var(--bg);
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.case-link:hover,
+.case-link:focus-visible {
+    color: var(--bg);
+    background: var(--text);
+}
+
 h3 {
     margin-bottom: 12px;
     font-size: 18px;
@@ -811,6 +851,18 @@ h3 {
         grid-template-columns: 1fr;
         gap: 32px;
         max-width: 100%;
+    }
+
+    .case-feature {
+        grid-template-columns: 1fr;
+        align-items: start;
+        padding: 24px;
+    }
+
+    .case-link {
+        width: 100%;
+        white-space: normal;
+        text-align: center;
     }
 
     .package {
