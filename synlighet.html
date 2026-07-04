@@ -12,7 +12,7 @@
     <meta property="og:title" content="Synlighet og oppfølging | ltj-production">
     <meta property="og:description" content="Praktisk SEO, Google-bedriftsprofil, måling, landingssider og vedlikehold for små virksomheter.">
     <meta property="og:url" content="https://www.ltj-production.no/synlighet.html">
-    <meta property="og:image" content="https://www.ltj-production.no/ltj-production-logo.png">
+    <meta property="og:image" content="https://www.ltj-production.no/hero-mountains-1-transparent.png">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://www.ltj-production.no/synlighet.html">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -225,7 +225,7 @@
         if (currentYear) currentYear.textContent = String(new Date().getFullYear());
         if (openModalBtn && modal) openModalBtn.addEventListener("click", () => modal.classList.add("open"));
         if (closeModalBtn && modal) closeModalBtn.addEventListener("click", () => modal.classList.remove("open"));
-        window.addEventListener("click", (event) => {
+        globalThis.addEventListener("click", (event) => {
             if (event.target === modal) modal.classList.remove("open");
         });
 

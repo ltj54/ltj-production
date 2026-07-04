@@ -12,7 +12,7 @@
     <meta property="og:title" content="Nettsider | ltj-production">
     <meta property="og:description" content="Nettsider for bedrifter, ENK og selvstendig næringsdrivende fra 1.990 kr. Tekst, struktur, kontaktskjema og hjelp med domene og e-post.">
     <meta property="og:url" content="https://www.ltj-production.no/nettsider.html">
-    <meta property="og:image" content="https://www.ltj-production.no/ltj-production-logo.png">
+    <meta property="og:image" content="https://www.ltj-production.no/hero-mountains-1-transparent.png">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://www.ltj-production.no/nettsider.html">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -266,7 +266,7 @@
             });
         }
 
-        window.addEventListener("click", (event) => {
+        globalThis.addEventListener("click", (event) => {
             if (event.target === modal) {
                 modal.classList.remove("open");
             }
