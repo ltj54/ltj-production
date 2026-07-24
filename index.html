@@ -53,15 +53,17 @@
     <div class="hero-wrap">
         <div class="container main-content">
             <div class="hero-visual-container">
-                <img class="hero-visual hero-cloud-layer" src="hero-clouds-animated.webp" alt="" aria-hidden="true">
-                <img class="hero-visual hero-terrain-layer" src="hero-terrain-animated.webp" alt="Bergens syv fjell med tre løpere på vei opp Ulriken">
-                <img class="hero-visual hero-water-layer" src="hero-water-animated.webp" alt="" aria-hidden="true">
+                <img class="hero-visual hero-home-art" src="hero-mountains-optimized.webp" alt="Håndtegnet utsikt over Bergen og de syv fjell" width="1200" height="675" fetchpriority="high">
+                <img class="hero-visual hero-water-motion" src="hero-water-optimized.webp" alt="" width="760" height="428" aria-hidden="true">
                 <span class="hero-water-glimmer" aria-hidden="true"></span>
-                <img class="hero-visual hero-static" src="hero-mountains-1-transparent.png" alt="Bergens syv fjell med tre løpere på vei opp Ulriken">
+                <img class="hero-visual hero-boats-motion" src="hero-boats-layer.webp" alt="" width="1672" height="941" aria-hidden="true">
             </div>
-            <h1>Nettsider med tydelig tekst og enkel kontakt.</h1>
+            <h1>Enkle nettsider for små virksomheter.</h1>
             <div class="description">
-                Jeg lager nettsider, forbedrer sider som allerede finnes og hjelper små virksomheter med å bli lettere å finne - slik at flere riktige kunder tar kontakt.
+                Med tydelig tekst, enkel kontakt og et godt grunnlag for å bli funnet - slik at flere riktige kunder tar kontakt.
+            </div>
+            <div class="hero-actions">
+                <button class="cta" type="button" data-open-contact-modal>Få en kort vurdering</button>
             </div>
         </div>
     </div>
@@ -106,12 +108,16 @@
 
         <section class="container about-container">
             <div class="case-feature">
-                <div>
+                <a class="case-media" href="https://www.breathesenja.com/" target="_blank" rel="noopener" aria-label="Se Breathe Senja">
+                    <img src="breathe-senja-case.webp" alt="Vinterlandskap fra Breathe Senja" width="1200" height="900" loading="lazy">
+                    <span>breathesenja.com&nbsp; ↗</span>
+                </a>
+                <div class="case-copy">
                     <span class="branch-kicker">Nylig prosjekt</span>
                     <h2>Breathe Senja</h2>
                     <p>Nettside for guidede turer, overnatting og opplevelser på Senja. Siden samler tilbud, kontaktinformasjon og tydelige innganger for besøkende som vil planlegge tur.</p>
+                    <a class="case-link" href="https://www.breathesenja.com/" target="_blank" rel="noopener">Se prosjektet</a>
                 </div>
-                <a class="case-link" href="https://www.breathesenja.com/" target="_blank" rel="noopener">Se Breathe Senja</a>
             </div>
         </section>
 
@@ -121,7 +127,7 @@
                 Send lenken din, eller skriv kort hva du trenger. Jeg svarer med en kort vurdering av hva jeg anbefaler.
             </div>
             <div class="form-actions">
-                <button class="cta" id="open-contact-modal">Få en kort vurdering</button>
+                <button class="cta" type="button" data-open-contact-modal>Få en kort vurdering</button>
             </div>
         </section>
     </main>
@@ -191,12 +197,14 @@
 
         // Modal functionality
         const modal = document.getElementById("contact-modal");
-        const openModalBtn = document.getElementById("open-contact-modal");
+        const openModalButtons = document.querySelectorAll("[data-open-contact-modal]");
         const closeModalBtn = document.getElementById("close-modal");
 
-        if (openModalBtn && modal) {
-            openModalBtn.addEventListener("click", () => {
-                modal.classList.add("open");
+        if (modal) {
+            openModalButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    modal.classList.add("open");
+                });
             });
         }
 

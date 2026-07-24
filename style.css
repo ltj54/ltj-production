@@ -139,7 +139,6 @@ header {
         linear-gradient(90deg, #eef5ea 1px, transparent 1px);
     background-color: #fbfdf9;
     background-size: 42px 42px, 42px 42px;
-    animation: hero-day-cycle 120s ease-in-out infinite;
 }
 
 .hero-visual-container {
@@ -153,34 +152,6 @@ header {
     isolation: isolate;
 }
 
-.hero-visual-container::before,
-.hero-visual-container::after {
-    content: "";
-    position: absolute;
-    z-index: 4;
-    left: 50%;
-    top: 22.7%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-}
-
-.hero-visual-container::before {
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: currentColor;
-    animation: mast-color 60s ease-in-out infinite, mast-pulse 22s ease-in-out infinite;
-}
-
-.hero-visual-container::after {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: radial-gradient(circle, currentColor 0 8%, transparent 62%);
-    opacity: 0.48;
-    animation: mast-color 60s ease-in-out infinite, mast-halo 22s ease-in-out infinite;
-}
-
 .hero-visual {
     position: absolute;
     inset: 0;
@@ -191,22 +162,17 @@ header {
     filter: blur(0.35px) contrast(0.94);
 }
 
-.hero-cloud-layer {
-    z-index: 1;
-    animation: hero-cloud-drift 120s ease-in-out infinite alternate;
-    will-change: transform, opacity;
-}
-
-.hero-terrain-layer {
+.hero-home-art {
     z-index: 2;
-    animation: hero-terrain-parallax 60s ease-in-out infinite alternate;
-    will-change: transform;
 }
 
-.hero-water-layer {
+.hero-water-motion {
     z-index: 3;
-    transform-origin: center 88%;
-    animation: hero-water-shimmer 36s ease-in-out infinite alternate;
+    opacity: 1;
+    clip-path: inset(89% 0 0 0);
+    transform-origin: center bottom;
+    filter: contrast(1.08);
+    animation: hero-water-breathe 3.2s ease-in-out infinite alternate;
     will-change: transform;
 }
 
@@ -215,33 +181,31 @@ header {
     z-index: 4;
     left: -30%;
     bottom: 1%;
-    width: 38%;
-    height: 17%;
-    opacity: 0.24;
+    width: 34%;
+    height: 9%;
+    opacity: 0.42;
     transform: skewX(-18deg);
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
-    filter: blur(3px);
+    filter: blur(2px);
     mix-blend-mode: screen;
-    animation: hero-water-glimmer 48s ease-in-out infinite;
+    animation: hero-water-glimmer 7s ease-in-out infinite;
     pointer-events: none;
 }
 
-.hero-static {
+.hero-boats-motion {
     z-index: 5;
+    transform-origin: 87% 82%;
+    animation: hero-boats-bob 3.8s ease-in-out infinite;
+    will-change: transform;
+}
+
+.hero-static {
+    z-index: 6;
     display: none;
 }
 
 .subpage-hero {
-    animation: none;
-}
-
-.subpage-hero .hero-visual-container::before,
-.subpage-hero .hero-visual-container::after,
-.subpage-hero .hero-cloud-layer,
-.subpage-hero .hero-terrain-layer,
-.subpage-hero .hero-water-layer,
-.subpage-hero .hero-water-glimmer {
-    display: none;
+    background-color: #fbfdf9;
 }
 
 .subpage-hero .hero-static {
@@ -251,56 +215,21 @@ header {
     filter: blur(2px) contrast(0.78) saturate(0.72);
 }
 
-@keyframes hero-cloud-drift {
-    from { transform: translate3d(-1.2%, 0, 0) scale(1.015); opacity: 0.72; }
-    to { transform: translate3d(1.6%, -0.5%, 0) scale(1.025); opacity: 0.9; }
-}
-
-@keyframes hero-terrain-parallax {
-    from { transform: translate3d(-0.35%, 0.15%, 0) scale(1.004); }
-    to { transform: translate3d(0.35%, -0.15%, 0) scale(1.008); }
-}
-
-@keyframes hero-water-shimmer {
-    from { transform: translate3d(-0.3%, 0, 0) scaleX(1.002); }
-    to { transform: translate3d(0.45%, 0.2%, 0) scaleX(1.008); }
-}
-
 @keyframes hero-water-glimmer {
-    0%, 15% { left: -35%; opacity: 0; }
-    42% { opacity: 0.22; }
+    0%, 10% { left: -35%; opacity: 0; }
+    38% { opacity: 0.42; }
     70%, 100% { left: 105%; opacity: 0; }
 }
 
-@keyframes hero-day-cycle {
-    0%, 100% { background-color: #fbfdf9; }
-    28% { background-color: #f5fbff; }
-    58% { background-color: #f8f3e8; }
-    78% { background-color: #e8edf5; }
+@keyframes hero-water-breathe {
+    from { transform: translate3d(-0.8%, 0, 0) scaleX(1.015); }
+    to { transform: translate3d(0.8%, 0, 0) scaleX(1.035); }
 }
 
-@keyframes mast-color {
-    0%, 100% { color: #ffd400; }
-    14% { color: #ff6b00; }
-    28% { color: #ff2d55; }
-    42% { color: #bf5af2; }
-    57% { color: #0a84ff; }
-    71% { color: #30d5c8; }
-    85% { color: #7ee35b; }
-}
-
-@keyframes mast-pulse {
-    0%, 100% { opacity: 0.46; box-shadow: 0 0 2px currentColor; }
-    38% { opacity: 0.72; box-shadow: 0 0 3px currentColor, 0 0 5px currentColor; }
-    58% { opacity: 1; box-shadow: 0 0 4px currentColor, 0 0 7px currentColor; }
-    76% { opacity: 0.68; box-shadow: 0 0 3px currentColor; }
-}
-
-@keyframes mast-halo {
-    0%, 100% { opacity: 0.16; transform: translate(-50%, -50%) scale(0.72); }
-    48% { opacity: 0.36; transform: translate(-50%, -50%) scale(0.92); }
-    62% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-    82% { opacity: 0.24; transform: translate(-50%, -50%) scale(0.8); }
+@keyframes hero-boats-bob {
+    0%, 100% { transform: translate3d(0, 0, 0) rotate(0); }
+    34% { transform: translate3d(0.16%, -0.9%, 0) rotate(-0.2deg); }
+    68% { transform: translate3d(-0.12%, 0.65%, 0) rotate(0.16deg); }
 }
 
 .main-content {
@@ -340,6 +269,11 @@ h1 {
     color: var(--muted);
     font-size: 18px;
     text-shadow: 0 0 20px var(--bg), 0 0 20px var(--bg);
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
 }
 
 .cta {
@@ -464,12 +398,51 @@ h2 {
 
 .case-feature {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 28px;
-    align-items: end;
+    grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+    gap: 36px;
+    align-items: center;
     border: 1px solid var(--text);
-    padding: 32px;
+    padding: 16px;
     background: #fbfdf9;
+}
+
+.case-media {
+    position: relative;
+    display: block;
+    min-height: 300px;
+    overflow: hidden;
+    border: 1px solid var(--text);
+    color: #ffffff;
+    background: #19395e;
+}
+
+.case-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    object-fit: cover;
+    transition: transform 300ms ease;
+}
+
+.case-media span {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    padding: 7px 10px;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.78);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.case-media:hover img,
+.case-media:focus-visible img {
+    transform: scale(1.02);
+}
+
+.case-copy {
+    padding: 18px 22px 18px 0;
 }
 
 .case-feature h2 {
@@ -494,6 +467,7 @@ h2 {
     font-weight: 800;
     text-decoration: none;
     white-space: nowrap;
+    margin-top: 24px;
 }
 
 .case-link:hover,
@@ -859,6 +833,15 @@ h3 {
         padding: 24px;
     }
 
+    .case-media,
+    .case-media img {
+        min-height: 240px;
+    }
+
+    .case-copy {
+        padding: 0;
+    }
+
     .case-link {
         width: 100%;
         white-space: normal;
@@ -889,25 +872,14 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .hero-wrap {
-        animation: none;
-    }
-
-    .hero-visual-container::before,
-    .hero-visual-container::after {
-        animation: none;
-        color: #ffd400;
-    }
-
-    .hero-cloud-layer,
-    .hero-terrain-layer,
-    .hero-water-layer,
-    .hero-water-glimmer {
+    .hero-water-motion,
+    .hero-water-glimmer,
+    .hero-boats-motion {
         display: none;
     }
 
-    .hero-static {
-        display: block;
+    .case-media img {
+        transition: none;
     }
 }
 
