@@ -12,8 +12,9 @@
     <meta property="og:title" content="Nettsider | ltj-production">
     <meta property="og:description" content="Nettsider for bedrifter, ENK og selvstendig næringsdrivende fra 1.990 kr. Tekst, struktur, kontaktskjema og hjelp med domene og e-post.">
     <meta property="og:url" content="https://www.ltj-production.no/nettsider.html">
-    <meta property="og:image" content="https://www.ltj-production.no/hero-mountains-1-transparent.png">
+    <meta property="og:image" content="https://www.ltj-production.no/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://www.ltj-production.no/og-image.jpg">
     <link rel="canonical" href="https://www.ltj-production.no/nettsider.html">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
@@ -38,7 +39,7 @@
     <header>
         <nav class="navbar" aria-label="Toppnavigasjon">
             <div class="logo">
-                <a href="/">Hjem</a>
+                <a href="/" aria-label="ltj-production – forsiden">ltj-production</a>
             </div>
             <div class="nav-controls">
                 <div class="nav-links">
@@ -54,13 +55,13 @@
     <div class="hero-wrap subpage-hero">
         <div class="container main-content">
             <div class="hero-visual-container">
-                <img class="hero-visual hero-static" src="hero-mountains-optimized.webp" alt="Bergens syv fjell med tre løpere på vei opp Ulriken" width="1200" height="675" fetchpriority="high">
+                <img class="hero-visual hero-static" src="hero.webp" alt="" width="1200" height="630" aria-hidden="true" fetchpriority="high">
             </div>
-            <h1>En nettside for det du faktisk tilbyr.</h1>
+            <h1>En enkel nettside som gjør tilbudet ditt tydelig.</h1>
             <div class="description">
-                Jeg lager nettsider med tydelig tekst, kontaktinformasjon og et oppsett som fungerer på mobil for virksomheter i Bergen og resten av Norge.
+                Jeg lager tydelige nettsider som fungerer på mobil og gjør det enkelt for kundene å ta kontakt.
             </div>
-            <a class="cta" href="#contact-section">Send forespørsel</a>
+            <a class="cta" href="#contact-section">Få en kort vurdering</a>
         </div>
     </div>
 
@@ -87,16 +88,16 @@
         <section class="container about-container">
             <div class="services">
                 <div class="services-item">
-                    <h3>Hva du faktisk gjør</h3>
-                    <p>Ikke en lang “om oss”-tekst. Bare tydelig forklaring av tjenestene dine, området du jobber i og hvem som bør ta kontakt.</p>
+                    <h3>Tydelig presentasjon</h3>
+                    <p>En kort forklaring av tjenestene dine, området du jobber i og hvem som bør ta kontakt.</p>
                 </div>
                 <div class="services-item">
-                    <h3>En side som ser ferdig ut</h3>
-                    <p>Ingenting mangler, ingenting er overforklart.</p>
+                    <h3>En gjennomarbeidet side</h3>
+                    <p>Et ryddig oppsett med det viktigste på plass.</p>
                 </div>
                 <div class="services-item">
-                    <h3>Kontakt uten leting</h3>
-                    <p>Kontaktskjema, telefon og e&#8209;post der folk forventer å finne det.</p>
+                    <h3>Enkel kontakt</h3>
+                    <p>Et kort skjema som gjør det enkelt å sende en forespørsel.</p>
                 </div>
             </div>
         </section>
@@ -124,19 +125,8 @@
         </section>
 
         <section class="container about-container">
-            <div class="case-feature">
-                <div>
-                    <span class="branch-kicker">Eksempel på nettside</span>
-                    <h2>Breathe Senja</h2>
-                    <p>En nettside for en lokal reiselivsaktør på Senja, med tydelig presentasjon av guidede turer, aktiviteter, transport og overnatting.</p>
-                </div>
-                <a class="case-link" href="https://www.breathesenja.com/" target="_blank" rel="noopener">Åpne nettsiden</a>
-            </div>
-        </section>
-
-        <section class="container about-container">
             <div class="description">
-                Jeg har jobbet med nettsider i over 20 år. Det betyr at siden din blir ferdig raskt, uten unødvendige runder.
+                Jeg har jobbet med nettsider i over 20 år og holder prosessen kort og oversiktlig.
             </div>
         </section>
 
@@ -176,24 +166,24 @@
         </section>
 
         <section id="contact-section" class="container about-container">
-            <h2>Ta kontakt</h2>
+            <h2>Få en kort vurdering</h2>
             <div class="description">
                 Send litt informasjon om hva du driver med og hva siden må gjøre. Jeg svarer med forslag til side og pris.
             </div>
             <div class="form-actions">
-                <button class="cta" id="open-contact-modal">Ta kontakt</button>
+                <button class="cta" id="open-contact-modal" type="button">Få en kort vurdering</button>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        &copy; <span id="current-year"></span> ltj-production. <a href="personvern.html">Personvern</a>.
+        &copy; <span id="current-year"></span> ltj-production · <a href="#contact-section">Kontakt</a> · <a href="personvern.html">Personvern</a>
     </footer>
 
-    <div class="modal-overlay" id="contact-modal">
+    <dialog class="modal-overlay" id="contact-modal" aria-labelledby="contact-modal-title">
         <div class="modal-content">
-            <button class="close-modal" id="close-modal">&times;</button>
-            <h2>Ta kontakt</h2>
+            <button class="close-modal" id="close-modal" type="button" aria-label="Lukk kontaktskjema">&times;</button>
+            <h2 id="contact-modal-title">Ta kontakt</h2>
             <form class="contact-form" data-contact-form action="https://formspree.io/f/mrejyzgd" method="POST">
                 <input type="hidden" name="_subject" value="Ny henvendelse om nettside fra ltj-production.no" aria-label="Emne">
                 <label class="honeypot-field" for="contact-gotcha">
@@ -222,7 +212,7 @@
 
                 <label for="contact-message">
                     Hva trenger du?
-                    <textarea id="contact-message" name="message" rows="6" required placeholder="Skriv gjerne bransje, område, tjenester, og om du trenger domene, e-post, kontaktskjema eller flere sider."></textarea>
+                    <textarea id="contact-message" name="message" rows="6" required placeholder="Skriv gjerne hvilken bransje og hvilke tjenester det gjelder, og om du trenger domene, e-post, kontaktskjema eller flere sider."></textarea>
                 </label>
 
                 <div class="form-actions">
@@ -235,12 +225,12 @@
                 <output class="form-status" data-form-status aria-live="polite" for="contact-name contact-company contact-email contact-phone contact-message"></output>
             </form>
         </div>
-    </div>
+    </dialog>
 
-    <div class="thank-you-popup" id="thank-you-popup">
+    <output class="thank-you-popup" id="thank-you-popup" aria-live="polite">
         <span>Takk. Forespørselen er sendt.</span>
-        <button class="close-thank-you" id="close-thank-you">&times;</button>
-    </div>
+        <button class="close-thank-you" id="close-thank-you" type="button" aria-label="Lukk bekreftelse">&times;</button>
+    </output>
 
     <script>
         const currentYear = document.getElementById("current-year");
@@ -253,22 +243,52 @@
         const modal = document.getElementById("contact-modal");
         const openModalBtn = document.getElementById("open-contact-modal");
         const closeModalBtn = document.getElementById("close-modal");
+        let lastFocusedElement = null;
 
-        if (openModalBtn && modal) {
-            openModalBtn.addEventListener("click", () => {
-                modal.classList.add("open");
-            });
+        function openContactModal(trigger) {
+            lastFocusedElement = trigger;
+            modal.showModal();
+            document.body.classList.add("modal-open");
+            closeModalBtn.focus();
+        }
+
+        function closeContactModal() {
+            if (modal.open) modal.close();
+            document.body.classList.remove("modal-open");
+            if (lastFocusedElement) lastFocusedElement.focus();
+        }
+
+        if (openModalBtn && modal && closeModalBtn) {
+            openModalBtn.addEventListener("click", () => openContactModal(openModalBtn));
         }
 
         if (closeModalBtn && modal) {
-            closeModalBtn.addEventListener("click", () => {
-                modal.classList.remove("open");
-            });
+            closeModalBtn.addEventListener("click", closeContactModal);
         }
 
         globalThis.addEventListener("click", (event) => {
             if (event.target === modal) {
-                modal.classList.remove("open");
+                closeContactModal();
+            }
+        });
+
+        globalThis.addEventListener("keydown", (event) => {
+            if (!modal.open) return;
+            if (event.key === "Escape") {
+                event.preventDefault();
+                closeContactModal();
+            }
+            if (event.key === "Tab") {
+                const focusable = modal.querySelectorAll("button, input, textarea, a[href]");
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (event.shiftKey && document.activeElement === first) {
+                    event.preventDefault();
+                    last.focus();
+                } else if (!event.shiftKey && document.activeElement === last) {
+                    event.preventDefault();
+                    first.focus();
+                }
             }
         });
 
@@ -319,7 +339,7 @@
                     if (response.ok) {
                         contactForm.reset();
                         formStatus.textContent = "";
-                        modal.classList.remove("open");
+                        closeContactModal();
                         showThankYou();
                     } else {
                         formStatus.textContent = "Kunne ikke sende akkurat nå. Prøv igjen litt senere.";

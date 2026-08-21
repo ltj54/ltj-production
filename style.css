@@ -4,6 +4,7 @@
     --text: #000000;
     --muted: #333333;
     --line: #e5e5e5;
+    --font-mono: "SFMono-Regular", "Cascadia Code", "Cascadia Mono", "Roboto Mono", Consolas, "Liberation Mono";
     --hero-content-padding-top: 54px;
     --hero-content-padding-bottom: 40px;
     --hero-content-mobile-padding-top: 42px;
@@ -22,7 +23,7 @@ body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: "SFMono-Regular", "Cascadia Code", "Cascadia Mono", "Roboto Mono", Consolas, "Liberation Mono", monospace;
+    font-family: var(--font-mono), monospace;
     font-size: 16px;
     line-height: 1.5;
     overflow-x: hidden;
@@ -56,6 +57,10 @@ header {
     min-height: 92px;
 }
 
+.home-navbar {
+    justify-content: flex-end;
+}
+
 .logo a,
 .nav-links a {
     color: var(--text);
@@ -63,7 +68,18 @@ header {
 }
 
 .logo a {
-    font-weight: 700;
+    font-family: var(--font-mono), monospace;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.nav-links,
+.branch-kicker,
+.proof-item strong,
+.case-media span,
+.package-price,
+.step-number {
+    font-family: var(--font-mono), monospace;
 }
 
 .logo a.active-page {
@@ -141,6 +157,15 @@ header {
     background-size: 42px 42px, 42px 42px;
 }
 
+.home-page header,
+.home-hero {
+    background-color: #fbf7f4;
+}
+
+.home-hero {
+    background-image: none;
+}
+
 .hero-visual-container {
     position: relative;
     width: min(500px, 72vw);
@@ -150,6 +175,12 @@ header {
     mix-blend-mode: multiply;
     overflow: hidden;
     isolation: isolate;
+}
+
+.hero-brand-container {
+    width: min(680px, 90vw);
+    aspect-ratio: 1200 / 630;
+    mix-blend-mode: normal;
 }
 
 .hero-visual {
@@ -162,41 +193,8 @@ header {
     filter: blur(0.35px) contrast(0.94);
 }
 
-.hero-home-art {
-    z-index: 2;
-}
-
-.hero-water-motion {
-    z-index: 3;
-    opacity: 1;
-    clip-path: inset(89% 0 0 0);
-    transform-origin: center bottom;
-    filter: contrast(1.08);
-    animation: hero-water-breathe 3.2s ease-in-out infinite alternate;
-    will-change: transform;
-}
-
-.hero-water-glimmer {
-    position: absolute;
-    z-index: 4;
-    left: -30%;
-    bottom: 1%;
-    width: 34%;
-    height: 9%;
-    opacity: 0.42;
-    transform: skewX(-18deg);
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
-    filter: blur(2px);
-    mix-blend-mode: screen;
-    animation: hero-water-glimmer 7s ease-in-out infinite;
-    pointer-events: none;
-}
-
-.hero-boats-motion {
-    z-index: 5;
-    transform-origin: 87% 82%;
-    animation: hero-boats-bob 3.8s ease-in-out infinite;
-    will-change: transform;
+.hero-brand-art {
+    filter: none;
 }
 
 .hero-static {
@@ -205,7 +203,12 @@ header {
 }
 
 .subpage-hero {
-    background-color: #fbfdf9;
+    background-color: #fbf7f4;
+    background-image: none;
+}
+
+.subpage-hero .hero-visual-container {
+    aspect-ratio: 1200 / 630;
 }
 
 .subpage-hero .hero-static {
@@ -215,27 +218,22 @@ header {
     filter: blur(2px) contrast(0.78) saturate(0.72);
 }
 
-@keyframes hero-water-glimmer {
-    0%, 10% { left: -35%; opacity: 0; }
-    38% { opacity: 0.42; }
-    70%, 100% { left: 105%; opacity: 0; }
-}
-
-@keyframes hero-water-breathe {
-    from { transform: translate3d(-0.8%, 0, 0) scaleX(1.015); }
-    to { transform: translate3d(0.8%, 0, 0) scaleX(1.035); }
-}
-
-@keyframes hero-boats-bob {
-    0%, 100% { transform: translate3d(0, 0, 0) rotate(0); }
-    34% { transform: translate3d(0.16%, -0.9%, 0) rotate(-0.2deg); }
-    68% { transform: translate3d(-0.12%, 0.65%, 0) rotate(0.16deg); }
-}
-
 .main-content {
     max-width: 760px;
     padding: var(--hero-content-padding-top) 0 var(--hero-content-padding-bottom);
     text-align: center;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 h1,
@@ -295,6 +293,12 @@ h1 {
 .cta:hover {
     color: var(--text);
     background: var(--bg);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #000000;
+    outline-offset: 3px;
 }
 
 .subtle-link {
@@ -396,6 +400,11 @@ h2 {
     text-underline-offset: 3px;
 }
 
+.project-list {
+    display: grid;
+    gap: 32px;
+}
+
 .case-feature {
     display: grid;
     grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
@@ -423,6 +432,12 @@ h2 {
     min-height: 300px;
     object-fit: cover;
     transition: transform 300ms ease;
+}
+
+.case-media--zagros img {
+    padding: 34px;
+    object-fit: contain;
+    background: #20192e;
 }
 
 .case-media span {
@@ -788,6 +803,10 @@ h3 {
         margin-bottom: 24px;
     }
 
+    .hero-brand-container {
+        width: min(100%, 680px);
+    }
+
     .hero-visual {
         filter: none;
     }
@@ -838,6 +857,10 @@ h3 {
         min-height: 240px;
     }
 
+    .case-media--zagros img {
+        padding: 28px;
+    }
+
     .case-copy {
         padding: 0;
     }
@@ -872,12 +895,6 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .hero-water-motion,
-    .hero-water-glimmer,
-    .hero-boats-motion {
-        display: none;
-    }
-
     .case-media img {
         transition: none;
     }
@@ -885,22 +902,34 @@ h3 {
 
 
 /* Modal Styles */
+body.modal-open {
+    overflow: hidden;
+}
+
 .modal-overlay {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
+    max-width: none;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    max-height: none;
+    margin: 0;
+    border: 0;
+    background: transparent;
     z-index: 1000;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    color: var(--text);
 }
 
-.modal-overlay.open {
+.modal-overlay[open] {
     display: flex;
+}
+
+.modal-overlay::backdrop {
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
@@ -923,6 +952,10 @@ h3 {
     font-size: 24px;
     cursor: pointer;
     color: var(--text);
+}
+
+.close-modal:focus-visible {
+    outline-offset: 1px;
 }
 
 /* Thank You Popup Styles */
