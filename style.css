@@ -440,6 +440,12 @@ h2 {
     background: #20192e;
 }
 
+.case-media--varneth img {
+    padding: 22px;
+    object-fit: contain;
+    background: #050505;
+}
+
 .case-media span {
     position: absolute;
     right: 14px;
