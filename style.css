@@ -407,18 +407,17 @@ h2 {
 
 .case-feature {
     display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
-    gap: 36px;
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 24px;
     align-items: center;
-    border: 1px solid var(--text);
-    padding: 16px;
-    background: #fbfdf9;
+    border-bottom: 1px solid var(--muted);
+    padding: 0 0 24px;
 }
 
 .case-media {
     position: relative;
     display: block;
-    min-height: 300px;
+    height: 88px;
     overflow: hidden;
     border: 1px solid var(--text);
     color: #ffffff;
@@ -429,19 +428,18 @@ h2 {
     display: block;
     width: 100%;
     height: 100%;
-    min-height: 300px;
     object-fit: cover;
     transition: transform 300ms ease;
 }
 
 .case-media--zagros img {
-    padding: 34px;
+    padding: 12px;
     object-fit: contain;
     background: #20192e;
 }
 
 .case-media--varneth img {
-    padding: 22px;
+    padding: 10px;
     object-fit: contain;
     background: #050505;
 }
@@ -457,17 +455,23 @@ h2 {
     font-weight: 800;
 }
 
-.case-media:hover img,
-.case-media:focus-visible img {
+a.case-media:hover img,
+a.case-media:focus-visible img {
     transform: scale(1.02);
 }
 
 .case-copy {
-    padding: 18px 22px 18px 0;
+    padding: 0;
 }
 
-.case-feature h2 {
-    margin-bottom: 14px;
+.case-feature h3 {
+    margin-bottom: 8px;
+}
+
+.case-copy .branch-kicker {
+    margin-bottom: 6px;
+    font-weight: 400;
+    text-transform: none;
 }
 
 .case-feature p {
@@ -481,20 +485,19 @@ h2 {
     align-items: center;
     justify-content: center;
     min-height: 42px;
-    padding: 0 18px;
-    border: 1px solid var(--text);
+    padding: 0;
     color: var(--text);
-    background: var(--bg);
-    font-weight: 800;
-    text-decoration: none;
+    background: transparent;
+    font-weight: 400;
+    text-decoration: underline;
+    text-underline-offset: 3px;
     white-space: nowrap;
-    margin-top: 24px;
+    margin-top: 6px;
 }
 
 .case-link:hover,
 .case-link:focus-visible {
-    color: var(--bg);
-    background: var(--text);
+    color: var(--muted);
 }
 
 h3 {
@@ -855,16 +858,17 @@ h3 {
     .case-feature {
         grid-template-columns: 1fr;
         align-items: start;
-        padding: 24px;
+        gap: 16px;
+        padding: 0 0 24px;
     }
 
-    .case-media,
-    .case-media img {
-        min-height: 240px;
+    .case-media {
+        width: 90px;
+        height: 78px;
     }
 
     .case-media--zagros img {
-        padding: 28px;
+        padding: 12px;
     }
 
     .case-copy {
@@ -872,7 +876,7 @@ h3 {
     }
 
     .case-link {
-        width: 100%;
+        width: fit-content;
         white-space: normal;
         text-align: center;
     }
