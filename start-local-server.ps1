@@ -1,6 +1,5 @@
 $ErrorActionPreference = "Stop"
 
-$port = 8081
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 Set-Location $root
@@ -17,11 +16,13 @@ $pythonCommand = if ($python) {
     }
 }
 
-$listener = Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue
-if ($listener) {
-    Write-Host "Port $port er allerede i bruk. Åpner http://localhost:$port/ ..."
-    Start-Process "http://localhost:$port/"
-    return
+$port = 8081
+while ($port -le 8090 -and (Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue)) {
+    $port++
+}
+
+if ($port -gt 8090) {
+    throw "Fant ingen ledig port mellom 8081 og 8090. Stopp en lokal server og prøv igjen."
 }
 
 Write-Host "Starter lokal server i $root"
