@@ -444,6 +444,12 @@ h2 {
     background: #050505;
 }
 
+.case-media--gunnar img {
+    padding: 5px;
+    object-fit: contain;
+    background: #ffffff;
+}
+
 .case-media span {
     position: absolute;
     right: 14px;
