@@ -1,10 +1,18 @@
+@font-face {
+    font-family: "LTJ Cascadia Code";
+    src: url("fonts/CascadiaCode.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 200 700;
+    font-display: swap;
+}
+
 :root {
     color-scheme: light;
     --bg: #ffffff;
     --text: #000000;
     --muted: #333333;
     --line: #e5e5e5;
-    --font-mono: "SFMono-Regular", "Cascadia Code", "Cascadia Mono", "Roboto Mono", Consolas, "Liberation Mono";
+    --font-mono: "LTJ Cascadia Code", "Cascadia Code", "Cascadia Mono", "Roboto Mono", Consolas, "Liberation Mono";
     --hero-content-padding-top: 54px;
     --hero-content-padding-bottom: 40px;
     --hero-content-mobile-padding-top: 42px;
@@ -76,7 +84,6 @@ header {
 .nav-links,
 .branch-kicker,
 .proof-item strong,
-.case-media span,
 .package-price,
 .step-number {
     font-family: var(--font-mono), monospace;
@@ -429,7 +436,6 @@ h2 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 300ms ease;
 }
 
 .case-media--zagros img {
@@ -450,22 +456,6 @@ h2 {
     background: #ffffff;
 }
 
-.case-media span {
-    position: absolute;
-    right: 14px;
-    bottom: 14px;
-    padding: 7px 10px;
-    color: #ffffff;
-    background: rgba(0, 0, 0, 0.78);
-    font-size: 13px;
-    font-weight: 800;
-}
-
-a.case-media:hover img,
-a.case-media:focus-visible img {
-    transform: scale(1.02);
-}
-
 .case-copy {
     padding: 0;
 }
@@ -478,32 +468,6 @@ a.case-media:focus-visible img {
     margin-bottom: 6px;
     font-weight: 400;
     text-transform: none;
-}
-
-.case-feature p {
-    max-width: 660px;
-    margin: 0;
-    color: var(--muted);
-}
-
-.case-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 42px;
-    padding: 0;
-    color: var(--text);
-    background: transparent;
-    font-weight: 400;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    white-space: nowrap;
-    margin-top: 6px;
-}
-
-.case-link:hover,
-.case-link:focus-visible {
-    color: var(--muted);
 }
 
 h3 {
@@ -559,7 +523,7 @@ h3 {
 .package-price strong {
     display: block;
     margin-bottom: 8px;
-    font-size: 34px;
+    font-size: 27px;
     line-height: 1;
 }
 
@@ -881,12 +845,6 @@ h3 {
         padding: 0;
     }
 
-    .case-link {
-        width: fit-content;
-        white-space: normal;
-        text-align: center;
-    }
-
     .package {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -909,13 +867,6 @@ h3 {
         padding: 48px 0;
     }
 }
-
-@media (prefers-reduced-motion: reduce) {
-    .case-media img {
-        transition: none;
-    }
-}
-
 
 /* Modal Styles */
 body.modal-open {

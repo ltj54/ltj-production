@@ -57,11 +57,11 @@
             <div class="hero-visual-container">
                 <img class="hero-visual hero-static" src="hero.webp" alt="" width="1200" height="630" aria-hidden="true" fetchpriority="high">
             </div>
-            <h1>En enkel nettside som gjør tilbudet ditt tydelig.</h1>
+            <h1>En nettside som gjør tilbudet ditt tydelig.</h1>
             <div class="description">
-                Jeg lager tydelige nettsider som fungerer på mobil og gjør det enkelt for kundene å ta kontakt.
+                Jeg lager gjennomarbeidede nettsider som fungerer på mobil og gjør det lett for kundene å ta kontakt.
             </div>
-            <a class="cta" href="#contact-section">Få en kort vurdering</a>
+            <button class="cta" type="button" data-open-contact-modal>Få en kort vurdering</button>
         </div>
     </div>
 
@@ -96,8 +96,8 @@
                     <p>Et ryddig oppsett med det viktigste på plass.</p>
                 </div>
                 <div class="services-item">
-                    <h3>Enkel kontakt</h3>
-                    <p>Et kort skjema som gjør det enkelt å sende en forespørsel.</p>
+                    <h3>Lett å ta kontakt</h3>
+                    <p>Et kort skjema der kunden kan sende en forespørsel.</p>
                 </div>
             </div>
         </section>
@@ -115,11 +115,11 @@
                         <li>Hjelp med domene og e&#8209;post</li>
                         <li>Flere sider, SEO og analyse kan legges til senere</li>
                     </ul>
-                    <p class="package-note">Trenger du booking, innlogging eller andre funksjoner, avtaler vi pris før jeg starter.</p>
+                    <p class="package-note">Trenger du flere sider, booking, innlogging eller andre funksjoner, avtaler vi omfang og pris før jeg starter.</p>
                 </div>
                 <div class="package-price">
-                    <strong>1.990,-</strong>
-                    <span>fast startpris for en nettside</span>
+                    <strong>Fra 1.990,-</strong>
+                    <span>én-sides nettside</span>
                 </div>
             </div>
         </section>
@@ -171,7 +171,7 @@
                 Send litt informasjon om hva du driver med og hva siden må gjøre. Jeg svarer med forslag til side og pris.
             </div>
             <div class="form-actions">
-                <button class="cta" id="open-contact-modal" type="button">Få en kort vurdering</button>
+                <button class="cta" type="button" data-open-contact-modal>Få en kort vurdering</button>
             </div>
         </section>
     </main>
@@ -241,7 +241,7 @@
 
         // Modal functionality
         const modal = document.getElementById("contact-modal");
-        const openModalBtn = document.getElementById("open-contact-modal");
+        const openModalButtons = document.querySelectorAll("[data-open-contact-modal]");
         const closeModalBtn = document.getElementById("close-modal");
         let lastFocusedElement = null;
 
@@ -258,8 +258,10 @@
             if (lastFocusedElement) lastFocusedElement.focus();
         }
 
-        if (openModalBtn && modal && closeModalBtn) {
-            openModalBtn.addEventListener("click", () => openContactModal(openModalBtn));
+        if (modal && closeModalBtn) {
+            openModalButtons.forEach((button) => {
+                button.addEventListener("click", () => openContactModal(button));
+            });
         }
 
         if (closeModalBtn && modal) {

@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nettsidesjekk og retting | ltj-production</title>
-    <meta name="description" content="Nettsidesjekk for virksomheter som vil gjøre siden tydeligere og enklere å bruke. Sjekk og småretting fra 1.990 kr.">
+    <meta name="description" content="Nettsidesjekk for virksomheter som vil gjøre siden tydeligere og lettere å bruke. Sjekk og småretting fra 1.990 kr.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="nb_NO">
     <meta property="og:site_name" content="ltj-production">
     <meta property="og:title" content="Nettsidesjekk og retting | ltj-production">
-    <meta property="og:description" content="Nettsidesjekk for virksomheter som vil gjøre siden tydeligere og enklere å bruke. Sjekk og småretting fra 1.990 kr.">
+    <meta property="og:description" content="Nettsidesjekk for virksomheter som vil gjøre siden tydeligere og lettere å bruke. Sjekk og småretting fra 1.990 kr.">
     <meta property="og:url" content="https://www.ltj-production.no/nettsidesjekk.html">
     <meta property="og:image" content="https://www.ltj-production.no/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
@@ -30,7 +30,7 @@
             },
             "areaServed": "NO",
             "url": "https://www.ltj-production.no/nettsidesjekk.html",
-            "description": "Nettsidesjekk for virksomheter som vil gjøre siden tydeligere og enklere å bruke."
+            "description": "Nettsidesjekk for virksomheter som vil gjøre siden tydeligere og lettere å bruke."
         }
     </script>
 </head>
@@ -61,7 +61,7 @@
             <div class="description">
                 Jeg går gjennom nettsiden, peker på det som er uklart eller mangler, og retter småting som ikke krever et større prosjekt.
             </div>
-            <a class="cta" href="#contact-section">Få nettsiden rettet</a>
+            <button class="cta" type="button" data-open-contact-modal>Få nettsiden rettet</button>
         </div>
     </div>
 
@@ -156,7 +156,7 @@
                 Send lenken til nettsiden og kort hva du er usikker på. Jeg svarer med hva jeg kan se på og hva det koster.
             </div>
             <div class="form-actions">
-                <button class="cta" id="open-contact-modal" type="button">Få nettsiden rettet</button>
+                <button class="cta" type="button" data-open-contact-modal>Få nettsiden rettet</button>
             </div>
         </section>
     </main>
@@ -226,7 +226,7 @@
 
         // Modal functionality
         const modal = document.getElementById("contact-modal");
-        const openModalBtn = document.getElementById("open-contact-modal");
+        const openModalButtons = document.querySelectorAll("[data-open-contact-modal]");
         const closeModalBtn = document.getElementById("close-modal");
         let lastFocusedElement = null;
 
@@ -243,8 +243,10 @@
             if (lastFocusedElement) lastFocusedElement.focus();
         }
 
-        if (openModalBtn && modal && closeModalBtn) {
-            openModalBtn.addEventListener("click", () => openContactModal(openModalBtn));
+        if (modal && closeModalBtn) {
+            openModalButtons.forEach((button) => {
+                button.addEventListener("click", () => openContactModal(button));
+            });
         }
 
         if (closeModalBtn && modal) {
