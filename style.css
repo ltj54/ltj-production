@@ -457,6 +457,12 @@ h2 {
     background: #ffffff;
 }
 
+.case-media--idsoe img {
+    padding: 4px;
+    object-fit: contain;
+    background: #f7f6ef;
+}
+
 .case-copy {
     padding: 0;
 }
