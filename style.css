@@ -77,7 +77,7 @@ header {
 
 .logo a {
     font-family: var(--font-mono), monospace;
-    font-weight: 800;
+    font-weight: 700;
     white-space: nowrap;
 }
 
@@ -153,15 +153,11 @@ header {
 .hero-wrap {
     position: relative;
     isolation: isolate;
-    min-height: 500px;
+    min-height: 0;
     overflow: hidden;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
-    background-image:
-        linear-gradient(#eef5ea 1px, transparent 1px),
-        linear-gradient(90deg, #eef5ea 1px, transparent 1px);
-    background-color: #fbfdf9;
-    background-size: 42px 42px, 42px 42px;
+    background-color: #fbf7f4;
 }
 
 .home-page header,
@@ -175,29 +171,26 @@ header {
 
 .hero-visual-container {
     position: relative;
-    width: min(500px, 72vw);
-    aspect-ratio: 1672 / 941;
-    margin: 0 auto 18px;
+    width: min(460px, 100%);
+    aspect-ratio: 1200 / 335;
+    margin: 28px auto 0;
     border: none;
     mix-blend-mode: multiply;
     overflow: hidden;
     isolation: isolate;
+    pointer-events: none;
 }
 
 .hero-brand-container {
-    width: min(680px, 90vw);
-    aspect-ratio: 1200 / 630;
-    mix-blend-mode: normal;
+    opacity: 0.65;
 }
 
 .hero-visual {
     position: absolute;
-    inset: 0;
+    inset: auto 0 0;
     display: block;
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-    filter: blur(0.35px) contrast(0.94);
+    height: auto;
 }
 
 .hero-brand-art {
@@ -205,8 +198,7 @@ header {
 }
 
 .hero-static {
-    z-index: 6;
-    display: none;
+    display: block;
 }
 
 .subpage-hero {
@@ -215,20 +207,33 @@ header {
 }
 
 .subpage-hero .hero-visual-container {
-    aspect-ratio: 1200 / 630;
+    position: absolute;
+    inset: auto 0 0;
+    z-index: -1;
+    width: min(980px, 100%);
+    margin: 0 auto;
+    opacity: 0.14;
 }
 
 .subpage-hero .hero-static {
-    display: block;
-    opacity: 0.46;
-    transform: scale(1.02);
-    filter: blur(2px) contrast(0.78) saturate(0.72);
+    filter: blur(2px);
 }
 
 .main-content {
     max-width: 760px;
     padding: var(--hero-content-padding-top) 0 var(--hero-content-padding-bottom);
     text-align: center;
+}
+
+.site-name {
+    margin-bottom: 18px;
+    font-weight: 700;
+}
+
+.personal-intro p {
+    max-width: 720px;
+    margin-bottom: 0;
+    color: var(--muted);
 }
 
 .visually-hidden {
@@ -257,9 +262,8 @@ h1 {
     margin-bottom: 18px;
     font-size: clamp(36px, 5vw, 56px);
     line-height: 1.05;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: 0;
-    text-shadow: 0 0 28px var(--bg), 0 0 28px var(--bg);
 }
 
 .tagline {
@@ -273,7 +277,6 @@ h1 {
 .description {
     color: var(--muted);
     font-size: 18px;
-    text-shadow: 0 0 20px var(--bg), 0 0 20px var(--bg);
 }
 
 .hero-actions {
@@ -338,7 +341,7 @@ button:focus-visible {
     margin-bottom: 6px;
     font-size: 16px;
     line-height: 1.25;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .proof-item span {
@@ -350,7 +353,7 @@ h2 {
     margin-bottom: 30px;
     font-size: 26px;
     line-height: 1.2;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: 0;
 }
 
@@ -373,14 +376,12 @@ h2 {
     min-height: 248px;
     flex-direction: column;
     padding: 30px;
-    transition: background-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+    transition: background-color 160ms ease;
 }
 
 .branch-item:hover,
 .branch-item:focus-within {
-    background: #fbfdf9;
-    box-shadow: 4px 4px 0 var(--text);
-    transform: translate(-2px, -2px);
+    background: #fbf7f4;
 }
 
 .branch-kicker {
@@ -388,7 +389,7 @@ h2 {
     margin-bottom: 14px;
     color: var(--muted);
     font-size: 13px;
-    font-weight: 800;
+    font-weight: 700;
     text-transform: uppercase;
 }
 
@@ -402,7 +403,7 @@ h2 {
     width: fit-content;
     margin-top: auto;
     padding-top: 4px;
-    font-weight: 800;
+    font-weight: 700;
     text-decoration: underline;
     text-underline-offset: 3px;
 }
@@ -464,6 +465,12 @@ h2 {
     margin-bottom: 8px;
 }
 
+.case-copy p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
 .case-copy .branch-kicker {
     margin-bottom: 6px;
     font-weight: 400;
@@ -474,7 +481,7 @@ h3 {
     margin-bottom: 12px;
     font-size: 18px;
     line-height: 1.25;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .services-item p,
@@ -774,16 +781,15 @@ h3 {
 
     .hero-wrap {
         min-height: auto;
-        padding-bottom: 60px;
+        padding-bottom: 0;
     }
 
     .hero-visual-container {
-        width: min(350px, 82vw);
-        margin-bottom: 24px;
+        width: min(350px, 100%);
     }
 
     .hero-brand-container {
-        width: min(100%, 680px);
+        width: min(350px, 100%);
     }
 
     .hero-visual {
