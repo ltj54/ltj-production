@@ -14,9 +14,9 @@
     --line: #e5e5e5;
     --font-mono: "LTJ Cascadia Code", "Cascadia Code", "Cascadia Mono", "Roboto Mono", Consolas, "Liberation Mono";
     --hero-content-padding-top: 54px;
-    --hero-content-padding-bottom: 40px;
+    --hero-content-padding-bottom: 54px;
     --hero-content-mobile-padding-top: 42px;
-    --hero-content-mobile-padding-bottom: 22px;
+    --hero-content-mobile-padding-bottom: 42px;
 }
 
 * {
@@ -169,54 +169,9 @@ header {
     background-image: none;
 }
 
-.hero-visual-container {
-    position: relative;
-    width: min(460px, 100%);
-    aspect-ratio: 1200 / 335;
-    margin: 28px auto 0;
-    border: none;
-    mix-blend-mode: multiply;
-    overflow: hidden;
-    isolation: isolate;
-    pointer-events: none;
-}
-
-.hero-brand-container {
-    opacity: 0.65;
-}
-
-.hero-visual {
-    position: absolute;
-    inset: auto 0 0;
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.hero-brand-art {
-    filter: none;
-}
-
-.hero-static {
-    display: block;
-}
-
 .subpage-hero {
     background-color: #fbf7f4;
     background-image: none;
-}
-
-.subpage-hero .hero-visual-container {
-    position: absolute;
-    inset: auto 0 0;
-    z-index: -1;
-    width: min(980px, 100%);
-    margin: 0 auto;
-    opacity: 0.14;
-}
-
-.subpage-hero .hero-static {
-    filter: blur(2px);
 }
 
 .main-content {
@@ -228,12 +183,6 @@ header {
 .site-name {
     margin-bottom: 18px;
     font-weight: 700;
-}
-
-.personal-intro p {
-    max-width: 720px;
-    margin-bottom: 0;
-    color: var(--muted);
 }
 
 .visually-hidden {
@@ -790,18 +739,6 @@ h3 {
         padding-bottom: 0;
     }
 
-    .hero-visual-container {
-        width: min(350px, 100%);
-    }
-
-    .hero-brand-container {
-        width: min(350px, 100%);
-    }
-
-    .hero-visual {
-        filter: none;
-    }
-
     .main-content {
         max-width: 100%;
         padding: var(--hero-content-mobile-padding-top) 0 var(--hero-content-mobile-padding-bottom);
@@ -964,4 +901,17 @@ body.modal-open {
     cursor: pointer;
     font-size: 18px;
     padding: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    body,
+    .nav-links a::after,
+    .nav-links a[aria-current="page"]::after,
+    .branch-item {
+        transition: none;
+    }
 }
