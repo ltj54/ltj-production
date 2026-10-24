@@ -17,6 +17,9 @@
     --hero-content-padding-bottom: 54px;
     --hero-content-mobile-padding-top: 42px;
     --hero-content-mobile-padding-bottom: 42px;
+    --home-sticky-height: 0px;
+    --home-nav-height: 93px;
+    --hero-progress: 0;
 }
 
 * {
@@ -25,6 +28,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: var(--home-sticky-height, 0px);
 }
 
 body {
@@ -166,7 +170,14 @@ header {
 }
 
 .home-hero {
+    position: sticky;
+    top: var(--home-nav-height, 93px);
+    z-index: 900;
     background-image: none;
+}
+
+.home-page {
+    overflow-anchor: none;
 }
 
 .subpage-hero {
@@ -180,8 +191,38 @@ header {
     text-align: center;
 }
 
+.home-hero .main-content {
+    --intro-title-size: clamp(36px, 5vw, 56px);
+    --intro-description-size: 18px;
+    padding-top: calc(var(--hero-content-padding-top) * (1 - var(--hero-progress, 0) * 0.75));
+    padding-bottom: calc(var(--hero-content-padding-bottom) * (1 - var(--hero-progress, 0) * 0.75));
+}
+
+.home-hero .cta {
+    min-height: calc(52px - var(--hero-progress, 0) * 8px);
+    margin-top: calc(32px - var(--hero-progress, 0) * 20px);
+    font-size: calc(16px - var(--hero-progress, 0) * 2px);
+}
+
+.home-hero h1 {
+    margin-bottom: calc(18px - var(--hero-progress, 0) * 10px);
+    font-size: max(22px, calc(var(--intro-title-size) * (1 - var(--hero-progress, 0) * 0.45)));
+}
+
+.home-hero .description {
+    font-size: max(14px, calc(var(--intro-description-size) * (1 - var(--hero-progress, 0) * 0.18)));
+}
+
+.home-mark {
+    display: block;
+    width: calc(128px - var(--hero-progress, 0) * 64px);
+    height: auto;
+    margin: 0 auto calc(14px - var(--hero-progress, 0) * 8px);
+}
+
 .site-name {
-    margin-bottom: 18px;
+    margin-bottom: calc(18px - var(--hero-progress, 0) * 10px);
+    font-size: calc(16px - var(--hero-progress, 0) * 3px);
     font-weight: 700;
 }
 
@@ -743,6 +784,13 @@ h3 {
         max-width: 100%;
         padding: var(--hero-content-mobile-padding-top) 0 var(--hero-content-mobile-padding-bottom);
         text-align: center;
+    }
+
+    .home-hero .main-content {
+        --intro-title-size: clamp(28px, 7.4vw, 32px);
+        --intro-description-size: 16px;
+        padding-top: calc(var(--hero-content-mobile-padding-top) * (1 - var(--hero-progress, 0) * 0.75));
+        padding-bottom: calc(var(--hero-content-mobile-padding-bottom) * (1 - var(--hero-progress, 0) * 0.75));
     }
 
     h1 {

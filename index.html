@@ -50,6 +50,7 @@
 
     <div class="hero-wrap home-hero">
         <div class="container main-content">
+            <img class="home-mark" src="sju-fjell.svg" alt="" width="224" height="48" aria-hidden="true">
             <p class="site-name">ltj-production</p>
             <h1>Nettsider for virksomheter.</h1>
             <div class="description">
@@ -239,6 +240,56 @@
 
         if (currentYear) {
             currentYear.textContent = String(new Date().getFullYear());
+        }
+
+        // Keep the intro visible and compact it as the page scrolls.
+        const hero = document.querySelector(".home-hero");
+
+        if (hero) {
+            const pageHeader = document.querySelector("body > header");
+            const reducedMotion = globalThis.matchMedia("(prefers-reduced-motion: reduce)");
+            let heroFrame = 0;
+
+            function updateHeroSize() {
+                const headerHeight = pageHeader ? pageHeader.getBoundingClientRect().height : 0;
+                hero.style.setProperty("--home-nav-height", `${headerHeight}px`);
+                const stickyHeight = headerHeight + hero.getBoundingClientRect().height + 16;
+                document.documentElement.style.setProperty("--home-sticky-height", `${stickyHeight}px`);
+            }
+
+            function updateHeroScale() {
+                heroFrame = 0;
+                const distance = Math.min(globalThis.innerHeight * 0.5, 320);
+                const progress = Math.min(Math.max(globalThis.scrollY, 0) / distance, 1);
+                hero.style.setProperty("--hero-progress", String(progress));
+            }
+
+            function scheduleHeroScale() {
+                if (!heroFrame) {
+                    heroFrame = globalThis.requestAnimationFrame(updateHeroScale);
+                }
+            }
+
+            function configureHeroMotion() {
+                globalThis.removeEventListener("scroll", scheduleHeroScale);
+                globalThis.removeEventListener("resize", scheduleHeroScale);
+                globalThis.cancelAnimationFrame(heroFrame);
+                heroFrame = 0;
+                hero.style.setProperty("--hero-progress", reducedMotion.matches ? "1" : "0");
+
+                if (!reducedMotion.matches) {
+                    globalThis.addEventListener("scroll", scheduleHeroScale, { passive: true });
+                    globalThis.addEventListener("resize", scheduleHeroScale);
+                    updateHeroScale();
+                }
+            }
+
+            reducedMotion.addEventListener("change", configureHeroMotion);
+            configureHeroMotion();
+            const heroSizeObserver = new ResizeObserver(updateHeroSize);
+            heroSizeObserver.observe(hero);
+            if (pageHeader) heroSizeObserver.observe(pageHeader);
+            updateHeroSize();
         }
 
         // Modal functionality
