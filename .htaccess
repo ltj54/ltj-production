@@ -2,6 +2,8 @@ DirectoryIndex index.html
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    RewriteCond %{THE_REQUEST} \s/+sv/index\.html[?\s] [NC]
+    RewriteRule ^sv/index\.html$ /sv/ [R=301,L]
     RewriteRule ^$ index.html [L]
     RewriteRule ^index\.html$ / [R=301,L]
 </IfModule>

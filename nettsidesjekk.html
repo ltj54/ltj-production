@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="nb">
 
 <head>
     <meta charset="UTF-8">
@@ -16,6 +16,9 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://www.ltj-production.no/og-image.jpg">
     <link rel="canonical" href="https://www.ltj-production.no/nettsidesjekk.html">
+    <link rel="alternate" hreflang="nb" href="https://www.ltj-production.no/nettsidesjekk.html">
+    <link rel="alternate" hreflang="sv" href="https://www.ltj-production.no/sv/webbplatskontroll.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.ltj-production.no/nettsidesjekk.html">
     <link rel="icon" href="favicon.svg?v=2" type="image/svg+xml">
     <link rel="stylesheet" href="style.css">
     <script type="application/ld+json">
@@ -202,130 +205,7 @@
         <button class="close-thank-you" id="close-thank-you" type="button" aria-label="Lukk bekreftelse">&times;</button>
     </output>
 
-    <script>
-        const currentYear = document.getElementById("current-year");
-
-        if (currentYear) {
-            currentYear.textContent = String(new Date().getFullYear());
-        }
-
-        // Modal functionality
-        const modal = document.getElementById("contact-modal");
-        const openModalButtons = document.querySelectorAll("[data-open-contact-modal]");
-        const closeModalBtn = document.getElementById("close-modal");
-        let lastFocusedElement = null;
-
-        function openContactModal(trigger) {
-            lastFocusedElement = trigger;
-            modal.showModal();
-            document.body.classList.add("modal-open");
-            closeModalBtn.focus();
-        }
-
-        function closeContactModal() {
-            if (modal.open) modal.close();
-            document.body.classList.remove("modal-open");
-            if (lastFocusedElement) lastFocusedElement.focus();
-        }
-
-        if (modal && closeModalBtn) {
-            openModalButtons.forEach((button) => {
-                button.addEventListener("click", () => openContactModal(button));
-            });
-        }
-
-        if (closeModalBtn && modal) {
-            closeModalBtn.addEventListener("click", closeContactModal);
-        }
-
-        globalThis.addEventListener("click", (event) => {
-            if (event.target === modal) {
-                closeContactModal();
-            }
-        });
-
-        globalThis.addEventListener("keydown", (event) => {
-            if (!modal.open) return;
-            if (event.key === "Escape") {
-                event.preventDefault();
-                closeContactModal();
-            }
-            if (event.key === "Tab") {
-                const focusable = modal.querySelectorAll("button, input, textarea, a[href]");
-                const first = focusable[0];
-                const last = focusable[focusable.length - 1];
-                if (event.shiftKey && document.activeElement === first) {
-                    event.preventDefault();
-                    last.focus();
-                } else if (!event.shiftKey && document.activeElement === last) {
-                    event.preventDefault();
-                    first.focus();
-                }
-            }
-        });
-
-        // Thank you popup functionality
-        const thankYouPopup = document.getElementById("thank-you-popup");
-        const closeThankYouBtn = document.getElementById("close-thank-you");
-        let thankYouTimeout;
-
-        function showThankYou() {
-            thankYouPopup.classList.add("open");
-            thankYouTimeout = setTimeout(hideThankYou, 3000);
-        }
-
-        function hideThankYou() {
-            thankYouPopup.classList.remove("open");
-            clearTimeout(thankYouTimeout);
-        }
-
-        if (closeThankYouBtn) {
-            closeThankYouBtn.addEventListener("click", hideThankYou);
-        }
-
-        const contactForm = document.querySelector("[data-contact-form]");
-        const formStatus = document.querySelector("[data-form-status]");
-
-        if (contactForm && formStatus) {
-            contactForm.addEventListener("submit", async (event) => {
-                event.preventDefault();
-
-                const submitButton = contactForm.querySelector("button[type='submit']");
-                const formData = new FormData(contactForm);
-
-                formStatus.textContent = "Sender forespørselen...";
-
-                if (submitButton) {
-                    submitButton.disabled = true;
-                }
-
-                try {
-                    const response = await fetch(contactForm.action, {
-                        method: "POST",
-                        body: formData,
-                        headers: {
-                            "Accept": "application/json"
-                        }
-                    });
-
-                    if (response.ok) {
-                        contactForm.reset();
-                        formStatus.textContent = "";
-                        closeContactModal();
-                        showThankYou();
-                    } else {
-                        formStatus.textContent = "Kunne ikke sende akkurat nå. Prøv igjen litt senere.";
-                    }
-                } catch {
-                    formStatus.textContent = "Kunne ikke sende akkurat nå. Prøv igjen litt senere.";
-                } finally {
-                    if (submitButton) {
-                        submitButton.disabled = false;
-                    }
-                }
-            });
-        }
-    </script>
+    <script src="site.js" defer></script>
 </body>
 
 </html>

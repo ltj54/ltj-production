@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#fbf7f4"/>
+  <path d="M4 38 20 22 28 29 45 11 57 25 77 5 96 28 108 15 122 30 139 9 157 29 171 18 187 32 201 23 220 38" transform="translate(80 72)" fill="none" stroke="#222222" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <g font-family="Consolas, monospace" fill="#111111">
+    <text x="80" y="184" font-size="32" font-weight="700">ltj-production</text>
+    <text x="80" y="306" font-size="76" font-weight="700">Webbplatser</text>
+    <text x="80" y="400" font-size="76" font-weight="700">för företag.</text>
+    <text x="80" y="560" font-size="26">www.ltj-production.no/sv/</text>
+  </g>
+  <path d="M80 510H1120" stroke="#d9d5d2"/>
+</svg>
