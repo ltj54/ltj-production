@@ -636,6 +636,36 @@ html[lang="sv"] .package-price strong {
     color: var(--muted);
 }
 
+.legal-document .subpage-hero {
+    border: 0;
+    background: var(--bg);
+}
+
+.legal-document .main-content,
+.legal-document .legal-page,
+.legal-document .footer {
+    max-width: 760px;
+}
+
+.legal-document .main-content {
+    padding: 44px 0 0;
+    text-align: left;
+}
+
+.legal-document h1 {
+    margin-bottom: 0;
+    font-size: clamp(28px, 3.5vw, 44px);
+}
+
+.legal-document .legal-page {
+    border-top: 0;
+    padding: 32px 0 44px;
+}
+
+.legal-page p:last-child {
+    margin-bottom: 0;
+}
+
 /* Prosess-steg */
 .flow-steps .services-item {
     position: relative;
