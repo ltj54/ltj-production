@@ -631,11 +631,8 @@ html[lang="sv"] .package-price strong {
     font-size: 14px;
 }
 
-.legal-page {
-    max-width: 760px;
-}
-
 .legal-page p {
+    max-width: 760px;
     color: var(--muted);
 }
 
