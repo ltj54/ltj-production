@@ -238,6 +238,88 @@ header {
     border: 0;
 }
 
+.skip-link {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    z-index: 1100;
+    padding: 12px 18px;
+    background: var(--bg);
+    color: var(--text);
+    transform: translateY(-180%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+/* Proposal introductions scroll normally; only the navigation sticks. */
+.home-page--proposal .home-hero {
+    position: relative;
+    top: auto;
+    z-index: auto;
+}
+
+.home-page--proposal [id] {
+    scroll-margin-top: 140px;
+}
+
+.home-page--proposal .hero-actions {
+    align-items: center;
+    gap: 16px 28px;
+    flex-wrap: wrap;
+}
+
+.home-page--proposal .hero-actions .subtle-link {
+    margin-top: 32px;
+}
+
+.hero-note {
+    max-width: 620px;
+    margin: 24px auto 0;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.section-intro {
+    max-width: 740px;
+    margin-bottom: 28px;
+    color: var(--muted);
+}
+
+.featured-projects .case-feature {
+    grid-template-columns: minmax(160px, 240px) minmax(0, 1fr);
+    gap: 32px;
+    padding-bottom: 32px;
+}
+
+.featured-projects .case-media {
+    width: 100%;
+    height: 180px;
+}
+
+.case-copy .case-detail {
+    margin-top: 12px;
+}
+
+.direct-contact {
+    margin: 24px 0 0;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+    .featured-projects .case-feature {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .featured-projects .case-media {
+        max-width: 320px;
+        height: 180px;
+    }
+}
+
 h1,
 h2,
 h3,

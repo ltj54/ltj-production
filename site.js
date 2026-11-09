@@ -4,7 +4,7 @@
     const currentYear = document.getElementById("current-year");
     if (currentYear) currentYear.textContent = String(new Date().getFullYear());
 
-    const hero = document.querySelector(".home-hero");
+    const hero = document.querySelector(".home-page:not(.home-page--proposal) .home-hero");
     if (hero) {
         const pageHeader = document.querySelector("body > header");
         const reducedMotion = globalThis.matchMedia("(prefers-reduced-motion: reduce)");
