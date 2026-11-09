@@ -59,6 +59,8 @@ og omtales ikke som skjermbilder. Nye desktop-/mobilskjermbilder kan erstatte
 dem etter visuell gjennomgang. Prosjektlistene er merket som et utvalg.
 Introduksjonen på begge forsider scroller normalt; bare navigasjonen er sticky.
 
-Revisjonen er lokal inntil Lars uttrykkelig ber om publisering. Manuell
-nettleserkontroll av desktop, mobil, tastatur og dialog gjenstår når en
-kontrollert nettleser er tilgjengelig.
+Revisjonen er lokal inntil Lars uttrykkelig ber om publisering. Forsidene
+og nettsidetilbudet på begge språk er kontrollert lokalt ved bredder på
+320, 390, 768 og 1440 piksler. Prosjektlenker internt på siden, dialoger,
+Escape og innsending med simulert svar er kontrollert. Ingen reelle
+henvendelser ble sendt til Formspree under testen.
