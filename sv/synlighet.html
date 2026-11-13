@@ -40,6 +40,7 @@
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Hoppa till innehållet</a>
     <header>
         <nav class="navbar" aria-label="Huvudmeny">
             <div class="logo">
@@ -59,74 +60,68 @@
     <div class="hero-wrap subpage-hero">
         <div class="container main-content">
             <h1>Synlighet och uppföljning</h1>
-            <div class="description">Jag hjälper till med hur webbplatsen visas i sök, sätter upp besöksmätning och uppdaterar innehåll efter publicering.</div>
+            <div class="description">
+                Jag hjälper till med sökmotorer, företagsprofil och besöksstatistik och följer upp innehåll och funktioner efter publicering.
+            </div>
             <button class="cta" type="button" data-open-contact-modal>Kontakta mig</button>
         </div>
     </div>
 
-    <main>
+    <main id="main-content">
         <section class="container about-container">
-            <h2>Det här kan jag hjälpa till med</h2>
+            <h2>Sök och besöksstatistik</h2>
             <div class="services">
                 <div class="services-item">
                     <h3>Webbplatsen i sök</h3>
-                    <p>Jag går igenom titlar, beskrivningar och text, och kontrollerar om sökmotorerna kommer åt sidorna.</p>
+                    <p>Jag går igenom titlar, beskrivningar och text och kontrollerar om sökmotorerna kommer åt sidorna.</p>
                 </div>
                 <div class="services-item">
                     <h3>Google Företagsprofil</h3>
                     <p>Jag hjälper dig att skapa eller uppdatera profilen med tjänster, kontaktuppgifter och länk till webbplatsen.</p>
                 </div>
                 <div class="services-item">
-                    <h3>Besök och sök</h3>
-                    <p>Jag kan sätta upp besöksmätning och Google Search Console så att du kan följa besök på webbplatsen och vilka sökningar den visas i.</p>
+                    <h3>Besöksstatistik</h3>
+                    <p>Uppsättning av besöksmätning och Google Search Console, med genomgång av sökningar och besök.</p>
                 </div>
             </div>
         </section>
+
         <section class="container about-container">
             <div class="package">
                 <div>
-                    <h2>Arbete enligt överenskommelse</h2>
-                    <p>Skicka länken till webbplatsen och berätta vad du behöver hjälp med. Jag föreslår vilka uppgifter vi bör börja med och ger dig ett pris. Du kan beställa ett uppdrag eller komma överens om uppföljning, utan bindningstid.</p>
-                    <p class="package-note">Jag lovar inte en viss placering på Google.</p>
+                    <h2>Uppdrag och uppföljning</h2>
+                    <p>Du får ett förslag på uppgifter och ett fast pris före start. Du kan beställa ett uppdrag eller avtala om löpande uppföljning utan bindningstid.</p>
+                    <p class="package-note">Ingen garanti för en viss placering i sökresultaten.</p>
                 </div>
                 <div class="package-price">
                     <strong>Fast pris</strong>
-                    <span>bestäms innan arbetet börjar</span>
+                    <span>avtalas före start</span>
                 </div>
             </div>
         </section>
+
         <section class="container about-container">
-            <h2>Efter att webbplatsen har publicerats</h2>
-            <div class="services growth-services">
-                <div class="services-item">
-                    <h3>Nya sidor</h3>
-                    <p>Jag kan skapa egna sidor för tjänster eller kampanjer som du vill presentera mer utförligt.</p>
-                </div>
-                <div class="services-item">
-                    <h3>Ändringar och underhåll</h3>
-                    <p>Jag kan uppdatera text, bilder, kontaktuppgifter, formulär och funktioner när verksamheten förändras.</p>
-                </div>
-                <div class="services-item">
-                    <h3>Genomgång av besöksstatistik</h3>
-                    <p>Vi tittar på sökningar och besök, vad siffrorna säger och vilka ändringar det finns anledning att göra.</p>
-                </div>
-            </div>
+            <h2>Uppdateringar och underhåll</h2>
+            <p class="section-intro">Jag kan uppdatera text, bilder, kontaktuppgifter, formulär och funktioner eller skapa nya sidor för tjänster och kampanjer.</p>
+            <p>Löpande underhåll och uppföljning avtalas separat.</p>
         </section>
+
         <section id="contact-section" class="container about-container">
-            <h2>Kontakta mig</h2>
-            <div class="description">Skicka länken till webbplatsen och berätta vad du vill ha hjälp med.</div>
+            <h2>Kontakt</h2>
+            <div class="description">Skicka länken till webbplatsen och beskriv vad du behöver hjälp med.</div>
+            <p class="direct-contact">Lars Johannessen<br><a href="mailto:kontakt@ltj-production.no">kontakt@ltj-production.no</a><br><a href="tel:+4797724209">+47 977 24 209</a></p>
             <div class="form-actions"><button class="cta" type="button" data-open-contact-modal>Kontakta mig</button></div>
         </section>
     </main>
 
     <footer class="footer">
-        &copy; <span id="current-year"></span> ltj-production · Norskt org.nr. 838 632 122 · <a href="#contact-section">Kontakt</a> · <a href="integritet.html">Integritetspolicy</a>
+        &copy; <span id="current-year"></span> LTJ Production Johannessen · Norskt org.nr. 838 632 122 · <a href="#contact-section">Kontakt</a> · <a href="integritet.html">Integritetspolicy</a>
     </footer>
 
     <dialog class="modal-overlay" id="contact-modal" aria-labelledby="contact-modal-title">
         <div class="modal-content">
             <button class="close-modal" id="close-modal" type="button" aria-label="Stäng kontaktformuläret">&times;</button>
-            <h2 id="contact-modal-title">Kontakta mig</h2>
+            <h2 id="contact-modal-title">Kontakt</h2>
             <form class="contact-form" data-contact-form action="https://formspree.io/f/mrejyzgd" method="POST">
                 <input type="hidden" name="_subject" value="Ny förfrågan om synlighet från den svenska webbplatsen" aria-label="Ämne">
                 <input type="hidden" name="language" value="sv">
@@ -148,11 +143,12 @@
                         <input id="contact-phone" type="tel" name="phone" autocomplete="tel">
                     </label>
                 </div>
-                <label for="contact-message">Vad vill du förbättra?
-                    <textarea id="contact-message" name="message" rows="6" required placeholder="Klistra in länken till webbplatsen och berätta om du behöver hjälp med sökmotorer, Google Företagsprofil, besöksmätning, nya sidor eller underhåll."></textarea>
+                <label for="contact-message">
+                    Meddelande
+                    <textarea id="contact-message" name="message" rows="6" required placeholder="Länk till webbplatsen och vad du behöver hjälp med."></textarea>
                 </label>
                 <div class="form-actions">
-                    <button class="cta" type="submit">Skicka förfrågan</button>
+                    <button class="cta" type="submit">Skicka meddelande</button>
                 </div>
                 <p class="form-privacy">
                     När du skickar formuläret använder jag uppgifterna för att svara dig. Läs mer i
@@ -164,7 +160,7 @@
     </dialog>
 
     <output class="thank-you-popup" id="thank-you-popup" aria-live="polite">
-        <span>Tack. Din förfrågan har skickats.</span>
+        <span>Tack. Meddelandet har skickats.</span>
         <button class="close-thank-you" id="close-thank-you" type="button" aria-label="Stäng bekräftelsen">&times;</button>
     </output>
 

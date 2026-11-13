@@ -298,8 +298,179 @@ header {
     height: 180px;
 }
 
-.case-copy .case-detail {
-    margin-top: 12px;
+.process-section .services-item h2 {
+    margin-bottom: 12px;
+    font-size: 18px;
+    line-height: 1.25;
+}
+
+.home-page--minimal {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-page--minimal main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-page--minimal .container,
+.home-page--minimal .footer {
+    width: min(100% - 40px, 820px);
+}
+
+.minimal-intro {
+    flex: 1;
+    min-height: 58svh;
+    padding: 56px 0 44px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.minimal-mark {
+    width: 80px;
+    height: auto;
+    margin-bottom: 12px;
+}
+
+.minimal-wordmark {
+    margin: 0 0 28px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.minimal-intro h1 {
+    margin-bottom: 14px;
+    font-size: clamp(28px, 3.6vw, 44px);
+    line-height: 1.15;
+}
+
+.minimal-description {
+    margin: 0;
+    color: var(--muted);
+}
+
+.minimal-intro .cta {
+    min-height: 48px;
+    margin-top: 28px;
+}
+
+.minimal-services {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    margin-top: 28px;
+    font-size: 14px;
+}
+
+.minimal-services a,
+.text-button {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.minimal-projects {
+    border-top: 1px solid var(--line);
+}
+
+.minimal-projects summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 18px 0;
+    list-style: none;
+    cursor: pointer;
+}
+
+.minimal-projects summary::-webkit-details-marker {
+    display: none;
+}
+
+.minimal-projects summary::after {
+    content: "+";
+    font-size: 20px;
+}
+
+.minimal-projects[open] summary::after {
+    content: "−";
+}
+
+.minimal-projects summary h2 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.minimal-projects summary:focus-visible {
+    outline: 3px solid var(--text);
+    outline-offset: 3px;
+}
+
+.minimal-projects .project-list {
+    gap: 0;
+}
+
+.minimal-projects .case-feature {
+    grid-template-columns: 80px minmax(0, 1fr);
+    gap: 18px;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.minimal-projects .case-feature:last-child {
+    border-bottom: 0;
+}
+
+.minimal-projects .case-media {
+    width: 80px;
+    height: 64px;
+    border: 0;
+}
+
+.minimal-projects h3 {
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+.minimal-projects .case-copy p {
+    font-size: 14px;
+}
+
+.home-page--minimal .minimal-footer {
+    padding: 24px 0 32px;
+    text-align: center;
+}
+
+.minimal-contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin: 0;
+    font-size: 14px;
+}
+
+.minimal-legal {
+    margin: 18px 0 0;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.text-button {
+    border: 0;
+    padding: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
 }
 
 .direct-contact {
@@ -614,19 +785,14 @@ h3 {
 .package-price strong {
     display: block;
     margin-bottom: 8px;
-    font-size: 27px;
-    line-height: 1;
+    font-size: 24px;
+    line-height: 1.15;
 }
 
 .package-price span {
     color: var(--muted);
     font-size: 14px;
     font-weight: 700;
-}
-
-html[lang="sv"] .package-price strong {
-    font-size: 24px;
-    line-height: 1.15;
 }
 
 .contact-form {

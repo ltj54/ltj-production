@@ -98,12 +98,12 @@
 
     const messages = document.documentElement.lang.startsWith("sv")
         ? {
-            sending: "Skickar förfrågan…",
-            error: "Det gick inte att skicka just nu. Försök igen om en stund."
+            sending: "Skickar meddelandet…",
+            error: "Meddelandet kunde inte skickas. Försök igen senare."
         }
         : {
-            sending: "Sender forespørselen...",
-            error: "Kunne ikke sende akkurat nå. Prøv igjen litt senere."
+            sending: "Sender meldingen…",
+            error: "Meldingen kunne ikke sendes. Prøv igjen senere."
         };
 
     contactForm.addEventListener("submit", async (event) => {

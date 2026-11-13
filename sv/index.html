@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webbplatser för företag | ltj-production</title>
-    <meta name="description" content="Lars Johannessen bygger webbplatser. Se en gratis skiss utan köpkrav innan du bestämmer dig. En grundlösning med avtalat innehåll kostar 1 990 SEK.">
+    <meta name="description" content="Webbplatser för företag. Gratis skiss utan köpkrav. Tjänster och utvalda projekt från LTJ Production Johannessen.">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="sv_SE">
     <meta property="og:site_name" content="ltj-production">
     <meta property="og:title" content="Webbplatser för företag | ltj-production">
-    <meta property="og:description" content="Lars Johannessen bygger webbplatser. Se en gratis skiss utan köpkrav innan du bestämmer dig. En grundlösning med avtalat innehåll kostar 1 990 SEK.">
+    <meta property="og:description" content="Webbplatser för företag. Gratis skiss utan köpkrav. Tjänster och utvalda projekt från LTJ Production Johannessen.">
     <meta property="og:url" content="https://www.ltj-production.no/sv/">
     <meta property="og:image" content="https://www.ltj-production.no/og-image-sv.jpg">
     <meta property="og:image:alt" content="ltj-production – Webbplatser för företag.">
@@ -39,65 +39,25 @@
     </script>
 </head>
 
-<body class="home-page home-page--proposal">
+<body class="home-page home-page--minimal">
     <a class="skip-link" href="#main-content">Hoppa till innehållet</a>
-    <header>
-        <nav class="navbar home-navbar" aria-label="Huvudmeny">
-            <div class="nav-controls">
-                <div class="nav-links">
-                    <a href="webbplatser.html">Webbplatser</a>
-                    <a href="#projects-section">Projekt</a>
-                    <a href="webbplatskontroll.html">Webbplatskontroll</a>
-                    <a href="synlighet.html">Synlighet</a>
-                    <a href="#contact-section">Kontakt</a>
-                </div>
-            </div>
-        </nav>
-    </header>
 
-    <div class="hero-wrap home-hero">
-        <div class="container main-content">
-            <img class="home-mark" src="../sju-fjell.svg" alt="" width="224" height="48" aria-hidden="true">
-            <p class="site-name">ltj-production</p>
-            <h1>Se ett förslag innan du bestämmer dig.</h1>
-            <div class="description">Jag heter Lars Johannessen och bygger webbplatser. Berätta vad företaget gör och vem webbplatsen ska vara till för, så kan jag ta fram en första skiss som du kan öppna på mobil och dator.</div>
-            <div class="hero-actions">
-                <button class="cta" type="button" data-open-contact-modal>Fråga om en gratis skiss</button>
-                <a class="subtle-link" href="#projects-section">Se projekt</a>
-            </div>
-            <p class="hero-note">Skissen innebär inget köpkrav. Du behöver inte ha färdiga texter eller veta hur webbplatsen ska se ut.</p>
-        </div>
-    </div>
-
-    <main id="main-content">
-        <section id="services-section" class="container about-container">
-            <h2>Det här erbjuder jag</h2>
-            <p class="section-intro">Vi börjar med vad webbplatsen ska användas till. Du får se ett förslag, och vi kommer överens om innehåll och pris innan utvecklingsarbetet börjar.</p>
-            <div class="branches">
-                <article class="branch-item">
-                    <span class="branch-kicker">Webbplatser</span>
-                    <h3>Ny webbplats</h3>
-                    <p>En webbplats med avtalat innehåll och funktioner kostar 1&nbsp;990&nbsp;kr. Webbutik och integrationer offereras separat.</p>
-                    <a href="webbplatser.html">Om upplägg och pris</a>
-                </article>
-                <article class="branch-item">
-                    <span class="branch-kicker">Webbplatskontroll</span>
-                    <h3>Genomgång av webbplats</h3>
-                    <p>Genomgång och förbättring av text, design, struktur och funktioner. Från 1&nbsp;990&nbsp;kr.</p>
-                    <a href="webbplatskontroll.html">Om webbplatskontroll</a>
-                </article>
-                <article class="branch-item">
-                    <span class="branch-kicker">Synlighet</span>
-                    <h3>Sök och besöksstatistik</h3>
-                    <p>Hjälp med sökmotorer, företagsprofil och statistik över besök på webbplatsen.</p>
-                    <a href="synlighet.html">Om synlighet</a>
-                </article>
-            </div>
-            <p class="currency-note">Priserna anges i svenska kronor.</p>
+    <main id="main-content" tabindex="-1">
+        <section class="minimal-intro container" aria-labelledby="home-title">
+            <img class="minimal-mark" src="../sju-fjell.svg" alt="" width="224" height="48" aria-hidden="true">
+            <p class="minimal-wordmark">ltj-production</p>
+            <h1 id="home-title">Webbplatser för företag.</h1>
+            <p class="minimal-description">Se ett förslag innan du bestämmer dig.</p>
+            <button class="cta" type="button" data-open-contact-modal>Be om en gratis skiss</button>
+            <nav class="minimal-services" aria-label="Tjänster">
+                <a href="webbplatser.html">Webbplatser</a>
+                <a href="webbplatskontroll.html">Webbplatskontroll</a>
+                <a href="synlighet.html">Synlighet</a>
+            </nav>
         </section>
-        <section id="projects-section" class="container about-container">
-            <h2>Ett urval av mina projekt</h2>
-            <p class="section-intro">Här är några av de webbplatser jag har byggt.</p>
+
+        <details id="projects-section" class="container minimal-projects">
+            <summary><h2>Utvalda projekt</h2></summary>
             <div class="project-list">
                 <div class="case-feature">
                     <div class="case-media">
@@ -165,23 +125,23 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <section id="contact-section" class="container about-container">
-            <h2>Kontakta mig</h2>
-            <div class="description">Skriv några ord om företaget och vad du vill ha hjälp med. Du behöver inte skriva en teknisk beställning. Har du redan en webbplats kan du skicka länken.</div>
-            <p class="direct-contact"><a href="mailto:kontakt@ltj-production.no">kontakt@ltj-production.no</a><br><a href="tel:+4797724209">+47 977 24 209</a></p>
-            <div class="form-actions"><button class="cta" type="button" data-open-contact-modal>Kontakta mig</button></div>
-        </section>
+        </details>
     </main>
 
-    <footer class="footer">
-        &copy; <span id="current-year"></span> LTJ Production Johannessen · Norskt org.nr. 838 632 122 · <a href="#contact-section">Kontakt</a> · <a href="integritet.html">Integritetspolicy</a>
+    <footer id="contact-section" class="footer minimal-footer">
+        <p class="minimal-contact">
+            <span>Lars Johannessen</span>
+            <a href="mailto:kontakt@ltj-production.no">kontakt@ltj-production.no</a>
+            <a href="tel:+4797724209">+47 977 24 209</a>
+            <button class="text-button" type="button" data-open-contact-modal>Kontaktformulär</button>
+        </p>
+        <p class="minimal-legal">&copy; <span id="current-year"></span> LTJ Production Johannessen · Norskt org.nr. 838 632 122 · <a href="integritet.html">Integritetspolicy</a></p>
     </footer>
 
     <dialog class="modal-overlay" id="contact-modal" aria-labelledby="contact-modal-title">
         <div class="modal-content">
             <button class="close-modal" id="close-modal" type="button" aria-label="Stäng kontaktformuläret">&times;</button>
-            <h2 id="contact-modal-title">Kontakta mig</h2>
+            <h2 id="contact-modal-title">Kontakt</h2>
             <form class="contact-form" data-contact-form action="https://formspree.io/f/mrejyzgd" method="POST">
                 <input type="hidden" name="_subject" value="Ny förfrågan från den svenska webbplatsen" aria-label="Ämne">
                 <input type="hidden" name="language" value="sv">
@@ -203,11 +163,12 @@
                         <input id="contact-phone" type="tel" name="phone" autocomplete="tel">
                     </label>
                 </div>
-                <label for="contact-message">Vad behöver du hjälp med?
-                    <textarea id="contact-message" name="message" rows="6" required placeholder="Berätta om du behöver en ny webbplats eller hjälp med en befintlig."></textarea>
+                <label for="contact-message">
+                    Meddelande
+                    <textarea id="contact-message" name="message" rows="6" required placeholder="Beskriv vad du behöver hjälp med. Bifoga gärna en länk till din webbplats."></textarea>
                 </label>
                 <div class="form-actions">
-                    <button class="cta" type="submit">Skicka förfrågan</button>
+                    <button class="cta" type="submit">Skicka meddelande</button>
                 </div>
                 <p class="form-privacy">
                     När du skickar formuläret använder jag uppgifterna för att svara dig. Läs mer i
@@ -219,7 +180,7 @@
     </dialog>
 
     <output class="thank-you-popup" id="thank-you-popup" aria-live="polite">
-        <span>Tack. Din förfrågan har skickats.</span>
+        <span>Tack. Meddelandet har skickats.</span>
         <button class="close-thank-you" id="close-thank-you" type="button" aria-label="Stäng bekräftelsen">&times;</button>
     </output>
 

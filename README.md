@@ -32,10 +32,12 @@ siden. Webbplatskontroll har fortsatt fra-pris 1 990 svenske kroner.
 Eksempelrapporten er på norsk og er merket som det på den svenske siden.
 Prosjektnavn beholdes på originalspråket.
 
-`og-image-sv.svg` er kilden til det svenske delingsbildet `og-image-sv.jpg`.
-Ved oppdatering av kilden kan JPG-filen gjenskapes med ImageMagick:
+`og-image.svg` og `og-image-sv.svg` er kildene til delingsbildene på norsk
+og svensk. De bruker samme tekstuttrykk og fjellsymbol som nettstedet.
+JPG-filene kan gjenskapes med ImageMagick:
 
 ```powershell
+magick -background '#fbf7f4' og-image.svg -quality 90 og-image.jpg
 magick -background '#fbf7f4' og-image-sv.svg -quality 90 og-image-sv.jpg
 ```
 
@@ -44,20 +46,42 @@ publisert gjennom den eksisterende løsningen. Lokale tester publiserer ikke.
 
 ## Lokal revisjon av tilbud og prosjektvisning
 
-Begge språkversjonene av forsiden og nettsidetilbudet beskriver en gratis,
-uforpliktende skisse og fastpris 1 990 kr for en skriftlig avgrenset
-grunnløsning. Norsk pris er i norske kroner, svensk pris i svenske kroner.
+Begge språkversjonene av forsiden tilbyr en gratis, uforpliktende skisse.
+Nettsidetilbudet på undersidene beskriver fastpris 1 990 kr for en skriftlig
+avgrenset grunnløsning. Norsk pris er i norske kroner, svensk pris i svenske kroner.
 Lars presenteres én gang i den synlige teksten på hver forside. Antall sider,
 endringsrunder og eventuelle driftsvilkår er ikke oppdiktet eller fastsatt her.
 Eksterne abonnementer og videre arbeid avklares separat. Eksisterende
 Formspree-oppsett er beholdt og skal ikke testes med en reell innsending
 som del av denne revisjonen.
 
-På den norske forsiden lenkes tre publiserte prosjekter direkte: davidsson.no,
-emidsoe.no og www.breathesenja.com. Eksisterende prosjektbilder er beholdt
-og omtales ikke som skjermbilder. Nye desktop-/mobilskjermbilder kan erstatte
-dem etter visuell gjennomgang. Prosjektlistene er merket som et utvalg.
-Introduksjonen på begge forsider scroller normalt; bare navigasjonen er sticky.
+Prosjektene vises uten direktelenker til kundesidene. Eksisterende
+prosjektbilder er beholdt og omtales ikke som skjermbilder. Nye desktop-/
+mobilskjermbilder kan erstatte dem etter visuell gjennomgang. Overskriftene
+«Utvalgte prosjekter» / «Utvalda projekt» viser at listen er et utvalg.
+Forsidene har hvit bakgrunn, én hovedknapp og tre tekstlenker til tjenestene.
+Prosjektlisten ligger i et lukket, innebygd details-element og kan åpnes uten
+JavaScript. Kontaktinformasjonen står i bunnteksten. Forsidene har ingen
+sticky navigasjon eller krympende introduksjon. Pris og vilkår står på undersidene.
+De generiske prosessoverskriftene er fjernet; de konkrete trinnene har egne
+overskrifter på nettside- og nettsidesjekksidene på begge språk.
+
+## Språk og innhold
+
+- Bruk nøkterne, konkrete beskrivelser av arbeidet og leveransen.
+- Unngå klisjeer, selvskryt, barnlige forklaringer og formuleringer om
+  «riktig retning» eller «fra idé til …».
+- Ikke beskriv tilbudet som «enkelt», «småretting» eller «for små virksomheter».
+- Presenter Lars med navn i kontaktfeltet fremfor en gjentatt introduksjon.
+- Hold tilbud og vilkår samordnet på norsk og svensk, med riktig valuta.
+- Behold skrifttypen, og ikke legg til genererte dekorbilder som erstatning
+  for dokumentasjon av faktiske prosjekter.
+
+Tjenestesidene har én samlet beskrivelse av pris og omfang. Tillegg,
+løpende kostnader og videre arbeid skal fremgå uten gjentakelser i flere
+seksjoner. Eksempelrapporten er tilgjengelig som PDF-lenke. Den er ikke
+endret i denne revisjonen. Kontaktskjemaene bruker «Send melding» /
+«Skicka meddelande» og har oversatte statusmeldinger.
 
 Revisjonen er lokal inntil Lars uttrykkelig ber om publisering. Forsidene
 og nettsidetilbudet på begge språk er kontrollert lokalt ved bredder på
