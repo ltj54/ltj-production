@@ -59,6 +59,9 @@ Prosjektene vises uten direktelenker til kundesidene. Eksisterende
 prosjektbilder er beholdt og omtales ikke som skjermbilder. Nye desktop-/
 mobilskjermbilder kan erstatte dem etter visuell gjennomgang. Overskriftene
 «Utvalgte prosjekter» / «Utvalda projekt» viser at listen er et utvalg.
+Begge forsider viser samme utvalg i samme rekkefølge: Gunnar Davidsson,
+Idsøe Rådgivning og Breathe Senja. Prosjektbilder og publiseringsstatus
+skal holdes samordnet når utvalget endres.
 Forsidene har hvit bakgrunn, én hovedknapp og tre tekstlenker til tjenestene.
 Prosjektlisten ligger i et lukket, innebygd details-element og kan åpnes uten
 JavaScript. Kontaktinformasjonen står i bunnteksten. Forsidene har ingen
